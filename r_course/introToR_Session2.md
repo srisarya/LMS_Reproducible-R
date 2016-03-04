@@ -128,10 +128,10 @@ Conditions and Loops (2/21) - Two important control structures
 
 
 
-- Conditional branching (if,else)
-- Loops (for, while)
+* <span style="color:red">Conditional branching (if,else)</span>
+* <span style="color:green">Loops (for, while)</span>
 
-**While** I'm analysing data, **if** I need to execute complex statistical procedures on the data I will use R **else** I will use a calculator.
+<span style="color:green">While</span> I'm analysing data, <span style="color:red">if</span> I need to execute complex statistical procedures on the data I will use R <span style="color:red">else</span> I will use a calculator.
 
 Conditions and Loops (3/21) - Conditional Branching.
 ========
@@ -168,12 +168,12 @@ More often, we construct the logical value within **()** itself.This can be term
 x <- 10
 y <- 4
 if(x > y){
-  message("The value of x is ",x," is greater than ", y)
+  message("The value of x is ",x," which is greater than ", y)
 }
 ```
 
 ```
-The value of x is 10 is greater than 4
+The value of x is 10 which is greater than 4
 ```
 Here the message is printed because x is greater than y. 
 
@@ -181,7 +181,7 @@ Here the message is printed because x is greater than y.
 ```r
 y <- 20
 if(x > y){
-  message("The value of x is ",x," is greater than ", y)
+  message("The value of x is ",x," which is greater than ", y)
 }
 ```
 Here, x is not longer greater than y, so no message is printed.
@@ -195,14 +195,7 @@ If we want to perform an operation when the condition is false we can follow the
 
 
 ```r
-x < - 10
-```
-
-```
-[1] FALSE
-```
-
-```r
+x <- 10
 if(x < 5){
   message(x, " is less than to 5")
    }else{
@@ -261,7 +254,11 @@ A useful function to evaluate conditional statements over vectors is the **ifels
 
 ```r
 x <- 1:10
-message(x)
+x
+```
+
+```
+ [1]  1  2  3  4  5  6  7  8  9 10
 ```
 
 The ifelse() functions take the arguments of the condition to evaluate, the action if the condition is true and the action when condition is false.
@@ -276,7 +273,7 @@ ifelse(x <= 3,"lessOrEqual","more")
  [6] "more"        "more"        "more"        "more"        "more"       
 ```
 
-This allows for multiple nested "else if" statements to be applied to vectors.
+This allows for multiple nested **ifelse** functions to be applied to vectors.
 
 
 ```r
@@ -312,6 +309,9 @@ while(x != 3){
 
 ```
 x is 1 
+```
+
+```
 x is 2 
 ```
 
@@ -338,7 +338,23 @@ for(i in x){
 ```
 
 ```
-Loop1 Loop2 Loop3 Loop4 Loop5
+Loop1
+```
+
+```
+Loop2
+```
+
+```
+Loop3
+```
+
+```
+Loop4
+```
+
+```
+Loop5
 ```
 ***
 Similarly we can cycle through other vector types (or lists)
@@ -351,7 +367,23 @@ for(i in x){
 ```
 
 ```
-LoopA LoopB LoopC LoopD LoopE
+LoopA
+```
+
+```
+LoopB
+```
+
+```
+LoopC
+```
+
+```
+LoopD
+```
+
+```
+LoopE
 ```
 
 
@@ -381,7 +413,13 @@ for(i in 1:length(geneName)){
 
 ```
 Ikzf1 has an RPKM of 10.4
+```
+
+```
 Myc has an RPKM of 4.3
+```
+
+```
 Igll1 has an RPKM of 6.5
 ```
 
@@ -408,17 +446,53 @@ for(i in 1:13){
 
 ```
 Number 1 is less than  10
+```
+
+```
 Number 2 is less than  10
+```
+
+```
 Number 3 is less than  10
+```
+
+```
 Number 4 is less than  10
+```
+
+```
 Number 5 is less than  10
+```
+
+```
 Number 6 is less than  10
+```
+
+```
 Number 7 is less than  10
+```
+
+```
 Number 8 is less than  10
+```
+
+```
 Number 9 is less than  10
+```
+
+```
 Number 10 is  10
+```
+
+```
 Number 11 is greater than 10
+```
+
+```
 Number 12 is greater than 10
+```
+
+```
 Number 13 is greater than 10
 ```
 
@@ -446,14 +520,41 @@ for(i in 1:13){
 
 ```
 Number 1 is less than 10
+```
+
+```
 Number 2 is less than 10
+```
+
+```
 Number 3 is less than 10
+```
+
+```
 Number 4 is less than 10
+```
+
+```
 Number 5 is less than 10
+```
+
+```
 Number 6 is less than 10
+```
+
+```
 Number 7 is less than 10
+```
+
+```
 Number 8 is less than 10
+```
+
+```
 Number 9 is less than 10
+```
+
+```
 Number 10 is  10
 ```
 
@@ -710,7 +811,7 @@ mean(x)
 ```
 
 ```
-[1] 71.59924
+[1] 68.78336
 ```
 
 ```r
@@ -725,7 +826,7 @@ plot(Y~X,data=lmExample,main="Line of best fit with lm()",
 abline(lmResult,col="red",lty=3,lwd=3)
 ```
 
-![plot of chunk unnamed-chunk-35](introToR_Session2-figure/unnamed-chunk-35-1.png) 
+![plot of chunk unnamed-chunk-35](introToR_Session2-figure/unnamed-chunk-35-1.png)
 
 
 Functions (2/) - Functions can be defined in R
@@ -879,7 +980,7 @@ $Calculation
 [1] 100
 
 $DateRun
-[1] "Thu May 14 23:43:58 2015"
+[1] "Fri Mar  4 18:58:51 2016"
 ```
 
 Functions (8/) -Scope
@@ -965,7 +1066,7 @@ dayOfWeek()
 ```
 
 ```
-[1] "Thu"
+[1] "Fri"
 ```
 
 Rscript

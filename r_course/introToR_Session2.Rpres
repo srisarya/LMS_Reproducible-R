@@ -90,10 +90,10 @@ Conditions and Loops (2/21) - Two important control structures
 
 
 
-- Conditional branching (if,else)
-- Loops (for, while)
+* <span style="color:red">Conditional branching (if,else)</span>
+* <span style="color:green">Loops (for, while)</span>
 
-**While** I'm analysing data, **if** I need to execute complex statistical procedures on the data I will use R **else** I will use a calculator.
+<span style="color:green">While</span> I'm analysing data, <span style="color:red">if</span> I need to execute complex statistical procedures on the data I will use R <span style="color:red">else</span> I will use a calculator.
 
 Conditions and Loops (3/21) - Conditional Branching.
 ========
@@ -122,7 +122,7 @@ More often, we construct the logical value within **()** itself.This can be term
 x <- 10
 y <- 4
 if(x > y){
-  message("The value of x is ",x," is greater than ", y)
+  message("The value of x is ",x," which is greater than ", y)
 }
 ```
 Here the message is printed because x is greater than y. 
@@ -130,7 +130,7 @@ Here the message is printed because x is greater than y.
 ```{r,message=T}
 y <- 20
 if(x > y){
-  message("The value of x is ",x," is greater than ", y)
+  message("The value of x is ",x," which is greater than ", y)
 }
 
 
@@ -146,7 +146,7 @@ Conditions and Loops (5/21) -else following an if().
 If we want to perform an operation when the condition is false we can follow the if() statement with an else statement.
 
 ```{r,message=T}
-x < - 10
+x <- 10
 if(x < 5){
   message(x, " is less than to 5")
    }else{
@@ -191,7 +191,7 @@ A useful function to evaluate conditional statements over vectors is the **ifels
 
 ```{r}
 x <- 1:10
-message(x)
+x
 ```
 
 The ifelse() functions take the arguments of the condition to evaluate, the action if the condition is true and the action when condition is false.
@@ -200,7 +200,7 @@ The ifelse() functions take the arguments of the condition to evaluate, the acti
 ifelse(x <= 3,"lessOrEqual","more") 
 ```
 
-This allows for multiple nested "else if" statements to be applied to vectors.
+This allows for multiple nested **ifelse** functions to be applied to vectors.
 
 ```{r}
 ifelse(x == 3,"same",

@@ -7,6 +7,8 @@ output: html_document
 
 These exercises cover the sections of Conditions and Loops in R [Introduction to R]("introToR_Day1.html").
 
+
+
 -- Calculate the factorial (factorial of 3 = 3 * 2 * 1) of 10 using a loop.
 
 -- Adjusting your answer from before, what is the first number that has a factorial greater than 1000.
@@ -18,8 +20,3 @@ These exercises cover the sections of Conditions and Loops in R [Introduction to
 
 -- Add annotation from Annotation.txt. How do the pathway information for genes compare between expression table and annotation table.
  
-
--- Look at the correlation between samples. Do any samples show a higher degree of correlation.
-
--- For every gene, perform a t-test and write out the t-statistic (assuming unequal variance), log2 fold change, pvalue and gene annotation to a file.
-

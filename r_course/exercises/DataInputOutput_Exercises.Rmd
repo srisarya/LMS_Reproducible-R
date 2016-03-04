@@ -9,7 +9,7 @@ These exercises cover the  sections of [Introduction to R]("introToR_Day1.html")
 
 **Exercise 1**
 
-Have a look at all files in notepad or excel before attempting to read.
+Have a look at all files in notepad or excel before attempting to read. The files will all be found under the **data/** directory.
 
 - Read in the tab delimited file "GeneExpression.txt"
 
