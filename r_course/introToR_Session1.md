@@ -1,7 +1,7 @@
 Introduction to R, Session 1
 ========================================================
 author: MRC Clinical Sciences Centre
-date:http://mrccsc.github.io/r_course/introToR_Session1.html
+date:http://mrccsc.github.io/training/introToR_Session1.html
 width: 1440
 height: 1100
 autosize: true
@@ -17,6 +17,48 @@ Overview
 - [Reading and writing data in R](#/reading)
 - [Plotting in R](#/plotting)
 - [Statistics in R](#/stats)
+
+Materials.
+========================================================
+id: materials
+
+All prerequisites, links to material and slides for this course can be found on github.
+* [Reproducible-R](http://mrccsc.github.io/Reproducible-R/)
+
+Or can be downloaded as a zip archive from here. 
+* [Download zip](https://github.com/mrccsc/Reproducible-R/zipball/master)
+
+Materials. - Presentations, source code and practicals.
+========================================================
+
+Once the zip file in unarchived. All presentations as HTML slides and pages, their R code and HTML practical sheets will be available in the directories underneath.
+
+* **presentations/slides/**
+Presentations as an HTML slide show.
+* **presentations/singlepage/** 
+Presentations as an HTML single page.
+* **presentations/rcode/**
+R code in presentations.
+* **presentations/practicals/**
+Practicals and solutions as HTML pages. 
+
+
+Set the Working directory
+========================================================
+
+Before running any of the code in the practicals or slides we need to set the working directory to the folder we unarchived. 
+
+You may navigate to the unarchived Reproducible-R folder in the Rstudio menu
+
+**Session -> Set Working Directory -> Choose Directory**
+
+or in the console.
+
+
+```r
+setwd("/PathToMyDownload/Reproducible-R")
+# e.g. setwd("~/Downloads/Reproducible-R")
+```
 
 
 Background to R
@@ -104,6 +146,7 @@ type: section
 Simple Calculations 
 ========================================================
 type: subsection
+id:simplecalc
 At its most basic, **R** can be used as a simple calculator.
 
 ```r
@@ -171,7 +214,7 @@ Using functions.
 
 R has many useful functions "built in" and ready to use as soon as R is loaded.
 
-An incomplete, illustrative list can be seen [here](http://www.columbia.edu/~cjd11/charles_dimaggio/DIRE/resources/R/rFunctionsList.pdf) 
+An incomplete, illustrative list can be seen [here](http://www.statmethods.net/management/functions.html) 
 
 In addition to R standard functions, additional functionality can be loaded into R using libraries. These include specialised tools for areas such as sequence alignment, read counting etc.
 
@@ -182,7 +225,7 @@ If you need to see how a function works try **?** in front of the function name.
 ```
 
 
-Lets run **?sqrt** in RStudio and look at the help.
+Lets run [**?sqrt**](https://stat.ethz.ch/R-manual/R-devel/library/base/html/MathFun.html) in RStudio and look at the help.
 
 Using functions (Arguments have names and order)
 ========================================================
@@ -207,7 +250,7 @@ min(6,4,5)
 ```
 
 Many functions however have an order to their arguments.
-Try and look at the arguments for the dir() function.
+Try and look at the arguments for the dir() function using [?dir](https://stat.ethz.ch/R-manual/R-devel/library/base/html/list.files.html).
 
 ```
 ?dir
@@ -299,6 +342,7 @@ y
 
 Vectors.(1/15)
 ========================================================
+id:combine
 In **R** the most basic variable or data type is a **vector**. A vector is an ordered collection of values. The x and y variables we have previously assigned are examples of a vector of length 1.
 
 
@@ -375,6 +419,7 @@ rep(c(1,5,10),3)
 
 Vectors(3/15) - Indexing 
 ========================================================
+id:indexingvectors
 Square brackets **[]** identify the position within a vector (the **index**).
 These indices can be used to extract relevant values from vectors.
 
@@ -497,7 +542,7 @@ sqrt(4)
 Vectors(6/15) - Arithmetic operations 
 ========================================================
 
-Vectors in R can be used in arithmetic operations as seen with variables earlier.
+Vectors in R can be used in arithmetic operations as seen with [variables earlier](#/simplecalc).
 When a standard arithmetic operation is applied to vector, the operation is applied to each position in a vector.
 
 
@@ -535,6 +580,15 @@ When applying an arithmetic operation between two vectors of unequal length, the
 
 
 ```r
+x <- c(1,2,3,4,5,6,7,8,9,10)
+x
+```
+
+```
+ [1]  1  2  3  4  5  6  7  8  9 10
+```
+
+```r
 x+c(1,2)
 ```
 
@@ -553,10 +607,11 @@ x+c(1,2,3)
 
 Vectors (8/15) - Character vectors.
 ========================================================
+id:namingvectors
 
-So far we have only looked at numeric vectors.
+So far we have only looked at numeric vectors or variables.
 
-In R we can also create character vectors again using **c()** function. These vectors can be indexed just the same.
+In R we can also create character vectors [again using **c()** function](#/combine). These vectors can be indexed just the same.
 
 
 ```r
@@ -583,7 +638,6 @@ x
 ```
 Vectors (9/15) - Character vectors as names.
 ========================================================
-
 
 These named vectors maybe indexed by a position's "name".
 
@@ -616,7 +670,7 @@ Similarly, when a calculation can not be perfomed, R will input a **NaN** value.
 - **NA** - Not Available.
 - **NaN** - Not A Number.
 
-**NA** values allow for R to handle missing data correctly but requires different handling than standard numeric or character values. We will discuss handling **NA** values later.
+**NA** values allow for R to handle missing data correctly but requires different handling than standard numeric or character values. We will illustrate an example handling **NA** values [later](#/nalast).
 
 Vectors (10/15) - The unique() function
 ====================
@@ -633,26 +687,8 @@ unique(geneList)
 [1] "Gene1" "Gene2" "Gene3" "Gene4" "Gene5"
 ```
 
-Vectors (11/15) - The %in% operator
-====================
 
-A common task in R is to subset one vector by the values in another vector.
-
-The **%in%** operator can be used to subset the values within one vector by those which are present in a second vector. 
-
-
-```r
-geneList <- c("Gene1","Gene2","Gene3","Gene4","Gene5","Gene1","Gene3")
-secondGeneList <- c("Gene5","Gene3")
-geneList[geneList %in% secondGeneList]
-```
-
-```
-[1] "Gene3" "Gene5" "Gene3"
-```
-
-
-Vectors (12/15). Logical vectors
+Vectors (11/15). Logical vectors
 ========================================================
 
 Logical vectors are a class of vector made up of TRUE/T or FALSE/F boolean values.
@@ -679,10 +715,40 @@ x[z]
 [1] 1 3 5 7 9
 ```
 
+
+Vectors (12/15) - The %in% operator
+====================
+
+A common task in R is to subset one vector by the values in another vector.
+
+The **%in%** operator in the context **A %in% B** creates a logical vector of whether values in **A** matches any values in of **B**.
+
+This can be then used to subset the values within one character vector by a those in a second. 
+
+
+```r
+geneList <- c("Gene1","Gene2","Gene3","Gene4","Gene5","Gene1","Gene3")
+secondGeneList <- c("Gene5","Gene3")
+logical_index <- geneList %in% secondGeneList
+logical_index
+```
+
+```
+[1] FALSE FALSE  TRUE FALSE  TRUE FALSE  TRUE
+```
+
+```r
+geneList[logical_index]
+```
+
+```
+[1] "Gene3" "Gene5" "Gene3"
+```
+
 Vectors (13/15). Logical vectors from operators
 ========================================================
 
-Other vectors may be evaluated to produce logical vectors. This can be very useful when using a logical to index.
+Vectors may be evaluated to produce logical vectors. This can be very useful when using a logical to index.
 
 Common examples are:
 
@@ -692,6 +758,7 @@ Common examples are:
 
 
 ```r
+x <- 1:10
 x > 5
 ```
 
@@ -712,9 +779,9 @@ Vectors (14/15). Combining logical vectors.
 
 Logical vectors can be used in combination in order to index vectors. To combine logical vectors we can use some common R operators.
 
-- **&** Requires both logical operators to be TRUE
-- **|** Requires either logical operators to be TRUE.
-- **!** Reverses logical operator, so TRUE is FALSE and FALSE is TRUE.
+- **&** - Requires both logical operators to be TRUE
+- **|** - Requires either logical operator to be TRUE.
+- **!** - Reverses the logical operator, so TRUE is FALSE and FALSE is TRUE.
 
 
 ```r
@@ -749,6 +816,14 @@ Such combinations can allow for complex selection of a vector's values.
 
 ```r
 x <- 1:10
+x
+```
+
+```
+ [1]  1  2  3  4  5  6  7  8  9 10
+```
+
+```r
 x[x > 4 & x < 7]
 ```
 
@@ -775,7 +850,9 @@ Answers to exercise.
 
 Answers can be found here  [here](answers/vector_answers.html)
 
-Matrices (1/12) - Creating matrices
+R code for solutions can be found here  [here](answers/vector_answers.R)
+
+Matrices (1/13) - Creating matrices
 ========================================================
 
 In programs such as Excel, we are used to tables.
@@ -808,10 +885,39 @@ wideMatrix
 [1,]    1    3    5    7    9
 [2,]    2    4    6    8   10
 ```
-Matrices (2/12) - Finding dimensions
+
+Matrices (2/13) - Creating matrices
 ========================================================
 
-To find dimensions of a matrix, the **dim()** function will provide dimensions as row number and column number while **nrow()** and **ncol()** will return just row number and column number respectively.
+By default when creating a matrix using the **matrix** function, the values fill the matrix by columns. To fill a matrix by rows the **byrow** argument must be set to TRUE.
+
+
+```r
+wideMatrix <- matrix(1:10, nrow=2, ncol=5)
+wideMatrix
+```
+
+```
+     [,1] [,2] [,3] [,4] [,5]
+[1,]    1    3    5    7    9
+[2,]    2    4    6    8   10
+```
+
+```r
+wideMatrixByRow <- matrix(1:10, nrow=2, ncol=5, byrow=TRUE)
+wideMatrixByRow
+```
+
+```
+     [,1] [,2] [,3] [,4] [,5]
+[1,]    1    2    3    4    5
+[2,]    6    7    8    9   10
+```
+
+Matrices (3/13) - Finding dimensions
+========================================================
+
+To find dimensions of a matrix, the **dim()** function will provide dimensions as the row then column number while **nrow()** and **ncol()** will return just row number and column number respectively.
 
 ```r
 dim(narrowMatrix)
@@ -865,7 +971,9 @@ newMatrix
  [9,]  9 19
 [10,] 10 20
 ```
+
 ***
+
 **rbind()** functions to bind to a matrix as rows.
 
 ```r
@@ -926,7 +1034,7 @@ recycledMatrix3
 Matrices (5/12) - Column and row names
 ========================================================
 
-As with vectors, matrices can be named. For matrices the naming is done by columns and rows using **colnames()** and **rownames()** functions.
+[As we have seen with vectors](#/namingvectors), matrices can be named. For matrices the naming is done by columns and rows using **colnames()** and **rownames()** functions.
 
 
 ```r
@@ -964,7 +1072,7 @@ rownames(namedMatrix)
 Matrices (6/12) - Indexing
 ========================================================
 
-Selecting and replacing portions of a matrix can be done by **indexing** using square brackets **[]** much like for vectors.
+Selecting and replacing portions of a matrix can be done by **indexing** using square brackets **[]** much [like for vectors](#indexingvectors).
 
 When indexing matrices, two values may be provided within the square brackets separated by a comma to retrieve information on a matrix position.
 
@@ -1648,7 +1756,7 @@ testOrder[order(testOrder,decreasing=T)]
 ```
 Data frames (9/12) - Ordering with NA values
 =========================================================
-
+id:nalast
 When a vector contains NA values, these NA values will, by default, be placed last in ordering indices. This can be controlled by **na.last** argument.
 
 
@@ -2005,14 +2113,14 @@ A standard format for this data is a table
 
 |Gene_Name | Sample_1.hi| Sample_2.hi| Sample_3.hi| Sample_4.low| Sample_5.low| Sample_1.low|
 |:---------|-----------:|-----------:|-----------:|------------:|------------:|------------:|
-|Gene_a    |    3.868962|    2.823951|    3.811542|     4.759958|     3.377436|     3.408703|
-|Gene_b    |    3.235700|    3.903015|    4.824481|     3.211839|     5.248901|     4.168724|
-|Gene_c    |    2.636599|    4.939920|    3.785365|     5.123800|     2.804491|     3.391103|
-|Gene_d    |    3.634897|    3.416733|    4.004196|     7.045100|     7.843168|     7.111824|
-|Gene_e    |    9.472603|   10.387466|   11.602180|     4.818540|     2.355264|     3.661300|
-|Gene_f    |    8.787928|    9.528128|   10.727290|     5.312293|     4.270847|     1.283464|
-|Gene_g    |    8.572636|   12.685678|    9.675957|     9.787068|    11.719125|    10.604284|
-|Gene_h    |    8.898574|    9.792515|   10.013741|     9.427255|     9.413116|    10.307138|
+|Gene_a    |    4.228545|    4.518022|    2.003067|     4.680865|     4.345062|     2.751897|
+|Gene_b    |    3.124135|    2.649578|    3.960560|     4.122907|     2.897520|     2.560155|
+|Gene_c    |    2.216154|    3.510505|    5.406501|     3.465754|     3.219873|     2.018455|
+|Gene_d    |    3.406716|    5.367555|    3.840848|     7.377119|     7.857685|     7.222988|
+|Gene_e    |    9.528814|    9.828376|   10.806336|     2.466048|     3.090649|     5.284581|
+|Gene_f    |    9.223801|   10.843481|   10.035293|     4.258096|     3.640590|     4.655307|
+|Gene_g    |    9.620017|    9.060694|   10.223209|    12.021852|     8.314794|    10.917421|
+|Gene_h    |   10.076652|   12.126975|    8.705188|     9.859823|    10.030369|    11.677262|
 
 Data IO (2/7) - Data from text file with read.table()
 =========================================================
@@ -2210,7 +2318,7 @@ plot(treatment)
 Line Plot
 ========================================================
 
-<img src="introToR_Session1-figure/unnamed-chunk-103-1.png" title="plot of chunk unnamed-chunk-103" alt="plot of chunk unnamed-chunk-103" width="1920px" />
+<img src="introToR_Session1-figure/unnamed-chunk-105-1.png" title="plot of chunk unnamed-chunk-105" alt="plot of chunk unnamed-chunk-105" width="1920px" />
 
 =======================================================
 Now, let's add a title, a line to connect the points, and some color:
@@ -2229,7 +2337,7 @@ title(main="Treatment", col.main="red", font.main=4)
 
 Line Plot
 ========================================================
-<img src="introToR_Session1-figure/unnamed-chunk-106-1.png" title="plot of chunk unnamed-chunk-106" alt="plot of chunk unnamed-chunk-106" width="1920px" />
+<img src="introToR_Session1-figure/unnamed-chunk-108-1.png" title="plot of chunk unnamed-chunk-108" alt="plot of chunk unnamed-chunk-108" width="1920px" />
 
 ========================================================
 Now let's add a red line for a control vector and specify the y-axis range directly so it will be large enough to fit the data:
@@ -2260,7 +2368,7 @@ Create a title with a red, bold/italic font
 title(main="Expression Data", col.main="red", font.main=4)
 ```
 
-<img src="introToR_Session1-figure/unnamed-chunk-111-1.png" title="plot of chunk unnamed-chunk-111" alt="plot of chunk unnamed-chunk-111" width="1920px" />
+<img src="introToR_Session1-figure/unnamed-chunk-113-1.png" title="plot of chunk unnamed-chunk-113" alt="plot of chunk unnamed-chunk-113" width="1920px" />
 
 ==========================================================
 
@@ -2336,7 +2444,7 @@ Create a legend at (1, g_range[2]) that is slightly smaller (cex) and uses the s
 legend(1, g_range[2], c("treatment","control"), cex=0.8, col=c("blue","red"), pch=21:22, lty=1:2);  
 ```
 
-<img src="introToR_Session1-figure/unnamed-chunk-121-1.png" title="plot of chunk unnamed-chunk-121" alt="plot of chunk unnamed-chunk-121" width="1920px" />
+<img src="introToR_Session1-figure/unnamed-chunk-123-1.png" title="plot of chunk unnamed-chunk-123" alt="plot of chunk unnamed-chunk-123" width="1920px" />
  	
 Bar Charts	
 ========================================================	
@@ -2350,7 +2458,7 @@ Plot treatment
 barplot(treatment)
 ```
 
-<img src="introToR_Session1-figure/unnamed-chunk-123-1.png" title="plot of chunk unnamed-chunk-123" alt="plot of chunk unnamed-chunk-123" width="1920px" />
+<img src="introToR_Session1-figure/unnamed-chunk-125-1.png" title="plot of chunk unnamed-chunk-125" alt="plot of chunk unnamed-chunk-125" width="1920px" />
 
 ========================================================
  
@@ -2376,7 +2484,7 @@ barplot(data$treatment, main="Treatment", xlab="Days",ylab="values", names.arg=c
 names.arg  is a vector of names to be plotted below each bar or group of bars. 
 density	a vector giving the density of shading lines, in lines per inch, for the bars or bar components.
 
-<img src="introToR_Session1-figure/unnamed-chunk-126-1.png" title="plot of chunk unnamed-chunk-126" alt="plot of chunk unnamed-chunk-126" width="1920px" />
+<img src="introToR_Session1-figure/unnamed-chunk-128-1.png" title="plot of chunk unnamed-chunk-128" alt="plot of chunk unnamed-chunk-128" width="1920px" />
 
 ========================================================	
 Now let's plot the treatment data using some color and show a legend: 
@@ -2399,7 +2507,7 @@ fill=  c("lightblue", "mistyrose", "lightcyan","lavender", "cornsilk","maroon"))
 
 ========================================================
 
-<img src="introToR_Session1-figure/unnamed-chunk-129-1.png" title="plot of chunk unnamed-chunk-129" alt="plot of chunk unnamed-chunk-129" width="1920px" />
+<img src="introToR_Session1-figure/unnamed-chunk-131-1.png" title="plot of chunk unnamed-chunk-131" alt="plot of chunk unnamed-chunk-131" width="1920px" />
 
 Histograms
 ========================================================	
@@ -2412,7 +2520,7 @@ Create a histogram for treatment
 hist(treatment)	
 ```
 
-<img src="introToR_Session1-figure/unnamed-chunk-131-1.png" title="plot of chunk unnamed-chunk-131" alt="plot of chunk unnamed-chunk-131" width="1920px" />
+<img src="introToR_Session1-figure/unnamed-chunk-133-1.png" title="plot of chunk unnamed-chunk-133" alt="plot of chunk unnamed-chunk-133" width="1920px" />
 
 ========================================================
 
@@ -2429,7 +2537,7 @@ Create a histogram for data in light blue with the y axis ranging from 0-10
 hist(all, col="lightblue", ylim=c(0,10))
 ```
 ***
-<img src="introToR_Session1-figure/unnamed-chunk-134-1.png" title="plot of chunk unnamed-chunk-134" alt="plot of chunk unnamed-chunk-134" width="1920px" />
+<img src="introToR_Session1-figure/unnamed-chunk-136-1.png" title="plot of chunk unnamed-chunk-136" alt="plot of chunk unnamed-chunk-136" width="1920px" />
 
 ======================================================== 	
 
@@ -2464,7 +2572,7 @@ For example [0,1] means greater than or equal to 0 and less than or equal to 1.
 
 ========================================================
 
-<img src="introToR_Session1-figure/unnamed-chunk-137-1.png" title="plot of chunk unnamed-chunk-137" alt="plot of chunk unnamed-chunk-137" width="1920px" />
+<img src="introToR_Session1-figure/unnamed-chunk-139-1.png" title="plot of chunk unnamed-chunk-139" alt="plot of chunk unnamed-chunk-139" width="1920px" />
 
 ========================================================
 
@@ -2491,7 +2599,7 @@ if TRUE, the histogram graphic is a representation of frequencies
 
 if FALSE, probability densities, component density, are plotted
 
-<img src="introToR_Session1-figure/unnamed-chunk-140-1.png" title="plot of chunk unnamed-chunk-140" alt="plot of chunk unnamed-chunk-140" width="1920px" />
+<img src="introToR_Session1-figure/unnamed-chunk-142-1.png" title="plot of chunk unnamed-chunk-142" alt="plot of chunk unnamed-chunk-142" width="1920px" />
 
 Pie Charts
 ========================================================
@@ -2503,7 +2611,7 @@ Let's start with a simple pie chart graphing the treatment vector:
 pie(treatment)
 ```
 
-<img src="introToR_Session1-figure/unnamed-chunk-142-1.png" title="plot of chunk unnamed-chunk-142" alt="plot of chunk unnamed-chunk-142" width="1920px" />
+<img src="introToR_Session1-figure/unnamed-chunk-144-1.png" title="plot of chunk unnamed-chunk-144" alt="plot of chunk unnamed-chunk-144" width="1920px" />
 
 ========================================================
 
@@ -2516,7 +2624,7 @@ pie(treatment, main="Treatment", col= c("lightblue", "mistyrose", "lightcyan","l
     labels=c("Mon","Tue","Wed","Thu","Fri","Sat"))	
 ```
 
-<img src="introToR_Session1-figure/unnamed-chunk-144-1.png" title="plot of chunk unnamed-chunk-144" alt="plot of chunk unnamed-chunk-144" width="1920px" />
+<img src="introToR_Session1-figure/unnamed-chunk-146-1.png" title="plot of chunk unnamed-chunk-146" alt="plot of chunk unnamed-chunk-146" width="1920px" />
 
 ========================================================
 
@@ -2557,7 +2665,7 @@ legend(1.5, 0.5, c("Mon","Tue","Wed","Thu","Fri","Sat"), cex=0.8,fill=colors)
 
 ========================================================
 
-<img src="introToR_Session1-figure/unnamed-chunk-150-1.png" title="plot of chunk unnamed-chunk-150" alt="plot of chunk unnamed-chunk-150" width="1920px" />
+<img src="introToR_Session1-figure/unnamed-chunk-152-1.png" title="plot of chunk unnamed-chunk-152" alt="plot of chunk unnamed-chunk-152" width="1920px" />
 
 Dot charts
 ========================================================
@@ -2570,7 +2678,7 @@ Function t returns the transpose of a matrix.
 ```r
 dotchart(t(data))	
 ```
-<img src="introToR_Session1-figure/unnamed-chunk-152-1.png" title="plot of chunk unnamed-chunk-152" alt="plot of chunk unnamed-chunk-152" width="1920px" />
+<img src="introToR_Session1-figure/unnamed-chunk-154-1.png" title="plot of chunk unnamed-chunk-154" alt="plot of chunk unnamed-chunk-154" width="1920px" />
 
 ========================================================
 
@@ -2581,7 +2689,7 @@ Create a colored dotchart for autos with smaller labels
 ```r
 dotchart(t(data), color=c("red","blue","darkgreen"),main="Dotchart", cex=0.8)	
 ```
-<img src="introToR_Session1-figure/unnamed-chunk-154-1.png" title="plot of chunk unnamed-chunk-154" alt="plot of chunk unnamed-chunk-154" width="1920px" />
+<img src="introToR_Session1-figure/unnamed-chunk-156-1.png" title="plot of chunk unnamed-chunk-156" alt="plot of chunk unnamed-chunk-156" width="1920px" />
 
 Combining Plots
 ======================================================== 
@@ -2635,7 +2743,7 @@ boxplot(data1$Treated1)
 ========================================================
 
  
-<img src="introToR_Session1-figure/unnamed-chunk-158-1.png" title="plot of chunk unnamed-chunk-158" alt="plot of chunk unnamed-chunk-158" width="490px" /><img src="introToR_Session1-figure/unnamed-chunk-158-2.png" title="plot of chunk unnamed-chunk-158" alt="plot of chunk unnamed-chunk-158" width="490px" /><img src="introToR_Session1-figure/unnamed-chunk-158-3.png" title="plot of chunk unnamed-chunk-158" alt="plot of chunk unnamed-chunk-158" width="490px" /><img src="introToR_Session1-figure/unnamed-chunk-158-4.png" title="plot of chunk unnamed-chunk-158" alt="plot of chunk unnamed-chunk-158" width="490px" />
+<img src="introToR_Session1-figure/unnamed-chunk-160-1.png" title="plot of chunk unnamed-chunk-160" alt="plot of chunk unnamed-chunk-160" width="490px" /><img src="introToR_Session1-figure/unnamed-chunk-160-2.png" title="plot of chunk unnamed-chunk-160" alt="plot of chunk unnamed-chunk-160" width="490px" /><img src="introToR_Session1-figure/unnamed-chunk-160-3.png" title="plot of chunk unnamed-chunk-160" alt="plot of chunk unnamed-chunk-160" width="490px" /><img src="introToR_Session1-figure/unnamed-chunk-160-4.png" title="plot of chunk unnamed-chunk-160" alt="plot of chunk unnamed-chunk-160" width="490px" />
 
 Saving your plots
 ========================================================
@@ -2767,7 +2875,7 @@ xyplot(Untreated2~Treated2, data=data)
 
 ========================================================
 
-<img src="introToR_Session1-figure/unnamed-chunk-167-1.png" title="plot of chunk unnamed-chunk-167" alt="plot of chunk unnamed-chunk-167" width="1920px" />
+<img src="introToR_Session1-figure/unnamed-chunk-169-1.png" title="plot of chunk unnamed-chunk-169" alt="plot of chunk unnamed-chunk-169" width="1920px" />
 
 
 
@@ -2785,7 +2893,7 @@ and then printed as,
 print(tplot)
 ```
 
-<img src="introToR_Session1-figure/unnamed-chunk-170-1.png" title="plot of chunk unnamed-chunk-170" alt="plot of chunk unnamed-chunk-170" width="1920px" />
+<img src="introToR_Session1-figure/unnamed-chunk-172-1.png" title="plot of chunk unnamed-chunk-172" alt="plot of chunk unnamed-chunk-172" width="1920px" />
 ***
 The object containing the plot can further be modified. for e.g.
 
@@ -2795,7 +2903,7 @@ tplot2<-update(tplot, main="Drug treatment  in Cells" )
 print(tplot2)
 ```
 
-<img src="introToR_Session1-figure/unnamed-chunk-171-1.png" title="plot of chunk unnamed-chunk-171" alt="plot of chunk unnamed-chunk-171" width="1920px" />
+<img src="introToR_Session1-figure/unnamed-chunk-173-1.png" title="plot of chunk unnamed-chunk-173" alt="plot of chunk unnamed-chunk-173" width="1920px" />
 
 ========================================================
 
@@ -2824,7 +2932,7 @@ bwplot(voice.part ~ height, data=singer, xlab="Height (inches)")
 
 ========================================================
 
-<img src="introToR_Session1-figure/unnamed-chunk-174-1.png" title="plot of chunk unnamed-chunk-174" alt="plot of chunk unnamed-chunk-174" width="1920px" />
+<img src="introToR_Session1-figure/unnamed-chunk-176-1.png" title="plot of chunk unnamed-chunk-176" alt="plot of chunk unnamed-chunk-176" width="1920px" />
 
 
 ========================================================
@@ -2844,7 +2952,7 @@ qqmath(~ rnorm(100), distribution = function(p) qt(p, df = 10))
 
 ========================================================
 
-<img src="introToR_Session1-figure/unnamed-chunk-177-1.png" title="plot of chunk unnamed-chunk-177" alt="plot of chunk unnamed-chunk-177" width="1920px" />
+<img src="introToR_Session1-figure/unnamed-chunk-179-1.png" title="plot of chunk unnamed-chunk-179" alt="plot of chunk unnamed-chunk-179" width="1920px" />
 
 
 ggplot2 R package
@@ -2906,7 +3014,7 @@ qplot(Sepal.Length, Petal.Length, data = iris, color = Species, size = Petal.Wid
 ```
 
 ========================================================
-<img src="introToR_Session1-figure/unnamed-chunk-183-1.png" title="plot of chunk unnamed-chunk-183" alt="plot of chunk unnamed-chunk-183" width="1920px" />
+<img src="introToR_Session1-figure/unnamed-chunk-185-1.png" title="plot of chunk unnamed-chunk-185" alt="plot of chunk unnamed-chunk-185" width="1920px" />
 
 We see that Iris setosa flowers have the narrowest petals.
 
@@ -2987,7 +3095,7 @@ qplot(age, circumference, data = Orange, geom = "line", colour = Tree,
 
 ========================================================
 
-<img src="introToR_Session1-figure/unnamed-chunk-191-1.png" title="plot of chunk unnamed-chunk-191" alt="plot of chunk unnamed-chunk-191" width="1920px" />
+<img src="introToR_Session1-figure/unnamed-chunk-193-1.png" title="plot of chunk unnamed-chunk-193" alt="plot of chunk unnamed-chunk-193" width="1920px" />
 
 ========================================================
 
@@ -2998,7 +3106,7 @@ qplot(age, circumference, data = Orange, geom = c("point", "line"), colour = Tre
 ```
 
 ========================================================
-<img src="introToR_Session1-figure/unnamed-chunk-193-1.png" title="plot of chunk unnamed-chunk-193" alt="plot of chunk unnamed-chunk-193" width="1920px" />
+<img src="introToR_Session1-figure/unnamed-chunk-195-1.png" title="plot of chunk unnamed-chunk-195" alt="plot of chunk unnamed-chunk-195" width="1920px" />
 
 Summary
 ========================================================
@@ -3189,10 +3297,10 @@ cor(x,z)
 ```
 
 ```
-[1] 0.1003132
+[1] 0.04274531
 ```
 ***
-![plot of chunk unnamed-chunk-200](introToR_Session1-figure/unnamed-chunk-200-1.png) 
+![plot of chunk unnamed-chunk-202](introToR_Session1-figure/unnamed-chunk-202-1.png)
 
 
 Statistics (8/26) - Correlation over a matrix
@@ -3203,8 +3311,8 @@ Often we wish to apply correlation analysis to all columns or rows in a matrix i
 
 | Sample_1.hi| Sample_2.hi| Sample_3.hi| Sample_4.low| Sample_5.low| Sample_1.low|
 |-----------:|-----------:|-----------:|------------:|------------:|------------:|
-|    3.868962|    2.823951|    3.811542|     4.759958|     3.377436|     3.408703|
-|    3.235700|    3.903015|    4.824481|     3.211839|     5.248901|     4.168724|
+|    4.228545|    4.518022|    2.003067|     4.680865|     4.345062|     2.751897|
+|    3.124135|    2.649578|    3.960560|     4.122907|     2.897520|     2.560155|
 
 
 ```r
@@ -3213,8 +3321,8 @@ cor(minRep)[1:2,2:5]
 
 ```
             Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low
-Sample_1.hi    0.920553   0.9839988    0.4876482    0.2955262
-Sample_2.hi    1.000000   0.9212966    0.5876139    0.4253528
+Sample_1.hi   0.9570212   0.8864866    0.4041174    0.3850675
+Sample_2.hi   1.0000000   0.8448296    0.3880250    0.4626656
 ```
 
 Statistics (9/26) - Visualising correlation
@@ -3227,7 +3335,7 @@ axis(1,at=seq(0,1,length.out=6), colnames(minRep))
 axis(2,at=seq(0,1,length.out=6), colnames(minRep))
 ```
 ***
-<img src="introToR_Session1-figure/unnamed-chunk-205-1.png" title="plot of chunk unnamed-chunk-205" alt="plot of chunk unnamed-chunk-205" width="1920px" />
+<img src="introToR_Session1-figure/unnamed-chunk-207-1.png" title="plot of chunk unnamed-chunk-207" alt="plot of chunk unnamed-chunk-207" width="1920px" />
 
 Statistics (10/26) - Distributions
 =========================================================
@@ -3263,8 +3371,8 @@ rnorm(10,mean=8,sd=3)
 ```
 
 ```
- [1] 10.864280  8.042768  8.808697  7.129990  8.156224 11.873230 12.212037
- [8] 10.308854  6.802418  4.848995
+ [1]  9.816253 10.248169 11.607319  9.848796  7.691586  8.495770 10.588100
+ [8]  9.214969  6.201898  9.415141
 ```
 We can also use these functions to interrogate values assuming a normal distribution for the data.
 
@@ -3588,7 +3696,7 @@ To fit a linear regression we use a similar set of arguments as passed to the t-
 > abline(lmResult,col="red",lty=3,lwd=3)
 ```
 
-![plot of chunk unnamed-chunk-221](introToR_Session1-figure/unnamed-chunk-221-1.png) 
+![plot of chunk unnamed-chunk-223](introToR_Session1-figure/unnamed-chunk-223-1.png)
 
 Statistics (21/26) The lm() function
 =========================================================
@@ -3631,7 +3739,7 @@ We can add the line of best fit using **abline()**
 > abline(lmResult,col="red",lty=3,lwd=3)
 ```
 
-![plot of chunk unnamed-chunk-223](introToR_Session1-figure/unnamed-chunk-223-1.png) 
+![plot of chunk unnamed-chunk-225](introToR_Session1-figure/unnamed-chunk-225-1.png)
 
 Statistics (23/26) - Interpreting output of lm()
 =========================================================

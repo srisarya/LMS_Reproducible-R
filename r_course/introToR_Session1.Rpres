@@ -1,7 +1,7 @@
 Introduction to R, Session 1
 ========================================================
 author: MRC Clinical Sciences Centre
-date:http://mrccsc.github.io/r_course/introToR_Session1.html
+date:http://mrccsc.github.io/training/introToR_Session1.html
 width: 1440
 height: 1100
 autosize: true
@@ -17,6 +17,47 @@ Overview
 - [Reading and writing data in R](#/reading)
 - [Plotting in R](#/plotting)
 - [Statistics in R](#/stats)
+
+Materials.
+========================================================
+id: materials
+
+All prerequisites, links to material and slides for this course can be found on github.
+* [Reproducible-R](http://mrccsc.github.io/Reproducible-R/)
+
+Or can be downloaded as a zip archive from here. 
+* [Download zip](https://github.com/mrccsc/Reproducible-R/zipball/master)
+
+Materials. - Presentations, source code and practicals.
+========================================================
+
+Once the zip file in unarchived. All presentations as HTML slides and pages, their R code and HTML practical sheets will be available in the directories underneath.
+
+* **presentations/slides/**
+Presentations as an HTML slide show.
+* **presentations/singlepage/** 
+Presentations as an HTML single page.
+* **presentations/rcode/**
+R code in presentations.
+* **presentations/practicals/**
+Practicals and solutions as HTML pages. 
+
+
+Set the Working directory
+========================================================
+
+Before running any of the code in the practicals or slides we need to set the working directory to the folder we unarchived. 
+
+You may navigate to the unarchived Reproducible-R folder in the Rstudio menu
+
+**Session -> Set Working Directory -> Choose Directory**
+
+or in the console.
+
+```{r,eval=F} 
+setwd("/PathToMyDownload/Reproducible-R")
+# e.g. setwd("~/Downloads/Reproducible-R")
+```
 
 
 Background to R
@@ -104,6 +145,7 @@ type: section
 Simple Calculations 
 ========================================================
 type: subsection
+id:simplecalc
 At its most basic, **R** can be used as a simple calculator.
 ```{r,prompt=T}
 3+1
@@ -135,7 +177,7 @@ Using functions.
 
 R has many useful functions "built in" and ready to use as soon as R is loaded.
 
-An incomplete, illustrative list can be seen [here](http://www.columbia.edu/~cjd11/charles_dimaggio/DIRE/resources/R/rFunctionsList.pdf) 
+An incomplete, illustrative list can be seen [here](http://www.statmethods.net/management/functions.html) 
 
 In addition to R standard functions, additional functionality can be loaded into R using libraries. These include specialised tools for areas such as sequence alignment, read counting etc.
 
@@ -145,7 +187,7 @@ If you need to see how a function works try **?** in front of the function name.
 ```
 
 
-Lets run **?sqrt** in RStudio and look at the help.
+Lets run [**?sqrt**](https://stat.ethz.ch/R-manual/R-devel/library/base/html/MathFun.html) in RStudio and look at the help.
 
 Using functions (Arguments have names and order)
 ========================================================
@@ -158,7 +200,7 @@ min(6,4,5)
 ```
 
 Many functions however have an order to their arguments.
-Try and look at the arguments for the dir() function.
+Try and look at the arguments for the dir() function using [?dir](https://stat.ethz.ch/R-manual/R-devel/library/base/html/list.files.html).
 
 ```
 ?dir
@@ -222,6 +264,7 @@ y
 
 Vectors.(1/15)
 ========================================================
+id:combine
 In **R** the most basic variable or data type is a **vector**. A vector is an ordered collection of values. The x and y variables we have previously assigned are examples of a vector of length 1.
 
 ```{r}
@@ -257,6 +300,7 @@ rep(c(1,5,10),3)
 
 Vectors(3/15) - Indexing 
 ========================================================
+id:indexingvectors
 Square brackets **[]** identify the position within a vector (the **index**).
 These indices can be used to extract relevant values from vectors.
 
@@ -316,7 +360,7 @@ sqrt(4)
 Vectors(6/15) - Arithmetic operations 
 ========================================================
 
-Vectors in R can be used in arithmetic operations as seen with variables earlier.
+Vectors in R can be used in arithmetic operations as seen with [variables earlier](#/simplecalc).
 When a standard arithmetic operation is applied to vector, the operation is applied to each position in a vector.
 
 ```{r}
@@ -336,6 +380,8 @@ Vectors (7/15) - Arithmetic operations
 When applying an arithmetic operation between two vectors of unequal length, the shorter will be recycled.
 
 ```{r}
+x <- c(1,2,3,4,5,6,7,8,9,10)
+x
 x+c(1,2)
 ```
 
@@ -345,10 +391,11 @@ x+c(1,2,3)
 
 Vectors (8/15) - Character vectors.
 ========================================================
+id:namingvectors
 
-So far we have only looked at numeric vectors.
+So far we have only looked at numeric vectors or variables.
 
-In R we can also create character vectors again using **c()** function. These vectors can be indexed just the same.
+In R we can also create character vectors [again using **c()** function](#/combine). These vectors can be indexed just the same.
 
 ```{r}
 y <- c("ICTEM","CommonWealth","Wolfson")
@@ -364,7 +411,6 @@ x
 ```
 Vectors (9/15) - Character vectors as names.
 ========================================================
-
 
 These named vectors maybe indexed by a position's "name".
 ```{r}
@@ -385,7 +431,7 @@ Similarly, when a calculation can not be perfomed, R will input a **NaN** value.
 - **NA** - Not Available.
 - **NaN** - Not A Number.
 
-**NA** values allow for R to handle missing data correctly but requires different handling than standard numeric or character values. We will discuss handling **NA** values later.
+**NA** values allow for R to handle missing data correctly but requires different handling than standard numeric or character values. We will illustrate an example handling **NA** values [later](#/nalast).
 
 Vectors (10/15) - The unique() function
 ====================
@@ -397,21 +443,8 @@ geneList <- c("Gene1","Gene2","Gene3","Gene4","Gene5","Gene1","Gene3")
 unique(geneList)
 ```
 
-Vectors (11/15) - The %in% operator
-====================
 
-A common task in R is to subset one vector by the values in another vector.
-
-The **%in%** operator can be used to subset the values within one vector by those which are present in a second vector. 
-
-```{r}
-geneList <- c("Gene1","Gene2","Gene3","Gene4","Gene5","Gene1","Gene3")
-secondGeneList <- c("Gene5","Gene3")
-geneList[geneList %in% secondGeneList]
-```
-
-
-Vectors (12/15). Logical vectors
+Vectors (11/15). Logical vectors
 ========================================================
 
 Logical vectors are a class of vector made up of TRUE/T or FALSE/F boolean values.
@@ -428,10 +461,29 @@ x <- 1:10
 x[z]
 ```
 
+
+Vectors (12/15) - The %in% operator
+====================
+
+A common task in R is to subset one vector by the values in another vector.
+
+The **%in%** operator in the context **A %in% B** creates a logical vector of whether values in **A** matches any values in of **B**.
+
+This can be then used to subset the values within one character vector by a those in a second. 
+
+```{r}
+geneList <- c("Gene1","Gene2","Gene3","Gene4","Gene5","Gene1","Gene3")
+secondGeneList <- c("Gene5","Gene3")
+logical_index <- geneList %in% secondGeneList
+logical_index
+
+geneList[logical_index]
+```
+
 Vectors (13/15). Logical vectors from operators
 ========================================================
 
-Other vectors may be evaluated to produce logical vectors. This can be very useful when using a logical to index.
+Vectors may be evaluated to produce logical vectors. This can be very useful when using a logical to index.
 
 Common examples are:
 
@@ -440,6 +492,7 @@ Common examples are:
 - **>=** and **<=** evaluates as greater than or equal or less than or equal respectively.
 
 ```{r}
+x <- 1:10
 x > 5
 x[x > 5]
 ```
@@ -449,9 +502,9 @@ Vectors (14/15). Combining logical vectors.
 
 Logical vectors can be used in combination in order to index vectors. To combine logical vectors we can use some common R operators.
 
-- **&** Requires both logical operators to be TRUE
-- **|** Requires either logical operators to be TRUE.
-- **!** Reverses logical operator, so TRUE is FALSE and FALSE is TRUE.
+- **&** - Requires both logical operators to be TRUE
+- **|** - Requires either logical operator to be TRUE.
+- **!** - Reverses the logical operator, so TRUE is FALSE and FALSE is TRUE.
 
 ```{r}
 x <- 1:10
@@ -466,6 +519,7 @@ Vectors (15/15). Logical vectors continued.
 Such combinations can allow for complex selection of a vector's values.
 ```{r}
 x <- 1:10
+x
 x[x > 4 & x < 7]
 x[x > 4 & !x < 7]
 ```
@@ -481,7 +535,9 @@ Answers to exercise.
 
 Answers can be found here  [here](answers/vector_answers.html)
 
-Matrices (1/12) - Creating matrices
+R code for solutions can be found here  [here](answers/vector_answers.R)
+
+Matrices (1/13) - Creating matrices
 ========================================================
 
 In programs such as Excel, we are used to tables.
@@ -496,10 +552,24 @@ narrowMatrix
 wideMatrix <- matrix(1:10, nrow=2, ncol=5)
 wideMatrix
 ```
-Matrices (2/12) - Finding dimensions
+
+Matrices (2/13) - Creating matrices
 ========================================================
 
-To find dimensions of a matrix, the **dim()** function will provide dimensions as row number and column number while **nrow()** and **ncol()** will return just row number and column number respectively.
+By default when creating a matrix using the **matrix** function, the values fill the matrix by columns. To fill a matrix by rows the **byrow** argument must be set to TRUE.
+
+```{r}
+wideMatrix <- matrix(1:10, nrow=2, ncol=5)
+wideMatrix
+
+wideMatrixByRow <- matrix(1:10, nrow=2, ncol=5, byrow=TRUE)
+wideMatrixByRow
+```
+
+Matrices (3/13) - Finding dimensions
+========================================================
+
+To find dimensions of a matrix, the **dim()** function will provide dimensions as the row then column number while **nrow()** and **ncol()** will return just row number and column number respectively.
 ```{r}
 dim(narrowMatrix)
 nrow(narrowMatrix)
@@ -519,7 +589,9 @@ z <- 21:22
 newMatrix <- cbind(x,y)
 newMatrix
 ```
+
 ***
+
 **rbind()** functions to bind to a matrix as rows.
 ```{r}
 newerMatrix <- rbind(newMatrix,z)
@@ -547,7 +619,7 @@ recycledMatrix3
 Matrices (5/12) - Column and row names
 ========================================================
 
-As with vectors, matrices can be named. For matrices the naming is done by columns and rows using **colnames()** and **rownames()** functions.
+[As we have seen with vectors](#/namingvectors), matrices can be named. For matrices the naming is done by columns and rows using **colnames()** and **rownames()** functions.
 
 ```{r}
 namedMatrix <- matrix(1:10,ncol=5,nrow=2)
@@ -566,7 +638,7 @@ rownames(namedMatrix)
 Matrices (6/12) - Indexing
 ========================================================
 
-Selecting and replacing portions of a matrix can be done by **indexing** using square brackets **[]** much like for vectors.
+Selecting and replacing portions of a matrix can be done by **indexing** using square brackets **[]** much [like for vectors](#indexingvectors).
 
 When indexing matrices, two values may be provided within the square brackets separated by a comma to retrieve information on a matrix position.
 
@@ -883,7 +955,7 @@ testOrder[order(testOrder,decreasing=T)]
 ```
 Data frames (9/12) - Ordering with NA values
 =========================================================
-
+id:nalast
 When a vector contains NA values, these NA values will, by default, be placed last in ordering indices. This can be controlled by **na.last** argument.
 
 ```{r}
