@@ -36,6 +36,9 @@ smallGeneMatrix
 smallGeneMatrix <- geneMatrix[geneMatrix[,"geneLengths"] > 200 & geneMatrix[,"expression"] > 200,c("expression","lne")]
 smallGeneMatrix
 ```
+**Bonus Question**
+
+<a name="bonus"></a>
 - Calculate the sum of expression and length columns for only genes with length > 100.
 ```{r,message=T}
 expressionSum <- sum(geneMatrix[geneMatrix[,"geneLengths"] > 100,"expression"])

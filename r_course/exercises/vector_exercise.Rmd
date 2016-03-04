@@ -37,6 +37,8 @@ These exercises cover the vectors sections of [Introduction to R]("introToR_Day1
 - Identify genes which have a length greater than 100 and expression greater than 10000
 
 **Bonus questions**
+<a name="bonus"></a>
+
 - Calculate the expression over the gene length for all genes (Length normalised expression - LNE).
 - Identify genes with a length normalised expression greater than the average
  
