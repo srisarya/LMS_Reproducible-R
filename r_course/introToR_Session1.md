@@ -2005,14 +2005,14 @@ A standard format for this data is a table
 
 |Gene_Name | Sample_1.hi| Sample_2.hi| Sample_3.hi| Sample_4.low| Sample_5.low| Sample_1.low|
 |:---------|-----------:|-----------:|-----------:|------------:|------------:|------------:|
-|Gene_a    |    2.181518|    2.963433|    3.618821|     3.703849|     3.621196|     3.466088|
-|Gene_b    |    3.953413|    5.003427|    3.128916|     3.505461|     3.953361|     4.261023|
-|Gene_c    |    3.831760|    1.840931|    3.259247|     2.898734|     3.822889|     4.384299|
-|Gene_d    |    4.272112|    3.795516|    5.858744|     6.944077|     7.550353|     9.242483|
-|Gene_e    |    9.914889|   10.758701|   10.140730|     3.633438|     1.285404|     2.734017|
-|Gene_f    |   10.071533|   10.252845|   10.517175|     5.378654|     3.831697|     1.848423|
-|Gene_g    |   11.316427|    9.815200|    9.354936|     8.879610|     9.591012|    11.768586|
-|Gene_h    |    8.350820|    9.495415|   10.523986|    12.283628|    11.289700|    10.012964|
+|Gene_a    |    3.868962|    2.823951|    3.811542|     4.759958|     3.377436|     3.408703|
+|Gene_b    |    3.235700|    3.903015|    4.824481|     3.211839|     5.248901|     4.168724|
+|Gene_c    |    2.636599|    4.939920|    3.785365|     5.123800|     2.804491|     3.391103|
+|Gene_d    |    3.634897|    3.416733|    4.004196|     7.045100|     7.843168|     7.111824|
+|Gene_e    |    9.472603|   10.387466|   11.602180|     4.818540|     2.355264|     3.661300|
+|Gene_f    |    8.787928|    9.528128|   10.727290|     5.312293|     4.270847|     1.283464|
+|Gene_g    |    8.572636|   12.685678|    9.675957|     9.787068|    11.719125|    10.604284|
+|Gene_h    |    8.898574|    9.792515|   10.013741|     9.427255|     9.413116|    10.307138|
 
 Data IO (2/7) - Data from text file with read.table()
 =========================================================
@@ -3189,7 +3189,7 @@ cor(x,z)
 ```
 
 ```
-[1] -0.01135608
+[1] 0.1003132
 ```
 ***
 ![plot of chunk unnamed-chunk-200](introToR_Session1-figure/unnamed-chunk-200-1.png) 
@@ -3203,8 +3203,8 @@ Often we wish to apply correlation analysis to all columns or rows in a matrix i
 
 | Sample_1.hi| Sample_2.hi| Sample_3.hi| Sample_4.low| Sample_5.low| Sample_1.low|
 |-----------:|-----------:|-----------:|------------:|------------:|------------:|
-|    2.181518|    2.963433|    3.618821|     3.703849|     3.621196|     3.466088|
-|    3.953413|    5.003427|    3.128916|     3.505461|     3.953361|     4.261023|
+|    3.868962|    2.823951|    3.811542|     4.759958|     3.377436|     3.408703|
+|    3.235700|    3.903015|    4.824481|     3.211839|     5.248901|     4.168724|
 
 
 ```r
@@ -3213,8 +3213,8 @@ cor(minRep)[1:2,2:5]
 
 ```
             Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low
-Sample_1.hi   0.9451116   0.9202844    0.4639150    0.2544438
-Sample_2.hi   1.0000000   0.9398130    0.4692492    0.1980213
+Sample_1.hi    0.920553   0.9839988    0.4876482    0.2955262
+Sample_2.hi    1.000000   0.9212966    0.5876139    0.4253528
 ```
 
 Statistics (9/26) - Visualising correlation
@@ -3263,8 +3263,8 @@ rnorm(10,mean=8,sd=3)
 ```
 
 ```
- [1]  3.523634  9.462042  4.183035  6.450474 13.042276 14.233895  6.862742
- [8]  6.454255 13.119918  8.869193
+ [1] 10.864280  8.042768  8.808697  7.129990  8.156224 11.873230 12.212037
+ [8] 10.308854  6.802418  4.848995
 ```
 We can also use these functions to interrogate values assuming a normal distribution for the data.
 
@@ -3391,7 +3391,7 @@ var.test(tTestExample$A,tTestExample$B)
 	F test to compare two variances
 
 data:  tTestExample$A and tTestExample$B
-F = 0.4832, num df = 9, denom df = 9, p-value = 0.2936
+F = 0.48315, num df = 9, denom df = 9, p-value = 0.2936
 alternative hypothesis: true ratio of variances is not equal to 1
 95 percent confidence interval:
  0.1200078 1.9451614
@@ -3409,7 +3409,7 @@ var.test(tTestExample$A,tTestExample$C)
 	F test to compare two variances
 
 data:  tTestExample$A and tTestExample$C
-F = 0.038, num df = 9, denom df = 9, p-value = 4.092e-05
+F = 0.037999, num df = 9, denom df = 9, p-value = 4.092e-05
 alternative hypothesis: true ratio of variances is not equal to 1
 95 percent confidence interval:
  0.009438411 0.152983699
@@ -3503,7 +3503,7 @@ Result
 	Two Sample t-test
 
 data:  tTestExample$A and tTestExample$B
-t = -41.3528, df = 18, p-value < 2.2e-16
+t = -41.353, df = 18, p-value < 2.2e-16
 alternative hypothesis: true difference in means is not equal to 0
 95 percent confidence interval:
  -14.60253 -13.19051
@@ -3528,7 +3528,7 @@ Result
 	Welch Two Sample t-test
 
 data:  tTestExample$A and tTestExample$C
-t = -11.2941, df = 9.683, p-value = 6.855e-07
+t = -11.294, df = 9.683, p-value = 6.855e-07
 alternative hypothesis: true difference in means is not equal to 0
 95 percent confidence interval:
  -13.56531  -9.07821
@@ -3557,7 +3557,7 @@ result
 	Two Sample t-test
 
 data:  Value by Group
-t = -41.3528, df = 18, p-value < 2.2e-16
+t = -41.353, df = 18, p-value < 2.2e-16
 alternative hypothesis: true difference in means is not equal to 0
 95 percent confidence interval:
  -14.60253 -13.19051
@@ -3774,6 +3774,60 @@ F-statistic: 2.217e+04 on 1 and 398 DF,  p-value: < 2.2e-16
 ```
 
 The results from linear models also provides a measure of significance for a variable not being relevant.
+
+Statistics (Extra) - A fit line
+=========================================================
+
+![alt text](imgs/fittedline.png)
+
+Statistics (Extra) - Calculating R-squared
+=========================================================
+
+![alt text](imgs/rsquared.png)
+
+Statistics (Extra) - Calculating R-squared
+=========================================================
+
+
+```r
+SSE <- sum(resid(lmResult)^2)
+TSS <- sum((lmExample$Y - mean(lmExample$Y))^2)
+1- SSE/TSS
+```
+
+```
+[1] 0.982364
+```
+
+```r
+summary(lmResult)$r.squared
+```
+
+```
+[1] 0.982364
+```
+
+Statistics (Extra) - Calculating F-stat
+=========================================================
+
+![alt text](imgs/fstatistic.png)
+
+Statistics (Extra) - Calculating F-stat
+=========================================================
+
+
+```r
+MSE <- mean(lmResult$residuals^2)
+RSS <- sum((predict(lmResult) - mean(lmExample$Y))^2)
+
+summary(lmResult)$fstatistic
+```
+
+```
+   value    numdf    dendf 
+22169.41     1.00   398.00 
+```
+
 
 Time for an exercise!
 ========================================================

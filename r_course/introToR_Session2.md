@@ -93,7 +93,7 @@ Result
 	Two Sample t-test
 
 data:  tTestExample$A and tTestExample$B
-t = -41.3528, df = 18, p-value < 2.2e-16
+t = -41.353, df = 18, p-value < 2.2e-16
 alternative hypothesis: true difference in means is not equal to 0
 95 percent confidence interval:
  -14.60253 -13.19051
@@ -552,7 +552,7 @@ As with apply() additional arguments can be supplied after the function name arg
 
 
 ```r
-lapply(list(1,NA,2),mean,na.rm=T)
+lapply(list(1,c(NA,1),2),mean, na.rm=T)
 ```
 
 ```
@@ -560,7 +560,7 @@ lapply(list(1,NA,2),mean,na.rm=T)
 [1] 1
 
 [[2]]
-[1] NaN
+[1] 1
 
 [[3]]
 [1] 2
@@ -710,7 +710,7 @@ mean(x)
 ```
 
 ```
-[1] 70.40512
+[1] 71.59924
 ```
 
 ```r
@@ -879,7 +879,7 @@ $Calculation
 [1] 100
 
 $DateRun
-[1] "Tue Feb  3 11:04:13 2015"
+[1] "Thu May 14 23:43:58 2015"
 ```
 
 Functions (8/) -Scope
@@ -965,7 +965,7 @@ dayOfWeek()
 ```
 
 ```
-[1] "Tue"
+[1] "Thu"
 ```
 
 Rscript

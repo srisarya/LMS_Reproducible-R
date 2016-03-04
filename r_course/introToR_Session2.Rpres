@@ -398,7 +398,7 @@ lapply(c(1,2),mean)
 As with apply() additional arguments can be supplied after the function name argument.
 
 ```{r}
-lapply(list(1,NA,2),mean,na.rm=T)
+lapply(list(1,c(NA,1),2),mean, na.rm=T)
 ```
 
 Conditions and Loops (18/21) -sapply()
