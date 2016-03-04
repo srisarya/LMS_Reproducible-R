@@ -1045,7 +1045,7 @@ myList
 Lists (2/7) -  Named lists
 =========================================================
 
-Just as with vectors, list elements can be assigned names.
+[Just as with vectors](#/namingvectors), list elements can be assigned names.
 
 ```{r}
 myNamedList <- list(First=firstElement,Second=secondElement,Third=thirdElement)
@@ -1054,7 +1054,7 @@ myNamedList
 Lists (3/7) - Indexing
 =========================================================
 
-List, as with other data types in R can be indexed. In contrast to other types, using **[]** on a list will subset the list to another list of selected indices. To retrieve an element from a list in R , two square brackets **[[]]** must be used. 
+List, as [with other data types in R](#/indexingvectors) can be indexed. In contrast to other types, using **[]** on a list will subset the list to another list of selected indices. To retrieve an element from a list in R , two square brackets **[[]]** must be used. 
 
 ```{r}
 myList <- list(firstElement,secondElement,thirdElement)
@@ -1071,7 +1071,7 @@ myNamedList$First
 Lists (4/7) - Joining lists
 =========================================================
 
-Again, similar to vectors, lists can be joined together in R using the c() function 
+Again, [similar to vectors](#/combine), lists can be joined together in R using the c() function 
 
 ```{r}
 myNamedList <- list(First=firstElement,Second=secondElement,Third=thirdElement)
