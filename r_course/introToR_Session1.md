@@ -943,7 +943,7 @@ ncol(narrowMatrix)
 [1] 2
 ```
 
-Matrices (3/12) (Joining vectors and matrices)
+Matrices (4/13) (Joining vectors and matrices)
 ========================================================
 
 A matrix can be created from multiple vectors or other matrices.
@@ -996,7 +996,7 @@ newerMatrix
 z 21 22
 ```
 
-Matrices (4/12) - Joining incompatable vectors and matrices
+Matrices (5/13) - Joining incompatable vectors and matrices
 ========================================================
 
 When creating a matrix using **cbind()** or **matrix()** from incompatable vectors then the shorter vector is recycled. 
@@ -1031,7 +1031,7 @@ recycledMatrix3
 [4,]    1    2
 ```
 
-Matrices (5/12) - Column and row names
+Matrices (6/13) - Column and row names
 ========================================================
 
 [As we have seen with vectors](#/namingvectors), matrices can be named. For matrices the naming is done by columns and rows using **colnames()** and **rownames()** functions.
@@ -1069,8 +1069,9 @@ rownames(namedMatrix)
 ```
 
 
-Matrices (6/12) - Indexing
+Matrices (7/13) - Indexing
 ========================================================
+id:indexingmatrices
 
 Selecting and replacing portions of a matrix can be done by **indexing** using square brackets **[]** much [like for vectors](#indexingvectors).
 
@@ -1102,7 +1103,7 @@ narrowMatrix[2,1]
 [1] 2
 ```
 
-Matrices (7/12) - Indexing 
+Matrices (8/13) - Indexing 
 ========================================================
 
 Similarly, whole rows or columns can be extracted. Single rows and columns will return a vector. When multiple columns or row indices are specified, a matrix is returned. 
@@ -1140,7 +1141,7 @@ narrowMatrix[c(2,3),]
 [2,]    3    8
 ```
 
-Matrices (8/12) - Indexing by name
+Matrices (9/13) - Indexing by name
 ========================================================
 
 As with vectors, names can be used for indexing when present
@@ -1183,7 +1184,7 @@ narrowMatrix["Row_1","Column_1"]
 [1] 1
 ```
 
-Matrices (9/12) Advanced indexing
+Matrices (10/13) Advanced indexing
 ========================================================
 
 As with vectors, matrices can be subset by logical vectors
@@ -1232,7 +1233,7 @@ Row_3        3        8
 Row_4        4        9
 ```
 
-Matrices (10/12) - Arithmetic operations.
+Matrices (11/13) - Arithmetic operations.
 ========================================================
 
 As with vectors, matrices can have arithmetic operations applied to cells,rows, columns or the whole matrix
@@ -1275,7 +1276,7 @@ mean(narrowMatrix)
 [1] 5.5
 ```
 
-Matrices (11/12) - Replacement
+Matrices (12/13) - Replacement
 ========================================================
 
 As with vectors, matrices can have their elements replaced
@@ -1307,9 +1308,9 @@ Row_3        3        1
 Row_4        4        1
 Row_5        5        1
 ```
-Matrices (12/12) -Matrices can contain only one data type
+Matrices (13/13) -Matrices can contain only one data type
 ========================================================
-
+id:onedatatype
 Matrices must be all one type (i.e. numeric or character).
 
 Here replacing one value with character will turn numeric matrix to character matrix.
@@ -1523,7 +1524,7 @@ Levels: big small huge
 Data frames (1/12) - Creating data frames 
 =========================================================
 
-We saw that with matrices you can only have one type of data. We tried to create a matrix with a character element and the entire matrix became a character.
+[We saw that with matrices you can only have one type of data](#/onedatatype). We tried to create a matrix with a character element and the entire matrix became a character.
 
 In practice, we would want to have a table which is a mixture of types (e.g a table with sample names (character), sample type (factor) and survival time (numeric))
 
@@ -1551,7 +1552,7 @@ dfExample
 Data frames (2/12) - Indexing and replacement
 =========================================================
 
-Data frames may be indexed just as matrices.
+Data frames may be indexed just [as matrices](#/indexingmatrices).
 
 
 ```r
@@ -1712,7 +1713,7 @@ dfExample <- data.frame(Name=patientName,
                         Survival_Time=survivalTime,
                         stringsAsFactors = F)
 
-levels(dfExample[,"Name"]) <- c(levels(dfExample[,"Name"]) , "patientX")
+
 dfExample[dfExample[,"Survival_Time"] < 10,"Name"] <- "patientX"
 dfExample
 ```
@@ -2115,14 +2116,14 @@ A standard format for this data is a table
 
 |Gene_Name | Sample_1.hi| Sample_2.hi| Sample_3.hi| Sample_4.low| Sample_5.low| Sample_1.low|
 |:---------|-----------:|-----------:|-----------:|------------:|------------:|------------:|
-|Gene_a    |    3.542490|    3.512465|    3.687435|     6.036403|    3.4379035|    2.7874298|
-|Gene_b    |    4.779818|    4.308630|    5.643529|     4.133483|    2.9891470|    2.7410802|
-|Gene_c    |    5.481593|    5.154129|    4.922431|     4.323537|    5.2833911|    3.6892048|
-|Gene_d    |    3.287011|    3.605052|    4.326716|     7.694891|    8.0744241|    9.0861682|
-|Gene_e    |    9.564058|    8.942958|   10.077482|     2.900461|    0.8619691|    3.6694247|
-|Gene_f    |    9.320120|    9.975492|    9.664785|     3.955677|    1.1356936|    0.3632066|
-|Gene_g    |   10.360557|    7.949164|    9.466984|     9.835054|    9.9480957|   12.5747118|
-|Gene_h    |   10.568771|    9.832069|    9.249264|    10.096213|   10.7836015|    9.0676661|
+|Gene_a    |    5.838592|    2.248576|    4.484614|     4.436766|     3.967011|     5.522760|
+|Gene_b    |    3.918103|    4.025895|    3.246897|     1.889154|     2.665810|     5.013162|
+|Gene_c    |    6.222880|    4.605848|    3.306655|     4.779191|     4.532120|     4.752634|
+|Gene_d    |    2.641369|    3.577125|    3.864762|     6.297431|     8.706683|     6.134218|
+|Gene_e    |    8.661689|    8.140619|   10.202384|     3.839282|     4.080678|     2.251483|
+|Gene_f    |    9.658689|   10.640685|   11.287444|     1.130617|     3.122564|     2.957618|
+|Gene_g    |    9.367696|   11.159041|   10.798986|    10.320393|    10.758435|    10.936750|
+|Gene_h    |   10.898940|   11.335217|    9.704038|     7.700708|    10.220835|     9.499879|
 
 Data IO (2/7) - Data from text file with read.table()
 =========================================================
@@ -3299,7 +3300,7 @@ cor(x,z)
 ```
 
 ```
-[1] -0.003333073
+[1] -0.0259517
 ```
 ***
 ![plot of chunk unnamed-chunk-202](introToR_Session1-figure/unnamed-chunk-202-1.png)
@@ -3313,8 +3314,8 @@ Often we wish to apply correlation analysis to all columns or rows in a matrix i
 
 | Sample_1.hi| Sample_2.hi| Sample_3.hi| Sample_4.low| Sample_5.low| Sample_1.low|
 |-----------:|-----------:|-----------:|------------:|------------:|------------:|
-|    3.542490|    3.512465|    3.687435|     6.036403|     3.437904|      2.78743|
-|    4.779818|    4.308630|    5.643529|     4.133483|     2.989147|      2.74108|
+|    5.838592|    2.248576|    4.484614|     4.436766|     3.967011|     5.522760|
+|    3.918103|    4.025895|    3.246897|     1.889154|     2.665810|     5.013162|
 
 
 ```r
@@ -3323,8 +3324,8 @@ cor(minRep)[1:2,2:5]
 
 ```
             Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low
-Sample_1.hi   0.9579014   0.9675596    0.2448656   0.18125880
-Sample_2.hi   1.0000000   0.9568912    0.1043959   0.03013834
+Sample_1.hi    0.896986   0.8866593    0.2507502    0.2750721
+Sample_2.hi    1.000000   0.9246164    0.3324584    0.4479703
 ```
 
 Statistics (9/26) - Visualising correlation
@@ -3373,8 +3374,8 @@ rnorm(10,mean=8,sd=3)
 ```
 
 ```
- [1]  7.594667  6.641170 16.283604  6.448365  4.623412 12.907679  9.876072
- [8]  6.598072  9.254394 11.444981
+ [1]  8.846729 14.124214  3.519872  9.142182  6.885289 11.403964  6.927396
+ [8]  2.029868 12.114430  6.900072
 ```
 We can also use these functions to interrogate values assuming a normal distribution for the data.
 

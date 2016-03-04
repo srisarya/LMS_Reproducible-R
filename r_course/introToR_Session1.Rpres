@@ -576,7 +576,7 @@ nrow(narrowMatrix)
 ncol(narrowMatrix)
 ```
 
-Matrices (3/12) (Joining vectors and matrices)
+Matrices (4/13) (Joining vectors and matrices)
 ========================================================
 
 A matrix can be created from multiple vectors or other matrices.
@@ -598,7 +598,7 @@ newerMatrix <- rbind(newMatrix,z)
 newerMatrix
 ```
 
-Matrices (4/12) - Joining incompatable vectors and matrices
+Matrices (5/13) - Joining incompatable vectors and matrices
 ========================================================
 
 When creating a matrix using **cbind()** or **matrix()** from incompatable vectors then the shorter vector is recycled. 
@@ -616,7 +616,7 @@ recycledMatrix3 <- rbind(recycledMatrix2,c(1:5))
 recycledMatrix3
 ```
 
-Matrices (5/12) - Column and row names
+Matrices (6/13) - Column and row names
 ========================================================
 
 [As we have seen with vectors](#/namingvectors), matrices can be named. For matrices the naming is done by columns and rows using **colnames()** and **rownames()** functions.
@@ -635,8 +635,9 @@ rownames(namedMatrix)
 ```
 
 
-Matrices (6/12) - Indexing
+Matrices (7/13) - Indexing
 ========================================================
+id:indexingmatrices
 
 Selecting and replacing portions of a matrix can be done by **indexing** using square brackets **[]** much [like for vectors](#indexingvectors).
 
@@ -653,7 +654,7 @@ Value of first column, second row
 narrowMatrix[2,1]
 ```
 
-Matrices (7/12) - Indexing 
+Matrices (8/13) - Indexing 
 ========================================================
 
 Similarly, whole rows or columns can be extracted. Single rows and columns will return a vector. When multiple columns or row indices are specified, a matrix is returned. 
@@ -674,7 +675,7 @@ Values of second and third row (column index is empty!)
 narrowMatrix[c(2,3),]
 ```
 
-Matrices (8/12) - Indexing by name
+Matrices (9/13) - Indexing by name
 ========================================================
 
 As with vectors, names can be used for indexing when present
@@ -688,7 +689,7 @@ narrowMatrix[,"Column_1"]
 narrowMatrix["Row_1","Column_1"]
 ```
 
-Matrices (9/12) Advanced indexing
+Matrices (10/13) Advanced indexing
 ========================================================
 
 As with vectors, matrices can be subset by logical vectors
@@ -702,7 +703,7 @@ narrowMatrix[,1] < 5
 narrowMatrix[narrowMatrix[,1] < 5,]
 ```
 
-Matrices (10/12) - Arithmetic operations.
+Matrices (11/13) - Arithmetic operations.
 ========================================================
 
 As with vectors, matrices can have arithmetic operations applied to cells,rows, columns or the whole matrix
@@ -714,7 +715,7 @@ mean(narrowMatrix)
 
 ```
 
-Matrices (11/12) - Replacement
+Matrices (12/13) - Replacement
 ========================================================
 
 As with vectors, matrices can have their elements replaced
@@ -724,9 +725,9 @@ narrowMatrix[1,1] <- 10
 narrowMatrix[,2] <- 1
 narrowMatrix
 ```
-Matrices (12/12) -Matrices can contain only one data type
+Matrices (13/13) -Matrices can contain only one data type
 ========================================================
-
+id:onedatatype
 Matrices must be all one type (i.e. numeric or character).
 
 Here replacing one value with character will turn numeric matrix to character matrix.
@@ -842,7 +843,7 @@ factorExample
 Data frames (1/12) - Creating data frames 
 =========================================================
 
-We saw that with matrices you can only have one type of data. We tried to create a matrix with a character element and the entire matrix became a character.
+[We saw that with matrices you can only have one type of data](#/onedatatype). We tried to create a matrix with a character element and the entire matrix became a character.
 
 In practice, we would want to have a table which is a mixture of types (e.g a table with sample names (character), sample type (factor) and survival time (numeric))
 
@@ -861,7 +862,7 @@ dfExample
 Data frames (2/12) - Indexing and replacement
 =========================================================
 
-Data frames may be indexed just as matrices.
+Data frames may be indexed just [as matrices](#/indexingmatrices).
 
 ```{r}
 dfExample
@@ -937,7 +938,7 @@ dfExample <- data.frame(Name=patientName,
                         Survival_Time=survivalTime,
                         stringsAsFactors = F)
 
-levels(dfExample[,"Name"]) <- c(levels(dfExample[,"Name"]) , "patientX")
+
 dfExample[dfExample[,"Survival_Time"] < 10,"Name"] <- "patientX"
 dfExample
 
