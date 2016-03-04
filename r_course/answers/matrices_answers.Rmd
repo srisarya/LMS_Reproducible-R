@@ -20,6 +20,9 @@ rownames(geneMatrix) <- geneNames
 geneMatrix
 ```
 - Update the matrix to contain the expression over the gene length for all genes (Length normalised expression) as final column.
+<a name="lne"></a>
+
+HINT - We calculated LNE before in [vectors exercises' bonus question](../answers/vector_answers.html#bonus)
 
 ```{r,message=T}
 lne <- geneMatrix[,"expression"]/geneMatrix[,"geneLengths"]
