@@ -50,9 +50,9 @@ install.packages("rmarkdown",dependencies=TRUE)
 </pre>
 
 #### Download the material
-The material can either be downloaded as a [zip](https://github.com/ThomasCarroll/Reproducible-R/archive/master.zip)
+The material can either be downloaded as a [zip](https://github.com/mrccsc/Reproducible-R/archive/master.zip)
 <pre>
-wget https://github.com/ThomasCarroll/Reproducible-R/archive/master.zip ./
+wget https://github.com/mrccsc/Reproducible-R/archive/master.zip ./
 </pre>
 or checked out from our Github repository
-https://github.com/ThomasCarroll/Reproducible-R/
+https://github.com/mrccsc/Reproducible-R/
