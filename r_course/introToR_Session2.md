@@ -789,9 +789,9 @@ Exercise on loops and conditional branching can be found [here](http://mrccsc.gi
 Answers to exercise.
 ========================================================
 
-Answers can be found here  [here](answers/conditionsAndLoops_Answers.html)
+Answers can be found here  [here](http://mrccsc.github.io/Reproducible-R/r_course/answers/conditionsAndLoops_Answers.html)
 
-Rcode for answers can be found here  [here](answers/conditionsAndLoops_Answers.R)
+Rcode for answers can be found here  [here](http://mrccsc.github.io/Reproducible-R/r_course/answers/conditionsAndLoops_Answers.R)
 
 Functions
 =====================
@@ -813,7 +813,7 @@ mean(x)
 ```
 
 ```
-[1] 71.68103
+[1] 72.09421
 ```
 
 ```r
@@ -982,7 +982,7 @@ $Calculation
 [1] 100
 
 $DateRun
-[1] "Sun Mar  6 19:49:49 2016"
+[1] "Sun Mar  6 19:52:17 2016"
 ```
 
 Functions (8/) -Scope
