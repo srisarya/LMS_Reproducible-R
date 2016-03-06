@@ -454,12 +454,14 @@ sapply(exampleList,summary)
 Time for an exercise!
 ========================================================
 
-Exercise on loops and conditional branching can be found [here](exercises/conditionsAndLoops_Exercises.html)
+Exercise on loops and conditional branching can be found [here](http://mrccsc.github.io/Reproducible-R/r_course/exercises//conditionsAndLoops_Exercises.html)
 
 Answers to exercise.
 ========================================================
 
 Answers can be found here  [here](answers/conditionsAndLoops_Answers.html)
+
+Rcode for answers can be found here  [here](answers/conditionsAndLoops_Answers.R)
 
 Functions
 =====================

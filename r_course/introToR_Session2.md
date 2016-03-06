@@ -784,12 +784,14 @@ $vec
 Time for an exercise!
 ========================================================
 
-Exercise on loops and conditional branching can be found [here](exercises/conditionsAndLoops_Exercises.html)
+Exercise on loops and conditional branching can be found [here](http://mrccsc.github.io/Reproducible-R/r_course/exercises//conditionsAndLoops_Exercises.html)
 
 Answers to exercise.
 ========================================================
 
 Answers can be found here  [here](answers/conditionsAndLoops_Answers.html)
+
+Rcode for answers can be found here  [here](answers/conditionsAndLoops_Answers.R)
 
 Functions
 =====================
@@ -811,7 +813,7 @@ mean(x)
 ```
 
 ```
-[1] 69.67671
+[1] 71.68103
 ```
 
 ```r
@@ -980,7 +982,7 @@ $Calculation
 [1] 100
 
 $DateRun
-[1] "Sun Mar  6 14:48:56 2016"
+[1] "Sun Mar  6 19:49:49 2016"
 ```
 
 Functions (8/) -Scope
