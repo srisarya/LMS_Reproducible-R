@@ -16,7 +16,7 @@ smallGeneMatrix <- geneMatrix[geneMatrix[,"geneLengths"] > 200,]
 smallGeneMatrix
 
 ## ----message=T-----------------------------------------------------------
-smallGeneMatrix <- geneMatrix[geneMatrix[,"geneLengths"] > 200 & geneMatrix[,"expression"] > 200,c("expression","lne")]
+smallGeneMatrix <- geneMatrix[geneMatrix[,"geneLengths"] > 200 & geneMatrix[,"expression"] > 300,c("expression","lne")]
 smallGeneMatrix
 
 ## ----message=T-----------------------------------------------------------

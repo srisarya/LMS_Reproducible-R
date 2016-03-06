@@ -18,7 +18,7 @@ HINT - We calculated LNE before in [vectors exercises' bonus question](../answer
 
 - Create a smaller matrix containing genes longer than 200
 
-- Create a smaller matrix with just expression and LNE columns containing genes longer than 200 and expression greater than 3000
+- Create a smaller matrix with just expression and LNE columns containing genes longer than 200 and expression greater than 300
 
 **Bonus Question**
 <a name="bonus"></a>
