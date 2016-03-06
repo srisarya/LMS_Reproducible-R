@@ -68,9 +68,9 @@ y
 length(dir())
 ```
 
-- Give the full path to the first file in the present working directory.
+- List the first file in the present working directory.
 ```{r}
-x <- dir(full.names=T)
+x <- dir()
 x[1]
 ```
 

@@ -1,7 +1,7 @@
 Introduction to R, Session 2
 ========================================================
 author: MRC Clinical Sciences Centre
-date:http://mrccsc.github.io/r_course/introToR_Session2.html
+date:http://mrccsc.github.io/Reproducible-R/
 width: 1440
 height: 1100
 autosize: true
@@ -811,7 +811,7 @@ mean(x)
 ```
 
 ```
-[1] 71.01157
+[1] 69.67671
 ```
 
 ```r
@@ -980,7 +980,7 @@ $Calculation
 [1] 100
 
 $DateRun
-[1] "Fri Mar  4 19:37:32 2016"
+[1] "Sun Mar  6 14:48:56 2016"
 ```
 
 Functions (8/) -Scope
@@ -1066,7 +1066,7 @@ dayOfWeek()
 ```
 
 ```
-[1] "Fri"
+[1] "Sun"
 ```
 
 Rscript

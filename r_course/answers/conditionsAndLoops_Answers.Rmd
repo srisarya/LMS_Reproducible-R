@@ -82,27 +82,3 @@ summary(annotatedExpression$Pathway)
 summary(Annotation$Pathway)
 ```
 
--- Look at the correlation between samples. Do any samples show a higher degree of correlation.
-
-```{r,message=T}
-cor(annotatedExpression[,grep("ExpressionResults",colnames(annotatedExpression))])
-
-```
--- For every gene, perform a t-test and write out the t-statistic (assuming unequal variance), log2 fold change, pvalue and gene annotation to a file.
-```{r,message=T}
-indexGroupOne <- grep("[1-5].txt",colnames(annotatedExpression))
-indexGroupTwo <- grep("[6-9,0].txt",colnames(annotatedExpression))
-ttestResults <- apply(annotatedExpression,1,function(x)
-  t.test(as.numeric(x[indexGroupOne]),as.numeric(x[indexGroupTwo])))
-
-str(ttestResults[[1]])
-
-testResult <- sapply(ttestResults,function(x) c(log2(x$estimate[2]) - log2(x$estimate[1]), x$statistic,x$p.value))
-testResult <- t(testResult)
-colnames(testResult) <- c("logFC","tStatistic","pValue")
-annotatedResult <- cbind(annotatedExpression[,1:3],testResult)
-annotatedResult <- annotatedResult[order(annotatedResult$tStatistic),]
-annotatedResult[1:2,]
-write.table(annotatedResult,file="annotatedResults.csv",sep=",",row.names=F,col.names=F)
-```
-

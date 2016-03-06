@@ -34,9 +34,9 @@ geneMatrix
 smallGeneMatrix <- geneMatrix[geneMatrix[,"geneLengths"] > 200,]
 smallGeneMatrix
 ```
-- Create a smaller matrix with just expression and lne columns containing genes longer than 200 and expression greater than 3000.
+- Create a smaller matrix with just expression and lne columns containing genes longer than 200 and expression greater than 300.
 ```{r,message=T}
-smallGeneMatrix <- geneMatrix[geneMatrix[,"geneLengths"] > 200 & geneMatrix[,"expression"] > 200,c("expression","lne")]
+smallGeneMatrix <- geneMatrix[geneMatrix[,"geneLengths"] > 200 & geneMatrix[,"expression"] > 300,c("expression","lne")]
 smallGeneMatrix
 ```
 **Bonus Question**

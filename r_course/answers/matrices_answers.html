@@ -133,8 +133,9 @@ geneMatrix</code></pre>
 ## Gene_3      10000         200
 ## Gene_4      12000        1000</code></pre>
 <ul>
-<li>Update the matrix to contain the expression over the gene length for all genes (Length normalised expression) as final column.</li>
+<li>Update the matrix to contain the expression over the gene length for all genes (Length normalised expression) as final column. <a name="lne"></a></li>
 </ul>
+<p>HINT - We calculated LNE before in <a href="../answers/vector_answers.html#bonus">vectors exercises’ bonus question</a></p>
 <pre class="r"><code>lne &lt;- geneMatrix[,&quot;expression&quot;]/geneMatrix[,&quot;geneLengths&quot;]
 geneMatrix &lt;- cbind(geneMatrix,lne)
 geneMatrix</code></pre>
@@ -152,9 +153,9 @@ smallGeneMatrix</code></pre>
 ## Gene_2       3000        3000   1
 ## Gene_4      12000        1000  12</code></pre>
 <ul>
-<li>Create a smaller matrix with just expression and lne columns containing genes longer than 200 and expression greater than 3000.</li>
+<li>Create a smaller matrix with just expression and lne columns containing genes longer than 200 and expression greater than 300.</li>
 </ul>
-<pre class="r"><code>smallGeneMatrix &lt;- geneMatrix[geneMatrix[,&quot;geneLengths&quot;] &gt; 200 &amp; geneMatrix[,&quot;expression&quot;] &gt; 200,c(&quot;expression&quot;,&quot;lne&quot;)]
+<pre class="r"><code>smallGeneMatrix &lt;- geneMatrix[geneMatrix[,&quot;geneLengths&quot;] &gt; 200 &amp; geneMatrix[,&quot;expression&quot;] &gt; 300,c(&quot;expression&quot;,&quot;lne&quot;)]
 smallGeneMatrix</code></pre>
 <pre><code>##        expression lne
 ## Gene_2       3000   1

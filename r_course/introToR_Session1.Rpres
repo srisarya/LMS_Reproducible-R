@@ -1,7 +1,7 @@
 Introduction to R, Session 1
 ========================================================
 author: MRC Clinical Sciences Centre
-date:http://mrccsc.github.io/training/introToR_Session1.html
+date:http://mrccsc.github.io/Reproducible-R/
 width: 1440
 height: 1100
 autosize: true
@@ -39,9 +39,10 @@ Presentations as an HTML slide show.
 Presentations as an HTML single page.
 * **presentations/rcode/**
 R code in presentations.
-* **presentations/practicals/**
-Practicals and solutions as HTML pages. 
-
+* **exercises/**
+Practicals as HTML pages. 
+* **answers/**
+Practicals with answers as HTML pages and R code solutions. 
 
 Set the Working directory
 ========================================================
@@ -158,7 +159,7 @@ sqrt(25)-1
 Using functions.
 ========================================================
 
-The **sqrt(25)** demostrates the use of functions in R. A function performs a complex operation on it's arguments and returns the result.
+The **sqrt(25)** demonstrates the use of functions in R. A function performs a complex operation on it's arguments and returns the result.
 
 In R, arguments are provided to a function within the parenthesis -- **( )** -- that follows the function name. So **sqrt(*ARGUMENT*)** will provide the square root of the value of ***ARGUMENT***.
 
@@ -328,7 +329,7 @@ x[-5]
 Vectors(5/15) - Indexing and replacement
 ========================================================
 
-We can use indices to modify a specific position in vector
+We can use indices to modify a specific position in a vector
 
 ```{r}
 x
@@ -685,7 +686,6 @@ colnames(narrowMatrix) <- paste("Column",1:2,sep="_")
 rownames(narrowMatrix) <- paste("Row",1:5,sep="_")
 narrowMatrix[,"Column_1"]
 narrowMatrix["Row_1",]
-narrowMatrix[,"Column_1"]
 narrowMatrix["Row_1","Column_1"]
 ```
 
@@ -1243,6 +1243,7 @@ Answers to exercise.
 ========================================================
 
 Answers can be found [here](answers/DataInputOutput_answers.html)
+
 R code for solutions can be found [here](answers/DataInputOutput_answers.R)
 
 Plotting in R
