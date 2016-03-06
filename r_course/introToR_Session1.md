@@ -844,14 +844,14 @@ x[x > 4 & !x < 7]
 Time for an exercise!
 ========================================================
 
-Exercise on vectors can be found [here](exercises/vector_exercise.html)
+Exercise on vectors can be found [here](http://mrccsc.github.io/Reproducible-R/r_course/exercises/vector_exercise.html)
 
 Answers to exercise.
 ========================================================
 
-Answers can be found here  [here](answers/vector_answers.html)
+Answers can be found here  [here](http://mrccsc.github.io/Reproducible-R/r_course/answers/vector_answers.html)
 
-R code for solutions can be found here  [here](answers/vector_answers.R)
+R code for solutions can be found here  [here](http://mrccsc.github.io/Reproducible-R/r_course/answers/vector_answers.R)
 
 Matrices (1/13) - Creating matrices
 ========================================================
@@ -1343,14 +1343,14 @@ Error in narrowMatrix[, 2] * 2: non-numeric argument to binary operator
 Time for an exercise!
 ========================================================
 
-Exercise on matrices can be found [here](exercises/matrices_exercise.html)
+Exercise on matrices can be found [here](http://mrccsc.github.io/Reproducible-R/r_course/exercises/matrices_exercise.html)
 
 Answers to exercise.
 ========================================================
 
-Answers can be found here  [here](answers/matrices_answers.html)
+Answers can be found here  [here](http://mrccsc.github.io/Reproducible-R/r_course/answers/matrices_answers.html)
 
-R code for solutions can be found [here](answers/matrices_answers.R)
+R code for solutions can be found [here](http://mrccsc.github.io/Reproducible-R/r_course/answers/matrices_answers.R)
 
 
 Factors (1/6) - Creating factors
@@ -1876,14 +1876,14 @@ mergedDF
 Time for an exercise!
 ========================================================
 
-Exercise on data frames can be found [here](exercises/Dataframes_Exercise.html)
+Exercise on data frames can be found [here](http://mrccsc.github.io/Reproducible-R/r_course/exercises/Dataframes_Exercise.html)
 
 Answers to exercise.
 ========================================================
 
-Answers can be found here  [here](answers/Dataframes_Answers.html)
+Answers can be found here  [here](http://mrccsc.github.io/Reproducible-R/r_course/answers/Dataframes_Answers.html)
 
-R code solutions can be found [here](answers/Dataframes_Answers.R)
+R code solutions can be found [here](http://mrccsc.github.io/Reproducible-R/r_course/answers/Dataframes_Answers.R)
 
 Lists (1/7) - Creating lists
 =========================================================
@@ -2109,14 +2109,14 @@ A standard format for this data is a table
 
 |Gene_Name | Sample_1.hi| Sample_2.hi| Sample_3.hi| Sample_4.low| Sample_5.low| Sample_1.low|
 |:---------|-----------:|-----------:|-----------:|------------:|------------:|------------:|
-|Gene_a    |    4.706070|    3.581804|    3.942559|     4.943286|     3.773114|     3.107050|
-|Gene_b    |    3.008858|    5.170394|    3.250415|     4.472156|     4.458525|     3.320384|
-|Gene_c    |    4.964354|    2.772529|    4.888258|     3.082617|     4.258737|     2.965107|
-|Gene_d    |    2.719683|    3.758548|    3.355930|     7.627221|     8.506422|     7.696318|
-|Gene_e    |   10.396713|   11.290849|    8.548740|     3.820935|     2.820184|     4.786718|
-|Gene_f    |    9.887829|    9.954660|   10.356184|     2.777522|     2.737274|     4.577054|
-|Gene_g    |   10.814957|   10.399738|   11.018030|    11.397572|    10.484793|    10.456719|
-|Gene_h    |    9.936853|   11.110622|   10.764450|    10.254713|    10.664146|     9.782610|
+|Gene_a    |    3.149545|    4.668029|    6.082959|     5.070144|     3.679263|     4.210263|
+|Gene_b    |    2.874890|    4.041081|    2.674151|     3.714690|     1.798403|     5.571886|
+|Gene_c    |    6.327381|    3.168204|    4.746336|     3.177191|     4.239594|     4.572719|
+|Gene_d    |    2.360057|    3.357351|    5.225099|     6.238056|     6.944495|     7.306824|
+|Gene_e    |   11.701845|    9.999566|    9.472459|     4.011991|     3.258754|     3.397240|
+|Gene_f    |    8.871027|    9.885266|   11.793698|     4.016763|     3.971220|     2.736102|
+|Gene_g    |    8.219410|   11.774123|   10.856599|    11.041652|     9.192430|    10.260087|
+|Gene_h    |   12.087445|   10.098899|   10.722017|     9.460037|     9.843823|     9.097731|
 
 Data IO (2/7) - Data from text file with read.table()
 =========================================================
@@ -2250,14 +2250,14 @@ write.table(Table,file="data/writeThisTable.csv", sep=",", row.names =F,col.name
 Time for an exercise!
 ========================================================
 
-Exercise on reading and writing data can be found [here](exercises/DataInputOutput_Exercises.html)
+Exercise on reading and writing data can be found [here](http://mrccsc.github.io/Reproducible-R/r_course/exercises/DataInputOutput_Exercises.html)
 
 Answers to exercise.
 ========================================================
 
-Answers can be found [here](answers/DataInputOutput_answers.html)
+Answers can be found [here](http://mrccsc.github.io/Reproducible-R/r_course/answers/DataInputOutput_answers.html)
 
-R code for solutions can be found [here](answers/DataInputOutput_answers.R)
+R code for solutions can be found [here](http://mrccsc.github.io/Reproducible-R/r_course/answers/DataInputOutput_answers.R)
 
 Plotting in R
 ========================================================
@@ -3118,7 +3118,7 @@ publication quality graphs.
 ========================================================
 Time for an exercise!
 ========================================================
-Exercise on Plotting can be found [here](exercises/Plotting_exercise.html)
+Exercise on Plotting can be found [here](http://mrccsc.github.io/Reproducible-R/r_course/exercises/Plotting_exercise.html)
 Answers to exercise.
 ========================================================
 Answers can be found here [here](answers/Plotting_answers.html)
@@ -3294,7 +3294,7 @@ cor(x,z)
 ```
 
 ```
-[1] 0.02985756
+[1] -0.04001719
 ```
 ***
 ![plot of chunk unnamed-chunk-202](introToR_Session1-figure/unnamed-chunk-202-1.png)
@@ -3308,8 +3308,8 @@ Often we wish to apply correlation analysis to all columns or rows in a matrix i
 
 | Sample_1.hi| Sample_2.hi| Sample_3.hi| Sample_4.low| Sample_5.low| Sample_1.low|
 |-----------:|-----------:|-----------:|------------:|------------:|------------:|
-|    4.706070|    3.581804|    3.942559|     4.943286|     3.773114|     3.107050|
-|    3.008858|    5.170394|    3.250415|     4.472156|     4.458525|     3.320384|
+|    3.149545|    4.668029|    6.082959|     5.070144|     3.679263|     4.210263|
+|    2.874890|    4.041081|    2.674151|     3.714690|     1.798403|     5.571886|
 
 
 ```r
@@ -3318,8 +3318,8 @@ cor(minRep)[1:2,2:5]
 
 ```
             Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low
-Sample_1.hi   0.9270785   0.9686084    0.2920467    0.1770619
-Sample_2.hi   1.0000000   0.9143080    0.3484738    0.2363221
+Sample_1.hi   0.8265129   0.8097767    0.3072960    0.3682172
+Sample_2.hi   1.0000000   0.9302013    0.5719315    0.4681946
 ```
 
 Statistics (9/26) - Visualising correlation
@@ -3368,8 +3368,8 @@ rnorm(10,mean=8,sd=3)
 ```
 
 ```
- [1]  3.947170 10.206414 10.015021 10.363263  3.285410  4.811819  9.010750
- [8]  4.948069  3.169905 13.368951
+ [1]  8.462636  4.234134  6.462752 10.616761  1.202005 13.121870  3.387792
+ [8] 11.211665  9.841183 11.673896
 ```
 We can also use these functions to interrogate values assuming a normal distribution for the data.
 
@@ -3937,7 +3937,7 @@ summary(lmResult)$fstatistic
 Time for an exercise!
 ========================================================
 
-Exercise on statistics can be found [here](exercises/Statistics_Exercises.html)
+Exercise on statistics can be found [here](http://mrccsc.github.io/Reproducible-R/r_course/exercises/Statistics_Exercises.html)
 
 Answers to exercise.
 ========================================================

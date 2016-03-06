@@ -529,14 +529,14 @@ x[x > 4 & !x < 7]
 Time for an exercise!
 ========================================================
 
-Exercise on vectors can be found [here](exercises/vector_exercise.html)
+Exercise on vectors can be found [here](http://mrccsc.github.io/Reproducible-R/r_course/exercises/vector_exercise.html)
 
 Answers to exercise.
 ========================================================
 
-Answers can be found here  [here](answers/vector_answers.html)
+Answers can be found here  [here](http://mrccsc.github.io/Reproducible-R/r_course/answers/vector_answers.html)
 
-R code for solutions can be found here  [here](answers/vector_answers.R)
+R code for solutions can be found here  [here](http://mrccsc.github.io/Reproducible-R/r_course/answers/vector_answers.R)
 
 Matrices (1/13) - Creating matrices
 ========================================================
@@ -747,14 +747,14 @@ narrowMatrix[,2] *2
 Time for an exercise!
 ========================================================
 
-Exercise on matrices can be found [here](exercises/matrices_exercise.html)
+Exercise on matrices can be found [here](http://mrccsc.github.io/Reproducible-R/r_course/exercises/matrices_exercise.html)
 
 Answers to exercise.
 ========================================================
 
-Answers can be found here  [here](answers/matrices_answers.html)
+Answers can be found here  [here](http://mrccsc.github.io/Reproducible-R/r_course/answers/matrices_answers.html)
 
-R code for solutions can be found [here](answers/matrices_answers.R)
+R code for solutions can be found [here](http://mrccsc.github.io/Reproducible-R/r_course/answers/matrices_answers.R)
 
 
 Factors (1/6) - Creating factors
@@ -1017,14 +1017,14 @@ mergedDF
 Time for an exercise!
 ========================================================
 
-Exercise on data frames can be found [here](exercises/Dataframes_Exercise.html)
+Exercise on data frames can be found [here](http://mrccsc.github.io/Reproducible-R/r_course/exercises/Dataframes_Exercise.html)
 
 Answers to exercise.
 ========================================================
 
-Answers can be found here  [here](answers/Dataframes_Answers.html)
+Answers can be found here  [here](http://mrccsc.github.io/Reproducible-R/r_course/answers/Dataframes_Answers.html)
 
-R code solutions can be found [here](answers/Dataframes_Answers.R)
+R code solutions can be found [here](http://mrccsc.github.io/Reproducible-R/r_course/answers/Dataframes_Answers.R)
 
 Lists (1/7) - Creating lists
 =========================================================
@@ -1237,14 +1237,14 @@ write.table(Table,file="data/writeThisTable.csv", sep=",", row.names =F,col.name
 Time for an exercise!
 ========================================================
 
-Exercise on reading and writing data can be found [here](exercises/DataInputOutput_Exercises.html)
+Exercise on reading and writing data can be found [here](http://mrccsc.github.io/Reproducible-R/r_course/exercises/DataInputOutput_Exercises.html)
 
 Answers to exercise.
 ========================================================
 
-Answers can be found [here](answers/DataInputOutput_answers.html)
+Answers can be found [here](http://mrccsc.github.io/Reproducible-R/r_course/answers/DataInputOutput_answers.html)
 
-R code for solutions can be found [here](answers/DataInputOutput_answers.R)
+R code for solutions can be found [here](http://mrccsc.github.io/Reproducible-R/r_course/answers/DataInputOutput_answers.R)
 
 Plotting in R
 ========================================================
@@ -2081,7 +2081,7 @@ publication quality graphs.
 ========================================================
 Time for an exercise!
 ========================================================
-Exercise on Plotting can be found [here](exercises/Plotting_exercise.html)
+Exercise on Plotting can be found [here](http://mrccsc.github.io/Reproducible-R/r_course/exercises/Plotting_exercise.html)
 Answers to exercise.
 ========================================================
 Answers can be found here [here](answers/Plotting_answers.html)
@@ -2517,7 +2517,7 @@ summary(lmResult)$fstatistic
 Time for an exercise!
 ========================================================
 
-Exercise on statistics can be found [here](exercises/Statistics_Exercises.html)
+Exercise on statistics can be found [here](http://mrccsc.github.io/Reproducible-R/r_course/exercises/Statistics_Exercises.html)
 
 Answers to exercise.
 ========================================================
