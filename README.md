@@ -2,6 +2,9 @@
 
 [![Join the chat at https://gitter.im/mrccsc/Reproducible-R](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mrccsc/Reproducible-R?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
+[![Build Status](https://travis-ci.org/mrccsc/Reproducible-R.svg?branch=master)](https://travis-ci.org/mrccsc/Reproducible-R)
+
+
 ##The Course
 
 This course introduces R and statistical programming as well as best practices for reproducible research using R's dynamic reporting and version capture tools.
