@@ -32,7 +32,7 @@
 <p>The course consists of 3 sections, 2 on basic R and 1 on reproducibility in R.<br>
 Each section is presented as both HTMl and Rpres markdown ( to allow for intergration of the presentation in the RStudion enviroment itself).  Exercises and answer sheets are included after all subsections to practice techniques and provide future reference examples. </p>
 
-<p>Course material and exercises are available to view as rendered HTML at <a href="http://mrccsc.github.io/reproducibleR">http://mrccsc.github.io/reproducibleR</a>.<br>
+<p>Course material and exercises are available to view as rendered HTML at <a href="http://mrccsc.github.io/Reproducible-R">http://mrccsc.github.io/reproducibleR</a>.<br>
 All material is available to download under GPL v2 license.</p>
 
 <p>For  information on other courses run by our team see our <a href="http://mrccsc.github.io/training/">github IO page</a>.</p>
@@ -73,8 +73,8 @@ To install these,</p>
 <li>First launch RStudio</li>
 <li>Install the packages in the R console
 <pre>
-install.packages("ggplot2",dependencies=TRUE)
-install.packages("rmarkdown",dependencies=TRUE)
+install.packages("devtools",dependencies=TRUE)
+devtools::install_github("Reproducible-R","mrccsc",subdir="reproducibleR",build_vignettes=TRUE)
 </pre>
 </li>
 </ul>
