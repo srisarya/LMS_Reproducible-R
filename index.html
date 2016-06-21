@@ -66,15 +66,48 @@ R 3.1.0 or higher is required for this course.</p>
 <h4>
 <a id="install-required-packages" class="anchor" href="#install-required-packages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install required packages.</h4>
 
+<h5><b>Option 1 - (For your own personal computers)</b></h5>
+
 <p>Having downloaded R and RStudio, some additional packages are required (rmarkdown and ggplot2).<br>
 To install these,</p>
 
 <ul>
 <li>First launch RStudio</li>
-<li>Install the packages in the R console
+<li>Install the packages in the R console using devtools
 <pre>
 install.packages("devtools",dependencies=TRUE)
-devtools::install_github("Reproducible-R","mrccsc",subdir="reproducibleR",build_vignettes=TRUE)
+devtools::install_github("mrccsc/Reproducible-R",subdir="reproducibleR",build_vignettes=TRUE)
+</pre>
+</li>
+</ul>
+
+
+<h5><b>Option 2 - (For CSC library)</b></h5> 
+
+<p>Having downloaded R and RStudio, some additional packages are required (rmarkdown and ggplot2).<br>
+To install these,</p>
+
+<ul>
+<li>First launch RStudio</li>
+<li>Install the packages in the R console using install.packages 
+<pre>
+install.packages("https://github.com/mrccsc/Reproducible-R/raw/master/binaries/win_version/reproducibleR_0.1.0.zip",repos = NULL,dependencies=TRUE)
+</pre>
+</li>
+</ul>
+
+<h5><b>Option 3 - (For anywhere)</b></h5> 
+
+<p>Having downloaded R and RStudio, some additional packages are required (rmarkdown and ggplot2).<br>
+To install these,</p>
+
+<ul>
+<li>First launch RStudio</li>
+<li>Install the packages in the R console using install.packages 
+<pre>
+install.packages("ggplot2",dependencies=TRUE)
+install.packages("rmarkdown",dependencies=TRUE)
+install.packages("yaml",dependencies=TRUE)
 </pre>
 </li>
 </ul>
