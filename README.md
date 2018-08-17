@@ -58,4 +58,4 @@ The material can either be downloaded as a [zip](https://github.com/mrccsc/Repro
 wget https://github.com/mrccsc/Reproducible-R/archive/master.zip ./
 </pre>
 or checked out from our Github repository
-https://github.com/mrccsc/Reproducible-R/
+https://github.com/LMSBioinformatics/Reproducible-R/
