@@ -15,7 +15,7 @@ Each section is presented as both HTMl and Rpres markdown ( to allow for intergr
 Course material and exercises are available to view as rendered HTML at https://github.com/LMSBioinformatics/Reproducible-R/.  
 All material is available to download under GPL v2 license.
 
-For  information on other courses run by our team see our [github IO page](http://mrccsc.github.io/training/).
+For  information on other courses run by our team see our [github IO page](http://bioinformatics.lms.mrc.ac.uk/LMStraining.html).
 
 
 ## The Team
