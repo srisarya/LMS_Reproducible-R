@@ -47,10 +47,10 @@ install.packages("ggplot2",dependencies=TRUE)
 install.packages("rmarkdown",dependencies=TRUE)
 </pre>
 
-#### Download the material
+<!--#### Download the material
 The material can either be downloaded as a [zip](https://github.com/mrccsc/Reproducible-R/archive/master.zip)
 <pre>
 wget https://github.com/mrccsc/Reproducible-R/archive/master.zip ./
 </pre>
 or checked out from our Github repository
-https://github.com/LMSBioinformatics/Reproducible-R/
+https://github.com/LMSBioinformatics/Reproducible-R/-->
