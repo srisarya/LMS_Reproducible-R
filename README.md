@@ -20,7 +20,7 @@ For  information on other courses run by our team see our [github IO page](http:
 
 ## The Team
 This course was created and conducted by the MRC London Institute of Medical Sciences  Bioinformatics Team at Imperial College London, Hammersmith Hospital.  
-For more information on the team see our [github IO page](http://bioinformatics.lms.mrc.ac.uk).
+For more information on the team see our [github IO page](http://bioinformatics.lms.mrc.ac.uk/LMSpeople.html).
 
 
 This course is free for MRC LMS and Imperial staff and students. 
