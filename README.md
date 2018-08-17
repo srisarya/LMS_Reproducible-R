@@ -9,18 +9,14 @@
 
 This course introduces R and statistical programming as well as best practices for reproducible research using R's dynamic reporting and version capture tools.
 
-The course consists of 3 sections, 2 on basic R and 1 on reproducibility in R.  
-Each section is presented as both HTMl and Rpres markdown ( to allow for intergration of the presentation in the RStudion enviroment itself).  Exercises and answer sheets are included after all subsections to practice techniques and provide future reference examples. 
+The course consists of 3 sections, 2 on basic R and 1 on reproducibility in R. Each section is presented as both HTMl and Rpres markdown ( to allow for intergration of the presentation in the RStudion enviroment itself).  Exercises and answer sheets are included after all subsections to practice techniques and provide future reference examples. 
 
 Course material and exercises are available to view as rendered HTML at https://github.com/LMSBioinformatics/Reproducible-R/.  
-All material is available to download under GPL v2 license.
-
-For  information on other courses run by our team see our [github IO page](http://bioinformatics.lms.mrc.ac.uk/LMStraining.html).
+All material is available to download under GPL v2 license. Forinformation on other courses run by our team see our [github IO page](http://bioinformatics.lms.mrc.ac.uk/LMStraining.html).
 
 
 ## The Team
-This course was created and conducted by the MRC London Institute of Medical Sciences  Bioinformatics Team at Imperial College London, Hammersmith Hospital.  
-For more information on the team see our [github IO page](http://bioinformatics.lms.mrc.ac.uk/LMSpeople.html).
+This course was created and conducted by the MRC London Institute of Medical Sciences  Bioinformatics Team at Imperial College London, Hammersmith Hospital. For more information on the team see our [github IO page](http://bioinformatics.lms.mrc.ac.uk/LMSpeople.html).
 
 
 This course is free for MRC LMS and Imperial staff and students. 
