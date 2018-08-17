@@ -5,7 +5,7 @@
 [![Build Status](https://travis-ci.org/mrccsc/Reproducible-R.svg?branch=master)](https://travis-ci.org/mrccsc/Reproducible-R)
 
 
-##The Course
+## The Course
 
 This course introduces R and statistical programming as well as best practices for reproducible research using R's dynamic reporting and version capture tools.
 
