@@ -11,8 +11,7 @@ This course introduces R and statistical programming as well as best practices f
 
 The course consists of 3 sections, 2 on basic R and 1 on reproducibility in R. Each section is presented as both HTMl and Rpres markdown ( to allow for intergration of the presentation in the RStudion enviroment itself).  Exercises and answer sheets are included after all subsections to practice techniques and provide future reference examples. 
 
-Course material and exercises are available to view as rendered HTML at https://github.com/LMSBioinformatics/Reproducible-R/.  
-All material is available to download under GPL v2 license. Forinformation on other courses run by our team see our [github IO page](http://bioinformatics.lms.mrc.ac.uk/LMStraining.html).
+  All material is available to download under GPL v2 license. Forinformation on other courses run by our team see our [github IO page](http://bioinformatics.lms.mrc.ac.uk/LMStraining.html).
 
 
 ## The Team
