@@ -1,11 +1,12 @@
 ---
 title: "Factors and Data frames exercises"
-author: "MRC CSC"
-date: "01/01/2015"
+author: "MRC LMS"
+date: "24/09/2018"
 output: html_document
 ---
 
-These exercises cover the factors and data frames sections of [Introduction to R]("introToR_Day1.html").
+These exercises cover the sections of Statistics in R [Introduction to R](https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/introToR_Session1.html).
+
 
 **Exercise 1** - **Factors**
 

@@ -1,7 +1,7 @@
 Introduction to R, Session 1
 ========================================================
-author: MRC Clinical Sciences Centre
-date:http://mrccsc.github.io/Reproducible-R/
+author: MRC LMS Bioinformatics Core
+date: https://lmsbioinformatics.github.io/MRCLMSBioinfo/LMStraining.html
 width: 1440
 height: 1100
 autosize: true
@@ -23,10 +23,10 @@ Materials.
 id: materials
 
 All prerequisites, links to material and slides for this course can be found on github.
-* [Reproducible-R](http://mrccsc.github.io/Reproducible-R/)
+* [Reproducible-R](https://lmsbioinformatics.github.io/LMS_Reproducible-R/)
 
 Or can be downloaded as a zip archive from here. 
-* [Download zip](https://github.com/mrccsc/Reproducible-R/zipball/master)
+* [Download zip](https://lmsbioinformatics.github.io/LMS_Reproducible-R/zipball/master)
 
 Materials. - Presentations, source code and practicals.
 ========================================================
@@ -844,14 +844,14 @@ x[x > 4 & !x < 7]
 Time for an exercise!
 ========================================================
 
-Exercise on vectors can be found [here](http://mrccsc.github.io/Reproducible-R/r_course/exercises/vector_exercise.html)
+Exercise on vectors can be found [here](https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/exercises/vector_exercise.html)
 
 Answers to exercise.
 ========================================================
 
-Answers can be found here  [here](http://mrccsc.github.io/Reproducible-R/r_course/answers/vector_answers.html)
+Answers can be found here  [here](https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/answers/vector_answers.html)
 
-R code for solutions can be found here  [here](http://mrccsc.github.io/Reproducible-R/r_course/answers/vector_answers.R)
+R code for solutions can be found here  [here](https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/answers/vector_answers.R)
 
 Matrices (1/13) - Creating matrices
 ========================================================
@@ -1343,14 +1343,14 @@ Error in narrowMatrix[, 2] * 2: non-numeric argument to binary operator
 Time for an exercise!
 ========================================================
 
-Exercise on matrices can be found [here](http://mrccsc.github.io/Reproducible-R/r_course/exercises/matrices_exercise.html)
+Exercise on matrices can be found [here](https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/exercises/matrices_exercise.html)
 
 Answers to exercise.
 ========================================================
 
-Answers can be found here  [here](http://mrccsc.github.io/Reproducible-R/r_course/answers/matrices_answers.html)
+Answers can be found here  [here](https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/answers/matrices_answers.html)
 
-R code for solutions can be found [here](http://mrccsc.github.io/Reproducible-R/r_course/answers/matrices_answers.R)
+R code for solutions can be found [here](https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/answers/matrices_answers.R)
 
 
 Factors (1/6) - Creating factors
@@ -1876,14 +1876,14 @@ mergedDF
 Time for an exercise!
 ========================================================
 
-Exercise on data frames can be found [here](http://mrccsc.github.io/Reproducible-R/r_course/exercises/Dataframes_Exercise.html)
+Exercise on data frames can be found [here](https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/exercises/Dataframes_Exercise.html)
 
 Answers to exercise.
 ========================================================
 
-Answers can be found here  [here](http://mrccsc.github.io/Reproducible-R/r_course/answers/Dataframes_Answers.html)
+Answers can be found here  [here](https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/answers/Dataframes_Answers.html)
 
-R code solutions can be found [here](http://mrccsc.github.io/Reproducible-R/r_course/answers/Dataframes_Answers.R)
+R code solutions can be found [here](https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/answers/Dataframes_Answers.R)
 
 Lists (1/7) - Creating lists
 =========================================================
@@ -2109,14 +2109,14 @@ A standard format for this data is a table
 
 |Gene_Name | Sample_1.hi| Sample_2.hi| Sample_3.hi| Sample_4.low| Sample_5.low| Sample_1.low|
 |:---------|-----------:|-----------:|-----------:|------------:|------------:|------------:|
-|Gene_a    |    3.149545|    4.668029|    6.082959|     5.070144|     3.679263|     4.210263|
-|Gene_b    |    2.874890|    4.041081|    2.674151|     3.714690|     1.798403|     5.571886|
-|Gene_c    |    6.327381|    3.168204|    4.746336|     3.177191|     4.239594|     4.572719|
-|Gene_d    |    2.360057|    3.357351|    5.225099|     6.238056|     6.944495|     7.306824|
-|Gene_e    |   11.701845|    9.999566|    9.472459|     4.011991|     3.258754|     3.397240|
-|Gene_f    |    8.871027|    9.885266|   11.793698|     4.016763|     3.971220|     2.736102|
-|Gene_g    |    8.219410|   11.774123|   10.856599|    11.041652|     9.192430|    10.260087|
-|Gene_h    |   12.087445|   10.098899|   10.722017|     9.460037|     9.843823|     9.097731|
+|Gene_a    |    3.411116|    4.804062|    5.145949|     4.464204|     5.363215|     7.181132|
+|Gene_b    |    3.940462|    1.874520|    3.814032|     3.048375|     3.063528|     5.253037|
+|Gene_c    |    4.259524|    3.381096|    3.940018|     1.715651|     3.468106|     3.155794|
+|Gene_d    |    5.115833|    4.312542|    4.013148|     8.490912|     8.058908|     8.359323|
+|Gene_e    |   11.226203|   10.792271|    8.938639|     2.251405|     2.594839|     4.016822|
+|Gene_f    |   10.404143|    9.013365|    8.515644|     2.687118|     1.216774|     3.801945|
+|Gene_g    |   10.346232|   10.859851|    9.947744|    10.131137|     9.830362|     9.354769|
+|Gene_h    |   11.635068|   10.181307|   12.570290|     9.001371|    10.183808|     9.855876|
 
 Data IO (2/7) - Data from text file with read.table()
 =========================================================
@@ -2250,14 +2250,14 @@ write.table(Table,file="data/writeThisTable.csv", sep=",", row.names =F,col.name
 Time for an exercise!
 ========================================================
 
-Exercise on reading and writing data can be found [here](http://mrccsc.github.io/Reproducible-R/r_course/exercises/DataInputOutput_Exercises.html)
+Exercise on reading and writing data can be found [here](https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/exercises/DataInputOutput_Exercises.html)
 
 Answers to exercise.
 ========================================================
 
-Answers can be found [here](http://mrccsc.github.io/Reproducible-R/r_course/answers/DataInputOutput_answers.html)
+Answers can be found [here](https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/answers/DataInputOutput_answers.html)
 
-R code for solutions can be found [here](http://mrccsc.github.io/Reproducible-R/r_course/answers/DataInputOutput_answers.R)
+R code for solutions can be found [here](https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/answers/DataInputOutput_answers.R)
 
 Plotting in R
 ========================================================
@@ -3118,7 +3118,7 @@ publication quality graphs.
 ========================================================
 Time for an exercise!
 ========================================================
-Exercise on Plotting can be found [here](http://mrccsc.github.io/Reproducible-R/r_course/exercises/Plotting_exercise.html)
+Exercise on Plotting can be found [here](https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/exercises/Plotting_exercise.html)
 Answers to exercise.
 ========================================================
 Answers can be found here [here](answers/Plotting_answers.html)
@@ -3294,7 +3294,7 @@ cor(x,z)
 ```
 
 ```
-[1] -0.04001719
+[1] -0.06521953
 ```
 ***
 ![plot of chunk unnamed-chunk-202](introToR_Session1-figure/unnamed-chunk-202-1.png)
@@ -3308,8 +3308,8 @@ Often we wish to apply correlation analysis to all columns or rows in a matrix i
 
 | Sample_1.hi| Sample_2.hi| Sample_3.hi| Sample_4.low| Sample_5.low| Sample_1.low|
 |-----------:|-----------:|-----------:|------------:|------------:|------------:|
-|    3.149545|    4.668029|    6.082959|     5.070144|     3.679263|     4.210263|
-|    2.874890|    4.041081|    2.674151|     3.714690|     1.798403|     5.571886|
+|    3.411116|    4.804062|    5.145949|     4.464204|     5.363215|     7.181132|
+|    3.940462|    1.874520|    3.814032|     3.048375|     3.063528|     5.253037|
 
 
 ```r
@@ -3318,8 +3318,8 @@ cor(minRep)[1:2,2:5]
 
 ```
             Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low
-Sample_1.hi   0.8265129   0.8097767    0.3072960    0.3682172
-Sample_2.hi   1.0000000   0.9302013    0.5719315    0.4681946
+Sample_1.hi    0.952938   0.9295091    0.2928801    0.2051798
+Sample_2.hi    1.000000   0.9224850    0.3553647    0.2824361
 ```
 
 Statistics (9/26) - Visualising correlation
@@ -3368,8 +3368,8 @@ rnorm(10,mean=8,sd=3)
 ```
 
 ```
- [1]  8.462636  4.234134  6.462752 10.616761  1.202005 13.121870  3.387792
- [8] 11.211665  9.841183 11.673896
+ [1]  8.819767  6.699864  9.207776 12.590419  8.551882  6.972284  6.476836
+ [8]  8.535880 10.506459 12.080977
 ```
 We can also use these functions to interrogate values assuming a normal distribution for the data.
 
@@ -3807,7 +3807,7 @@ To retrieve the residuals we can access the slot or use the resid() function.
 
 ```
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
--5.0150 -2.3690 -0.2079  0.0000  2.6070  5.0540 
+-5.0150 -2.3688 -0.2079  0.0000  2.6068  5.0538 
 ```
 
 ```r
@@ -3816,7 +3816,7 @@ To retrieve the residuals we can access the slot or use the resid() function.
 
 ```
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
--5.0150 -2.3690 -0.2079  0.0000  2.6070  5.0540 
+-5.0150 -2.3688 -0.2079  0.0000  2.6068  5.0538 
 ```
 Ideally you would want your residuals to be normally distributed around 0.
 
@@ -3937,7 +3937,7 @@ summary(lmResult)$fstatistic
 Time for an exercise!
 ========================================================
 
-Exercise on statistics can be found [here](http://mrccsc.github.io/Reproducible-R/r_course/exercises/Statistics_Exercises.html)
+Exercise on statistics can be found [here](https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/exercises/Statistics_Exercises.html)
 
 Answers to exercise.
 ========================================================

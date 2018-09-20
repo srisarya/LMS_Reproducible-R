@@ -1,11 +1,11 @@
 ---
 title: "Functions in R exercises"
-author: "MRC CSC"
-date: "01/01/2015"
+author: "MRC LMS"
+date: "24/09/2018"
 output: html_document
 ---
 
-These exercises cover the sections of functions in R [Introduction to R]("introToR_Day1.html").
+These exercises cover the sections of Statistics in R [Introduction to R](https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/introToR_Session1.html).
 
 -- Create a function which takes one argument and finds the smallest number whose factorial is greater than that argument.(Look at answer from previous exercises)
 

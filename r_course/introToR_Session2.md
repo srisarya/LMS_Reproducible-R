@@ -1,7 +1,7 @@
 Introduction to R, Session 2
 ========================================================
-author: MRC Clinical Sciences Centre
-date:http://mrccsc.github.io/Reproducible-R/
+author: MRC LMS Bioinformatics Core
+date: https://lmsbioinformatics.github.io/MRCLMSBioinfo/LMStraining.html
 width: 1440
 height: 1100
 autosize: true
@@ -338,23 +338,7 @@ for(i in x){
 ```
 
 ```
-Loop1
-```
-
-```
-Loop2
-```
-
-```
-Loop3
-```
-
-```
-Loop4
-```
-
-```
-Loop5
+Loop1 Loop2 Loop3 Loop4 Loop5
 ```
 ***
 Similarly we can cycle through other vector types (or lists)
@@ -367,23 +351,7 @@ for(i in x){
 ```
 
 ```
-LoopA
-```
-
-```
-LoopB
-```
-
-```
-LoopC
-```
-
-```
-LoopD
-```
-
-```
-LoopE
+LoopA LoopB LoopC LoopD LoopE
 ```
 
 
@@ -784,14 +752,14 @@ $vec
 Time for an exercise!
 ========================================================
 
-Exercise on loops and conditional branching can be found [here](http://mrccsc.github.io/Reproducible-R/r_course/exercises//conditionsAndLoops_Exercises.html)
+Exercise on loops and conditional branching can be found [here](https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/exercises//conditionsAndLoops_Exercises.html)
 
 Answers to exercise.
 ========================================================
 
-Answers can be found here  [here](http://mrccsc.github.io/Reproducible-R/r_course/answers/conditionsAndLoops_Answers.html)
+Answers can be found here  [here](https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/answers/conditionsAndLoops_Answers.html)
 
-Rcode for answers can be found here  [here](http://mrccsc.github.io/Reproducible-R/r_course/answers/conditionsAndLoops_Answers.R)
+Rcode for answers can be found here  [here](https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/answers/conditionsAndLoops_Answers.R)
 
 Functions
 =====================
@@ -813,7 +781,7 @@ mean(x)
 ```
 
 ```
-[1] 69.02537
+[1] 68.03921
 ```
 
 ```r
@@ -982,7 +950,7 @@ $Calculation
 [1] 100
 
 $DateRun
-[1] "Sun Mar  6 19:57:31 2016"
+[1] "Thu Sep 20 15:16:50 2018"
 ```
 
 Functions (8/) -Scope
@@ -1068,7 +1036,7 @@ dayOfWeek()
 ```
 
 ```
-[1] "Sun"
+[1] "Thu"
 ```
 
 Rscript
