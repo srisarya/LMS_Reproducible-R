@@ -1,13 +1,9 @@
 ---
 title: "Plotting Excercise"
-author: "MRC LMS"
-date: "24/09/2018"
+author: "MRC CSC"
+date: "Monday, February 02, 2015"
 output: html_document
 ---
-
-These exercises cover the sections of Statistics in R [Introduction to R](https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/introToR_Session1.html).
-
-
 
 **Exercise 1**
 Produce a data frame with two columns: x, which ranges from -2&pi; to 2&pi; 
