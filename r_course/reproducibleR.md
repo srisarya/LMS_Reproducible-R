@@ -1,7 +1,7 @@
 Reproducible R
 =========================================================
-author: MRC Clinical Sciences Centre
-date:http://mrccsc.github.io/r_course/reproducibleR.html
+author: LMS Bioinformatics Core
+date:https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/reproducibleR.html
 width: 1440
 height: 1100
 autosize: true
@@ -126,7 +126,7 @@ If we wish to control author, title and date, we can insert metadata into the sc
 ```r
 #' ---
 #' title: "CWB making notes example"
-#' author: "Tom Carroll"
+#' author: "Bioinformatics Core"
 #' date: "Day 3 of CWB"
 #' ---
 #' this would be placed as text in html
@@ -228,7 +228,7 @@ Files may be local or accessible from http URL.
 
 ```
 ![alt text](imgs/Dist.jpg)
-![alt text](http://mrccsc.github.io/r_course/imgs/Dist.jpg)
+![alt text](http://lmsbioinformatics.github.io/r_course/imgs/Dist.jpg)
 
 ```
 
@@ -298,8 +298,8 @@ Markdown syntax- HTML links
 ======
 HTML links can be included in Markdown documents either by simply including address in text or by using **[]** for the phrase to add link to, followed the link in **()**
 ```
-http://mrccsc.github.io
-[Github site](http://mrccsc.github.io)
+https://lmsbioinformatics.github.io/MRCLMSBioinfo/
+[Github site](https://lmsbioinformatics.github.io/MRCLMSBioinfo/)
 ```
 
 Markdown syntax- Page breaks.
@@ -477,8 +477,8 @@ In rMarkdown the options for document processing are stored in YAML format at th
 ```
 ---
 title: "Untitled"
-author: "tcarroll"
-date: "21 November 2014"
+author: "Bioinformatics Core"
+date: "26 September 2018"
 output: html_document
 ---
 ```
