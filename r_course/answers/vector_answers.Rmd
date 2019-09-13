@@ -1,6 +1,6 @@
 ---
 title: "Vectors Exercises"
-author: "MRC CSC"
+author: "MRC LMS"
 output: html_document
 ---
 
