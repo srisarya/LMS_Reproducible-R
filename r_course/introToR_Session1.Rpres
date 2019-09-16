@@ -1,7 +1,7 @@
 Introduction to R, Session 1
 ========================================================
-author: MRC Clinical Sciences Centre
-date:http://mrccsc.github.io/Reproducible-R/
+author: MRC LMS Bioinformatics Core
+date: 18 September 2019
 width: 1440
 height: 1100
 autosize: true
@@ -529,14 +529,14 @@ x[x > 4 & !x < 7]
 Time for an exercise!
 ========================================================
 
-Exercise on vectors can be found [here](https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/exercises/vector_exercise.html)
+Exercise on vectors can be found [here](./exercises/vector_exercise.html)
 
 Answers to exercise.
 ========================================================
 
-Answers can be found here  [here](https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/answers/vector_answers.html)
+Answers can be found here  [here](./answers/vector_answers.html)
 
-R code for solutions can be found here  [here](https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/answers/vector_answers.R)
+R code for solutions can be found here  [here](./answers/vector_answers.R)
 
 Matrices (1/13) - Creating matrices
 ========================================================
@@ -747,12 +747,12 @@ narrowMatrix[,2] *2
 Time for an exercise!
 ========================================================
 
-Exercise on matrices can be found [here](https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/exercises/matrices_exercise.html)
+Exercise on matrices can be found [here](./exercises/matrices_exercise.html)
 
 Answers to exercise.
 ========================================================
 
-Answers can be found here  [here](https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/answers/matrices_answers.html)
+Answers can be found here  [here](./answers/matrices_answers.html)
 
 R code for solutions can be found [here](https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/answers/matrices_answers.R)
 
@@ -1193,7 +1193,7 @@ Data IO (5/7) - Data from other sources
 The read.table function can also read data from http.
 
 ```{r,echo=T}
-URL <- "http://mrccsc.github.io/readThisTable.csv"
+URL <- "http://lmsbioinformatics.github.io/readThisTable.csv"
 Table <- read.table(URL,sep=",",header=T)
 Table[1:2,1:3]
 ```
@@ -1242,10 +1242,10 @@ Exercise on reading and writing data can be found [here](https://lmsbioinformati
 Answers to exercise.
 ========================================================
 
-Answers can be found [here](https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/answers/DataInputOutput_answers.html)
+Answers can be found [here](./answers/DataInputOutput_answers.html)
 
 
-R code for solutions can be found [here](https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/answers/DataInputOutput_answers.R)
+R code for solutions can be found [here](./answers/DataInputOutput_answers.R)
 
 
 
@@ -1676,11 +1676,11 @@ summary(lmResult)$fstatistic
 
 ```
 
-
+ 
 Time for an exercise!
 ========================================================
 
-Exercise on statistics can be found [here](http://mrccsc.github.io/Reproducible-R/r_course/exercises/Statistics_Exercises.html)
+Exercise on statistics can be found [here](./exercises/Statistics_Exercises.html)
 
 Answers to exercise.
 ========================================================
