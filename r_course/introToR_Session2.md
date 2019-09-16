@@ -1,7 +1,7 @@
 Introduction to R, Session 2
 ========================================================
-author: MRC LMS Bioinformatics Core
-date: https://lmsbioinformatics.github.io/MRCLMSBioinfo/LMStraining.html
+author: MRC Clinical Sciences Centre
+date:http://mrccsc.github.io/Reproducible-R/
 width: 1440
 height: 1100
 autosize: true
@@ -752,14 +752,14 @@ $vec
 Time for an exercise!
 ========================================================
 
-Exercise on loops and conditional branching can be found [here](https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/exercises//conditionsAndLoops_Exercises.html)
+Exercise on loops and conditional branching can be found [here](http://mrccsc.github.io/Reproducible-R/r_course/exercises//conditionsAndLoops_Exercises.html)
 
 Answers to exercise.
 ========================================================
 
-Answers can be found here  [here](https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/answers/conditionsAndLoops_Answers.html)
+Answers can be found here  [here](http://mrccsc.github.io/Reproducible-R/r_course/answers/conditionsAndLoops_Answers.html)
 
-Rcode for answers can be found here  [here](https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/answers/conditionsAndLoops_Answers.R)
+Rcode for answers can be found here  [here](http://mrccsc.github.io/Reproducible-R/r_course/answers/conditionsAndLoops_Answers.R)
 
 Functions
 =====================
@@ -781,7 +781,7 @@ mean(x)
 ```
 
 ```
-[1] 69.97516
+[1] 70.02192
 ```
 
 ```r
@@ -950,7 +950,7 @@ $Calculation
 [1] 100
 
 $DateRun
-[1] "Mon Sep 16 10:32:24 2019"
+[1] "Mon Sep 16 13:27:25 2019"
 ```
 
 Functions (8/) -Scope

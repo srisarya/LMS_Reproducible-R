@@ -1,12 +1,14 @@
 ---
 title: "Reading and writing data in R exercises"
+
 author: "MRC LMS"
 date: "18/09/2019"
+
+
 output: html_document
 ---
 
-These exercises cover the sections of Statistics in R [Introduction to R](https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/introToR_Session1.html).
-
+These exercises cover the  sections of [Introduction to R]("introToR_Day1.html"). All files can be found in the "data" directory.
 
 **Exercise 1**
 

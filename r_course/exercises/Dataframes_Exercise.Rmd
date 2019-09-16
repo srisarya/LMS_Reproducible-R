@@ -1,11 +1,12 @@
 ---
 title: "Data frames exercises"
+
 author: "MRC LMS"
 date: "18/09/2019"
 output: html_document
 ---
 
-These exercises cover the sections of Statistics in R [Introduction to R](https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/introToR_Session1.html).
+These exercises cover the factors and data frames sections of [Introduction to R]("introToR_Day1.html").
 
 **Exercise 1** - **Data frames**
 

@@ -1,7 +1,7 @@
 Introduction to R, Session 1
 ========================================================
-author: MRC LMS Bioinformatics Core
-date: https://lmsbioinformatics.github.io/MRCLMSBioinfo/LMStraining.html
+author: MRC Clinical Sciences Centre
+date:http://mrccsc.github.io/Reproducible-R/
 width: 1440
 height: 1100
 autosize: true
@@ -15,6 +15,7 @@ Overview
 - [Background to R](#/background)
 - [Data types in R](#/datatypes)
 - [Reading and writing data in R](#/reading)
+- [Statistics in R](#/stats)
 
 
 Materials.
@@ -22,10 +23,10 @@ Materials.
 id: materials
 
 All prerequisites, links to material and slides for this course can be found on github.
-* [Reproducible-R](https://lmsbioinformatics.github.io/LMS_Reproducible-R/)
+* [Reproducible-R](http://mrccsc.github.io/Reproducible-R/)
 
 Or can be downloaded as a zip archive from here. 
-* [Download zip](https://lmsbioinformatics.github.io/LMS_Reproducible-R/zipball/master)
+* [Download zip](https://github.com/mrccsc/Reproducible-R/zipball/master)
 
 Materials. - Presentations, source code and practicals.
 ========================================================
@@ -1243,6 +1244,7 @@ Answers to exercise.
 
 Answers can be found [here](https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/answers/DataInputOutput_answers.html)
 
+
 R code for solutions can be found [here](https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/answers/DataInputOutput_answers.R)
 
 
@@ -1678,7 +1680,7 @@ summary(lmResult)$fstatistic
 Time for an exercise!
 ========================================================
 
-Exercise on statistics can be found [here](https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/exercises/Statistics_Exercises.html)
+Exercise on statistics can be found [here](http://mrccsc.github.io/Reproducible-R/r_course/exercises/Statistics_Exercises.html)
 
 Answers to exercise.
 ========================================================

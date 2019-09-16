@@ -1,7 +1,7 @@
 Introduction to R, Session 1
 ========================================================
-author: MRC LMS Bioinformatics Core
-date: https://lmsbioinformatics.github.io/MRCLMSBioinfo/LMStraining.html
+author: MRC Clinical Sciences Centre
+date:http://mrccsc.github.io/Reproducible-R/
 width: 1440
 height: 1100
 autosize: true
@@ -15,6 +15,7 @@ Overview
 - [Background to R](#/background)
 - [Data types in R](#/datatypes)
 - [Reading and writing data in R](#/reading)
+- [Statistics in R](#/stats)
 
 
 Materials.
@@ -22,10 +23,10 @@ Materials.
 id: materials
 
 All prerequisites, links to material and slides for this course can be found on github.
-* [Reproducible-R](https://lmsbioinformatics.github.io/LMS_Reproducible-R/)
+* [Reproducible-R](http://mrccsc.github.io/Reproducible-R/)
 
 Or can be downloaded as a zip archive from here. 
-* [Download zip](https://lmsbioinformatics.github.io/LMS_Reproducible-R/zipball/master)
+* [Download zip](https://github.com/mrccsc/Reproducible-R/zipball/master)
 
 Materials. - Presentations, source code and practicals.
 ========================================================
@@ -2108,14 +2109,14 @@ A standard format for this data is a table
 
 |Gene_Name | Sample_1.hi| Sample_2.hi| Sample_3.hi| Sample_4.low| Sample_5.low| Sample_1.low|
 |:---------|-----------:|-----------:|-----------:|------------:|------------:|------------:|
-|Gene_a    |    3.308962|    3.249099|    4.989843|     4.219753|     6.274087|     3.443167|
-|Gene_b    |    3.208560|    3.807221|    1.631800|     3.181354|     2.582163|     4.286574|
-|Gene_c    |    4.075405|    3.570820|    2.408087|     4.316022|     2.987293|     5.079014|
-|Gene_d    |    5.194701|    5.102406|    5.412888|     7.385312|     7.848788|     8.400925|
-|Gene_e    |   10.055546|    8.931736|    9.342353|     2.407286|     3.098263|     2.323781|
-|Gene_f    |   10.622157|    7.680780|    9.430065|     3.616657|     2.281325|     4.559467|
-|Gene_g    |    8.870156|   10.140451|    8.541905|     9.325560|     8.811147|     9.798249|
-|Gene_h    |    9.606132|    9.100208|    8.570574|    10.751970|    10.711204|     9.777113|
+|Gene_a    |    3.535752|    3.274853|    3.519409|     4.031614|     5.686508|     5.118293|
+|Gene_b    |    5.133548|    4.198894|    3.696728|     2.849446|     4.086231|     2.214357|
+|Gene_c    |    5.104837|    2.824909|    4.100248|     4.537647|     3.369924|     3.657751|
+|Gene_d    |    5.126451|    2.548091|    4.560722|     7.360236|     7.648774|     9.508055|
+|Gene_e    |    9.709571|   12.379179|   11.478240|     2.336726|     3.440739|     3.649730|
+|Gene_f    |    8.708790|    9.463823|    9.613896|     2.287361|     2.240497|     2.667065|
+|Gene_g    |   10.033541|   10.628207|   10.613183|     8.695729|    11.558926|    10.641975|
+|Gene_h    |    9.400261|    9.772543|    9.748263|     8.531735|    10.077684|    10.008418|
 
 Data IO (2/7) - Data from text file with read.table()
 =========================================================
@@ -2255,6 +2256,7 @@ Answers to exercise.
 ========================================================
 
 Answers can be found [here](https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/answers/DataInputOutput_answers.html)
+
 
 R code for solutions can be found [here](https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/answers/DataInputOutput_answers.R)
 
@@ -2431,7 +2433,7 @@ cor(x,z)
 ```
 
 ```
-[1] 0.1241941
+[1] 0.06117228
 ```
 ***
 ![plot of chunk unnamed-chunk-109](introToR_Session1-figure/unnamed-chunk-109-1.png)
@@ -2445,8 +2447,8 @@ Often we wish to apply correlation analysis to all columns or rows in a matrix i
 
 | Sample_1.hi| Sample_2.hi| Sample_3.hi| Sample_4.low| Sample_5.low| Sample_1.low|
 |-----------:|-----------:|-----------:|------------:|------------:|------------:|
-|    3.308962|    3.249099|    4.989843|     4.219753|     6.274087|     3.443167|
-|    3.208560|    3.807221|    1.631800|     3.181354|     2.582163|     4.286574|
+|    3.535752|    3.274853|    3.519409|     4.031614|     5.686508|     5.118293|
+|    5.133548|    4.198894|    3.696728|     2.849446|     4.086231|     2.214357|
 
 
 ```r
@@ -2455,8 +2457,8 @@ cor(minRep)[1:2,2:5]
 
 ```
             Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low
-Sample_1.hi     0.92205   0.9394649    0.2625547    0.1649579
-Sample_2.hi     1.00000   0.8835826    0.4767834    0.3929578
+Sample_1.hi   0.9582528   0.9802935   0.23308480    0.3177768
+Sample_2.hi   1.0000000   0.9801297   0.04299253    0.1925008
 ```
 
 Statistics (9/26) - Visualising correlation
@@ -2505,8 +2507,8 @@ rnorm(10,mean=8,sd=3)
 ```
 
 ```
- [1]  6.769841  8.412134  9.570951 10.483448 13.802198  6.919202  6.258259
- [8]  7.102670  4.879807  7.678523
+ [1]  8.203510  6.486897  9.317182  7.162484 11.047558  7.992077  8.530070
+ [8]  9.610470 10.625727 15.507461
 ```
 We can also use these functions to interrogate values assuming a normal distribution for the data.
 
@@ -3074,7 +3076,7 @@ summary(lmResult)$fstatistic
 Time for an exercise!
 ========================================================
 
-Exercise on statistics can be found [here](https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/exercises/Statistics_Exercises.html)
+Exercise on statistics can be found [here](http://mrccsc.github.io/Reproducible-R/r_course/exercises/Statistics_Exercises.html)
 
 Answers to exercise.
 ========================================================
