@@ -17,7 +17,7 @@ Overview
 - [Conditions and Loops](#/control)
 - [Defining functions](#/functions)
 - [Writing scripts](#/scripts)
-- [Libraries](#/libraries)
+
 
 
 Recap on what we have covered. 
@@ -707,34 +707,6 @@ as.numeric(myFirstArgument)
 10
 ```
 Since vectors can only be one type, all command line arguments are strings and must be converted to numeric if needed with **as.numeric()**
-
-Loading libraries
-================
-
-Libraries can be loaded using the library() function with an argument of the name of the library
-
-```{r,eval=F}
-library(ggplot2)
-```
-
-You can see what libraries are available in the Packages panel or by the  library() function with no arguments supplied
-
-```{r,eval=F}
-library()
-```
-
-Installing libraries
-================
-
-Libraries can be installed through the R studio menu
-
-**-> Tools -> Install packages ..**
-
-Or by using the install.packages() command
-
-```{r,eval=F}
-install.packages("Hmisc")
-```
 
 
 Getting help

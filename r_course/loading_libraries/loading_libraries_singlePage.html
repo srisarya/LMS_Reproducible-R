@@ -181,373 +181,70 @@ summary {
 </div>
 
 
-<div id="reproducible-reporting-in-r" class="section level1">
-<h1>Reproducible Reporting in R</h1>
-<p>author: LMS Bioinformatics Core date: 19 September 2019</p>
+<div id="introduction-to-r-loading-libraries" class="section level1">
+<h1>Introduction to R Loading Libraries</h1>
+<p>author: LMS Bioinformatics date: 18 September 2019</p>
 </div>
-<div id="reproducible-research" class="section level1">
-<h1>Reproducible Research</h1>
-<blockquote>
-<p>“Let us change our traditional attitude to the construction of programs: Instead of imagining that our main task is to instruct a computer what to do, let us concentrate rather on explaining to humans what we want the computer to do.” – Donald E. Knuth, Literate Programming, 1984</p>
-</blockquote>
+<div id="what-are-libraries-in-r" class="section level1">
+<h1>What are libraries in R?</h1>
+<p>R libraries or packages are collections of functions developed by the community. R packages include - reusable R functions - the documentation for these functions and - sample data to test their functionality.</p>
 </div>
-<div id="reproducible-research-in-r" class="section level1">
-<h1>Reproducible Research in R</h1>
-<p>Sometime in the future, I, or my successor, will need to understand what analysis i did here.</p>
-<p>Using RStudio to make reproducible documents is very easy, so why not?</p>
+<div id="what-are-repositories" class="section level1">
+<h1>What are repositories?</h1>
+<p>A repository is a place where packages are deposited by the community and you can install them from it. The two most popular repositories for R packages are: - CRAN - Bioconductor</p>
 </div>
-<div id="a-very-quick-reproducible-document-in-r" class="section level1">
-<h1>A very quick reproducible document in R</h1>
-<ul>
-<li>Find your R script of interest.</li>
-<li>Add the sessionInfo() function to the last line.</li>
-<li>Click the “Compile Notebook function” -&gt; Select HTML document as output format.</li>
-</ul>
+<div id="how-to-install-r-packages-from-cran" class="section level1">
+<h1>How to install R packages from CRAN?</h1>
+<p>You can install the packages from CRAN using the function install.packages()</p>
+<p>For example,</p>
+<pre class="r"><code>install.packages(&quot;babynames&quot;)</code></pre>
+<p>To load the installed packages and use them, you can use the library() function</p>
+<p>For example,</p>
+<pre class="r"><code>library(babynames)</code></pre>
+<p>You can also install packages through the R studio menu</p>
+<p><strong>-&gt; Tools -&gt; Install packages ..</strong></p>
 </div>
-<div id="creating-documents-from-r-scripts" class="section level1">
-<h1>Creating documents from R scripts</h1>
+<div id="how-to-install-r-packages-from-bioconductor" class="section level1">
+<h1>How to install R packages from Bioconductor?</h1>
+<p>To install packages from Bioconductor, you have to first have to install the Bioconduction package manager “BiocManager”</p>
+<p>To install it,</p>
+<pre class="r"><code>install.packages(&quot;BiocManager&quot;)</code></pre>
+<p>Then, you can install any packages from Bioconductor using the BiocManager::install() function</p>
+<p>For example,</p>
+<pre class="r"><code>BiocManager::install(&quot;DESeq2&quot;)</code></pre>
+<p>To load the installed packages and use them, you can use the library() function</p>
+<p>For example,</p>
+<pre class="r"><code>
+library(DESeq2)</code></pre>
 </div>
-<div id="from-scripts-to-notes" class="section level1">
-<h1>From Scripts to Notes</h1>
-<p>So we have just seen the speed at which you can produce a report document from an R script using Rstudio.</p>
-<p>Rstudio makes things easy but for fine control we need to look at what is going on within Rstudio.</p>
-<p>Rstudio makes use of <strong>rmarkdown</strong> and <strong>knitr</strong> packages.</p>
+<div id="how-to-install-r-packages-from-bioconductor-in-older-versions-of-r" class="section level1">
+<h1>How to install R packages from Bioconductor in older versions of R?</h1>
+<p>If you are using an older version of R (R &lt; 3.5.0), you have to use biocLite to install Bioconductor packages.</p>
+<p>To install packages from Bioconductor, you have to first source the “biocLite” package.</p>
+<pre class="r"><code>source(&quot;https://bioconductor.org/biocLite.R&quot;)</code></pre>
+<p>Then, you can install any packages from Bioconductor using the biocLite() function</p>
+<p>For example,</p>
+<pre class="r"><code>biocLite(&quot;DESeq2&quot;)</code></pre>
+<p>To load the installed packages and use them, you can use the library() function</p>
+<p>For example,</p>
+<pre class="r"><code>library(DESeq2)</code></pre>
 </div>
-<div id="defaults" class="section level1">
-<h1>Defaults</h1>
-<p>Several packages offer methods to create notes from R scripts.</p>
-<p>One of the simplest way to create a note in R is to use the <strong>render()</strong> function in <strong>rmarkdown</strong> package.</p>
-<pre class="r"><code>library(rmarkdown)
-render(&quot;scripts/script.r&quot;)</code></pre>
-</div>
-<div id="output-from-render" class="section level1">
-<h1>Output from render()</h1>
-<p>By default the render() function will have created a html file in the current working directory.</p>
-<p>Have a look at the result script.html in the scripts directory.</p>
-</div>
-<div id="controlling-the-output-type-from-render" class="section level1">
-<h1>Controlling the output type from render()</h1>
-<p>The render() function takes the argument <strong>output_format</strong></p>
-<pre class="r"><code>render(&quot;scripts/script.r&quot;, output_format=&quot;html_document&quot;)</code></pre>
-</div>
-<div id="setting-output-directory-for-rendered-documents" class="section level1">
-<h1>Setting output directory for rendered documents</h1>
-<p>The arguments <strong>output_file</strong> and <strong>output_dir</strong> can be used to control where output is rendered to.</p>
-<p>Note that file extension must be supplied.</p>
-<pre class="r"><code>render(&quot;scripts/script.r&quot;, output_format=&quot;html_document&quot;, output_file=&quot;myRenderedDoc.html&quot;,output_dir=&quot;scripts&quot;)</code></pre>
-</div>
-<div id="adding-comments-and-text." class="section level1">
-<h1>Adding comments and text.</h1>
-<p>In R we can use <strong>#</strong> as comments in the code. This is the most basic type of documentation for your code.</p>
-<pre class="r"><code># Generate some random numbers
-myRandNumbers &lt;- rnorm(100,10,2)</code></pre>
-</div>
-<div id="adding-comments-and-text.-1" class="section level1">
-<h1>Adding comments and text.</h1>
-<p>If we want to include comments as text then we can use a new comment type <strong>#’</strong></p>
-<pre class="r"><code>#' this would be placed as code
-# Generate some random numbers
-myRandNumbers &lt;- rnorm(100,10,2)</code></pre>
-</div>
-<div id="yaml-metadata." class="section level1">
-<h1>YAML metadata.</h1>
-<p>If we wish to control author, title and date, we can insert metadata into the script as YAML.</p>
-<pre class="r"><code>#' ---
-#' title: &quot;Reproducible reporting in R&quot;
-#' author: &quot;LMS Bioinformatics Core&quot;
-#' date: &quot;Day 2 of CWB&quot;
-#' ---
-#' this would be placed as text in html
-# Generate some random numbers (This is a comment with code)
-myRandNumbers &lt;- rnorm(100,10,2)</code></pre>
-<p>We will come back to YAML later.</p>
-</div>
-<div id="controlling-r-code-evaluation-in-notes." class="section level1">
-<h1>Controlling R code evaluation in notes.</h1>
-<p>We can control how the output from R looks in our rendered documents.</p>
-<p>Options are passed to R code by adding a line preceeding R code with the special comment <strong>#+</strong>. We will look at some options later but a useful example is fig.height and fig.width to control figure height and width in the document.</p>
-<pre class="r"><code>#' Some comments for text.
-#+ fig.width=3, fig.height=3
-myRandNumbers &lt;- rnorm(100,10,2)
-hist(myRandNumbers)</code></pre>
-</div>
-<div id="exercise" class="section level1">
-<h1>Exercise</h1>
-<ul>
-<li>Have at the example notebook script “scriptWithNotebookExamples.r” in scripts directory.</li>
-<li>Open scriptToConvertToNote.r in scripts directory and save as new name.</li>
-<li>Add notes to this script and compile with render() function or through RStudio.</li>
-</ul>
-</div>
-<div id="markdown" class="section level1">
-<h1>Markdown</h1>
-<p>Under the hood, R is creating an intermediate document in <strong>Markdown</strong> format.</p>
-<p>Markdown is a mark up language containing plain text and allowing for conversion to multiple rich text document types.</p>
-<p>Common formats markdown renders to are - - html - pdf - Word doc</p>
-</div>
-<div id="markdown-1" class="section level1">
-<h1>Markdown</h1>
-<p>Markdown is often used as an intermediate document in conversion from one type to another.</p>
-<p>Github and Sourceforge make use of Markdown syntax in their Readme files and renders these in their webpages.</p>
-<p><a href="https://github.com/github/markup/blob/master/README.md" class="uri">https://github.com/github/markup/blob/master/README.md</a></p>
-</div>
-<div id="markdown-syntax." class="section level1">
-<h1>Markdown syntax.</h1>
-<p>Markdown uses simple syntax to control text output.</p>
-<p>This allows for the inclusion of font styles, text structures, images and code chunks.</p>
-<p>Lets look at some simple syntax for markdown to help us understand the R documents output from RStudio.</p>
-</div>
-<div id="markdown-syntax--new-line" class="section level1">
-<h1>Markdown syntax- New line</h1>
-<p>Markdown is written as plain text and ignores new lines.</p>
-<p>To include a new line in markdown, end the previous line with two spaces.</p>
-<pre><code>This is my first line.  # comment shows line end
-This would be a new line.
-This wouldn't be a new line.
-</code></pre>
-<p>To start a new paragraph, leave a line of space.</p>
-<pre><code>This is my first paragraph.
+<div id="how-to-get-help-about-the-packages" class="section level1">
+<h1>How to get help about the packages?</h1>
+<p>You can get the documentation of the package by using the function help() or “??”</p>
+<p>For example</p>
+<pre class="r"><code>help(babynames)
 
-This is my second paragraph
-</code></pre>
+# Or you can use &quot;??&quot;
+?? babynames</code></pre>
+<p>For a more detailed information on each and every parameter of all the functions in a package, you can refer to the reference manual or the in the package webpage or by using the browseVignettes() function.</p>
+<p>For example,</p>
+<pre class="r"><code>browseVignettes(&quot;DESeq2&quot;)</code></pre>
+<p>You can see what libraries are available in the Packages panel or by the library() function with no arguments supplied</p>
+<pre class="r"><code>library()</code></pre>
 </div>
-<div id="markdown-syntax--font-emphasis" class="section level1">
-<h1>Markdown syntax- Font emphasis</h1>
-<p>Emphasis can be added to text in markdown documents using either the **_** or __*__</p>
-<pre class="r"><code>Italics = _Italics_ or *Italics*
-Bold  =  __Bold__ or **Bold**</code></pre>
-</div>
-<div id="markdown-syntax--including-external-images" class="section level1">
-<h1>Markdown syntax- Including external images</h1>
-<p>Figures or external images can be used in Markdown documents.<br />
-Files may be local or accessible from http URL.</p>
-<pre><code>![alt text](imgs/Dist.jpg)
-![alt text](http://lmsbioinformatics.github.io/r_course/imgs/Dist.jpg)
-</code></pre>
-</div>
-<div id="markdown-syntax--creating-section-headers" class="section level1">
-<h1>Markdown syntax- Creating section headers</h1>
-<p>Section headers can be added to Markdown documents.</p>
-<p>Headers follow the same conventions as used in HTML markup and can implemented at multiple levels of size. Section headers in Markdown are created by using the <strong>#</strong> symbol</p>
-<pre><code># Top level section
-## Middle level section
-### Bottom level section</code></pre>
-</div>
-<div id="markdown-syntax--lists" class="section level1">
-<h1>Markdown syntax- Lists</h1>
-<p>Lists can be created in Markdown using the __*__ symbol.<br />
-Nested lists be specified with <strong>+</strong> symbol.</p>
-<pre><code>* First item
-* Second item
-+ Second item A
-+ Second item B</code></pre>
-</div>
-<div id="markdown-syntax--order-lists" class="section level1">
-<h1>Markdown syntax- Order lists</h1>
-<p>Lists can also include ordered numbers.</p>
-<pre><code>1. First item
-2. Second item
-+ Second item A
-+ Second item B</code></pre>
-</div>
-<div id="markdown-syntax--code-chunks" class="section level1">
-<h1>Markdown syntax- Code chunks</h1>
-<p>In Markdown, text may be highlighted as if code by placing the text between ‘’’.</p>
-<pre><code>The code used to produce plot was
-'''
-hist(rnorm(100))
-'''
-</code></pre>
-</div>
-<div id="markdown-syntax--code-chunks-1" class="section level1">
-<h1>Markdown syntax- Code chunks</h1>
-<p>In Markdown, text may be highlighted as if code by placing the text between ‘’’.</p>
-<pre><code>The code used to produce plot was
-'''
-hist(rnorm(100))
-'''
-</code></pre>
-</div>
-<div id="markdown-syntax--html-links" class="section level1">
-<h1>Markdown syntax- HTML links</h1>
-<p>HTML links can be included in Markdown documents either by simply including address in text or by using <strong>[]</strong> for the phrase to add link to, followed the link in <strong>()</strong></p>
-<pre><code>https://lmsbioinformatics.github.io/MRCLMSBioinfo/
-[Github site](https://lmsbioinformatics.github.io/MRCLMSBioinfo/)</code></pre>
-</div>
-<div id="markdown-syntax--page-breaks." class="section level1">
-<h1>Markdown syntax- Page breaks.</h1>
-<p>Markdown allows for the specification of page breaks in your document.<br />
-To specify a page break use 3 or more asterisks or dashes.</p>
-<pre><code>Before the first page break
-***
-Before the second page break
----</code></pre>
-</div>
-<div id="rmarkdown." class="section level1">
-<h1>rMarkdown.</h1>
-<p>rMarkdown is a script type used in R to allow for the generation of Markdown from R code. rMarkdown files will typically have the extension <strong>.Rmd</strong></p>
-<p>rMarkdown allows for the inclusion of Markdown syntax around <strong>chunks</strong> of R code.</p>
-<p>The output from running the R code can be tightly controled using rMarkdown, allowing for very neat integration of results with code used to generate them</p>
-</div>
-<div id="knitr" class="section level1">
-<h1>knitr</h1>
-<p>The <strong>knitr</strong> packages is the main route to create documents from <strong>.Rmd</strong> files.</p>
-<p><strong>knitr</strong> was created by Yihui Xie to wrap and clean up issues with other tools to make dynamic documents.</p>
-<p><a href="http://yihui.name/knitr/" class="uri">http://yihui.name/knitr/</a></p>
-</div>
-<div id="rmarkdown.-from-markdown-to-rmarkdown" class="section level1">
-<h1>rMarkdown. From Markdown to rMarkdown</h1>
-<p>The transition from Markdown to rMarkdown is very simple. All Markdown syntax may be included and code to be evaluated in R placed between a special code chunk.</p>
-<p>The code chunck containing R code to execute is specified by the inclusion of <strong>{r}</strong> as below.</p>
-<pre><code>My Markdown **syntax** here
-'''{r} 
-hist(rnorm(1000))
-'''
-
-rMarkdown. Controlling R code output - eval
-=======
-Options may be included in the R code chunks. 
-
-An important option is to choose whether code will be run or is meant for display only. This can be controlled with the **eval** option. TRUE will evaluate the code.
-</code></pre>
-<p>‘’’{r,eval=F} hist(rnorm(1000)) ‘’’</p>
-<pre><code>
-rMarkdown. Controlling R code output - Displaying code.
-=======
-
-It may be that you wish to report just the results and not include the code used to generate them. This can be controlled with the **echo** argument. TRUE will display the code.
-</code></pre>
-<p>‘’’{r,echo=F} hist(rnorm(1000)) ‘’’</p>
-<pre><code>
-rMarkdown. Controlling R code output - message and warnings
-=======
-R can produce a lot of output not related to your results. To control whether messages and warnings are reported in the rendered document we can specify the **message** and **warning** arguments. 
-
-Loading libraries in rMarkdown is often somewhere you would specify these as FALSE.
-</code></pre>
-<p>‘’’{r,warning=F,message=F} library(ggplot2) ‘’’</p>
-<pre><code>rMarkdown. Controlling figure output.
-=======
-
-Control over figure heights and widths can be implemented in rMarkdown using the **fig.width** and **fig.height** arguments. Further control over exact size in rendered document maybe specified with **out.width** and **out.height**.
-</code></pre>
-<p>‘’’{r,fig.width=5,fig.height=5} hist(rnorm(100)) ‘’’</p>
-<pre><code>
-rMarkdown. Automatically tidying code.
-=======
-
-The code within the **{r}** code block can be reformatted using the formatR package. This can be automatically done when the **tidy** option is specified.
-</code></pre>
-<p>‘’’{r,tidy=T} hist( rnorm(100 ) ) ‘’’</p>
-<pre><code>rMarkdown. Placing code and output together
-=======
-
-The code within the **{r}** code block will by default appear in a separate block to results output. To force code and output to appear in the same block the **collapse** option should be specified </code></pre>
-<p>‘’’{r,collapse=T} temp &lt;- rnorm(10) temp ‘’’</p>
-<pre><code>
-rMarkdown. Inserting tables.
-=======
-
-The results of printing data frames or matrices in the console aren't neat.
-
-We can insert HTML tables into Markdown by setting the **results** option to **asis** and using the knitr function **kable()**
-</code></pre>
-<p>‘’’{r,results=‘asis’} temp &lt;- rnorm(10) temp2 &lt;- rnorm(10) dfExample &lt;- cbind(temp,temp2) kable(dfExample) ‘’’</p>
-<pre><code>rMarkdown. Evaluating code within markdown text.
-=======
-
-It may be useful to report the results of R within the block of Markdown. This can be done adding the code to evalulate within **'r  '**
-</code></pre>
-<p>Here is some freeform <em>markdown</em> and the first result from an rnorm call is ‘r rnorm(3)[1]’, followed by some more free form text.</p>
-<pre><code>
-rMarkdown: cache
-===
-
-Some operations may take a significant time or resource to compute. 
-
-The **cache** argument may be used to save the results in the current working directory. This code chunk will import the results in future document compilations and save computation time
-</code></pre>
-<p>‘’’{r,cache=TRUE} x &lt;- sample(1000,10^8,replace=T) length(x) ‘’’ ```</p>
-</div>
-<div id="yaml-in-rmarkdown." class="section level1">
-<h1>YAML in rMarkdown.</h1>
-<p>In rMarkdown the options for document processing are stored in YAML format at the top of the document.</p>
-<pre class="r"><code>#' ---
-#' title: &quot;Untitled&quot;
-#' author: &quot;LMS Bioinformatics Core&quot;
-#' date: &quot;19 September 2019&quot;
-#'output: html_document
-#' ---</code></pre>
-</div>
-<div id="controlling-output-type." class="section level1">
-<h1>Controlling output type.</h1>
-<p>The <strong>output</strong> YAML option specifies the document type to be produced.</p>
-<pre><code>---
-output: html_document
----</code></pre>
-<pre><code>---
-output: pdf_document
----</code></pre>
-<pre><code>---
-output: word_document
----</code></pre>
-<pre><code>---
-output: md_document
----</code></pre>
-</div>
-<div id="figure-options-in-yaml" class="section level1">
-<h1>Figure options in YAML</h1>
-<p>Global default options for figure sizes and devices used can be set within the YAML metadata.</p>
-<pre><code>---
-output: 
-  html_document:
-    fig_width: 7
-    fig_height: 6
----</code></pre>
-</div>
-<div id="adding-styles" class="section level1">
-<h1>Adding styles</h1>
-<p>Styles for HTML can be applied using the <strong>theme</strong> option and syntax highlighting styles control by the <strong>highlight</strong> option</p>
-<pre><code>---
-output: 
-  html_document:
-    theme: journal
-    highlight: espresso
----</code></pre>
-<p>For a full list of theme options see - <a href="http://rmarkdown.rstudio.com/html_document_format.html" class="uri">http://rmarkdown.rstudio.com/html_document_format.html</a></p>
-</div>
-<div id="additional-styles" class="section level1">
-<h1>Additional styles</h1>
-<pre><code>---
-output: 
-  html_document:
-    css: style.css
----</code></pre>
-<p>Custom styles can also be applied to rMarkdown documents using CSS style files and the <strong>css</strong> option.</p>
-</div>
-<div id="using-rstudio" class="section level1">
-<h1>Using Rstudio</h1>
-<p>Lets see how to do this in RStudio.</p>
-<p><strong>File -&gt; New File -&gt; R Markdown</strong></p>
-</div>
-<div id="resources" class="section level1">
-<h1>Resources</h1>
-<p><a href="http://yihui.name/knitr/" class="uri">http://yihui.name/knitr/</a><br />
-<a href="http://rmarkdown.rstudio.com/" class="uri">http://rmarkdown.rstudio.com/</a><br />
-<a href="http://rcharts.io/" class="uri">http://rcharts.io/</a><br />
-<a href="http://rstudio.github.io/packrat/" class="uri">http://rstudio.github.io/packrat/</a></p>
-</div>
-<div id="exercises" class="section level1">
-<h1>Exercises</h1>
-<ul>
-<li>Open up markdownExampleDefaultStyles.Rmd and markdownExample.Rmd in the scripts directory. Have a look at the rMarkdown examples here and the resulting output html files.</li>
-</ul>
-<p><a href="scripts/markdownExampleDefaultStyles.html">Example HTML Default style.</a><br />
-<a href="scripts/markdownExample.html">Example HTML with extra style.</a></p>
-<ul>
-<li><p>Open scriptToConvertToRMarkdown.r in scripts directory and save as new name.</p></li>
-<li><p>Convert this script to an Rmarkdown document using the render() function or inside RStudio.</p></li>
-</ul>
+<div id="end-of-the-session" class="section level1">
+<h1>End of the session</h1>
 </div>
 
 

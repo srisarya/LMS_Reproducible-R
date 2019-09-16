@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Introduction to R, Session 2</title>
+  <title>Reproducible Reporting in R</title>
     
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -870,7 +870,7 @@ hljs.initHighlightingOnLoad();
   <div class="slides">
 
 <section data-state="section" data-transition="linear" data-transition-speed="default">
-<h1>Introduction to R, Session 2</h1><p>MRC LMS Bioinformatics Core<br/>https:&#x2F;&#x2F;lmsbioinformatics.github.io&#x2F;MRCLMSBioinfo&#x2F;LMStraining.html</p>
+<h1>Reproducible Reporting in R</h1><p>LMS Bioinformatics Core<br/>19 September 2019</p>
 
 <div class="slideContent" >
 
@@ -878,1121 +878,688 @@ hljs.initHighlightingOnLoad();
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Overview</h3>
+<h3>Reproducible Research</h3>
+<div class="slideContent" >
+<blockquote>
+<p>&ldquo;Let us change our traditional attitude to the construction of programs: Instead of imagining that our main task is to instruct a computer what to do, let us concentrate rather on explaining to humans what we want the computer to do.&rdquo;
+ &ndash; Donald E. Knuth, Literate Programming, 1984</p>
+</blockquote>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Reproducible Research in R</h3>
+<div class="slideContent" >
+<p>Sometime in the future, I, or my successor, will need to understand what analysis i did here.</p>
+
+<p>Using RStudio to make reproducible documents is very easy, so why not?</p>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>A very quick reproducible document in R</h3>
 <div class="slideContent" >
 <ul>
-<li><a href="#/recap">Recap</a></li>
-<li><a href="#/control">Conditions and Loops</a></li>
-<li><a href="#/functions">Defining functions</a></li>
-<li><a href="#/scripts">Writing scripts</a></li>
+<li>Find your R script of interest.</li>
+<li>Add the sessionInfo() function to the last line.</li>
+<li>Click the &ldquo;Compile Notebook function&rdquo; -&gt; Select HTML document as output format.</li>
+</ul>
+
+</div>
+
+</section>
+<section data-state="section" data-transition="linear" data-transition-speed="default">
+<h2>Creating documents from R scripts</h2>
+<div class="slideContent" >
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>From Scripts to Notes</h3>
+<div class="slideContent" >
+<p>So we have just seen the speed at which you can produce a report document from an R script using Rstudio.</p>
+
+<p>Rstudio makes things easy but for fine control we need to look at what is going on within Rstudio.</p>
+
+<p>Rstudio makes use of <strong>rmarkdown</strong> and <strong>knitr</strong> packages.</p>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Defaults</h3>
+<div class="slideContent" >
+<p>Several packages offer methods to create notes from R scripts.</p>
+
+<p>One of the simplest way to create a note in R is to use the <strong>render()</strong> function in <strong>rmarkdown</strong> package.</p>
+
+<pre><code class="r">library(rmarkdown)
+render(&quot;scripts/script.r&quot;)
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Output from render()</h3>
+<div class="slideContent" >
+<p>By default the render() function will have created a html file in the current working directory.</p>
+
+<p>Have a look at the result script.html in the 
+scripts directory. </p>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Controlling the output type from render()</h3>
+<div class="slideContent" >
+<p>The render()  function takes the argument <strong>output_format</strong></p>
+
+<pre><code class="r">render(&quot;scripts/script.r&quot;, output_format=&quot;html_document&quot;)
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Setting output directory for rendered documents</h3>
+<div class="slideContent" >
+<p>The arguments <strong>output_file</strong> and <strong>output_dir</strong> can be used to control where output is rendered to.</p>
+
+<p>Note that file extension must be supplied.</p>
+
+<pre><code class="r">render(&quot;scripts/script.r&quot;, output_format=&quot;html_document&quot;, output_file=&quot;myRenderedDoc.html&quot;,output_dir=&quot;scripts&quot;)
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Adding comments and text.</h3>
+<div class="slideContent" >
+<p>In R we can use <strong>#</strong> as comments in the code. This is the most basic type of documentation for your code.</p>
+
+<pre><code class="r"># Generate some random numbers
+myRandNumbers &lt;- rnorm(100,10,2)
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Adding comments and text.</h3>
+<div class="slideContent" >
+<p>If we want to include comments as text then we can use a new comment type <strong>#&#39;</strong>  </p>
+
+<pre><code class="r">#&#39; this would be placed as code
+# Generate some random numbers
+myRandNumbers &lt;- rnorm(100,10,2)
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>YAML metadata.</h3>
+<div class="slideContent" >
+<p>If we wish to control author, title and date, we can insert metadata into the script as YAML.  </p>
+
+<pre><code class="r">#&#39; ---
+#&#39; title: &quot;CWB making notes example&quot;
+#&#39; author: &quot;Bioinformatics Core&quot;
+#&#39; date: &quot;Day 3 of CWB&quot;
+#&#39; ---
+#&#39; this would be placed as text in html
+# Generate some random numbers (This is a comment with code)
+myRandNumbers &lt;- rnorm(100,10,2)
+</code></pre>
+
+<p>We will come back to YAML later.</p>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Controlling R code evaluation in notes.</h3>
+<div class="slideContent" >
+<p>We can control how the output from R looks in our rendered documents.</p>
+
+<p>Options are passed to R code by adding a line preceeding R code with the special comment <strong>#+</strong>. We will look at some options later but a useful example is fig.height and fig.width to control figure height and width in the document.</p>
+
+<pre><code class="r">#&#39; Some comments for text.
+#+ fig.width=3, fig.height=3
+myRandNumbers &lt;- rnorm(100,10,2)
+hist(myRandNumbers)
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Exercise</h3>
+<div class="slideContent" >
+<ul>
+<li>Have at the example notebook script &ldquo;scriptWithNotebookExamples.r&rdquo; in scripts directory.</li>
+<li>Open scriptToConvertToNote.r in scripts directory and save as new name.</li>
+<li>Add notes to this script and compile with render() function or through RStudio.</li>
 </ul>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Recap on what we have covered. </h3>
+<h3>Markdown</h3>
 <div class="slideContent" >
-<p>Session 1 covered introduction to R data types, inputing data, plotting and statistics.</p>
+<p>Under the hood, R is creating an intermediate document in <strong>Markdown</strong> format.</p>
+
+<p>Markdown is a mark up language containing plain text and allowing for conversion to multiple rich text document types.</p>
+
+<p>Common formats markdown renders to are - </p>
 
 <ul>
-<li><a href="#/background">Background to R</a></li>
-<li><a href="#/datatypes">Data types in R</a></li>
-<li><a href="#/reading">Reading and writing data in R</a></li>
-<li><a href="#/plotting">Plotting in R</a></li>
-<li><a href="#/stats">Statistics in R</a></li>
+<li>html</li>
+<li>pdf</li>
+<li>Word doc</li>
 </ul>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Recap (1&#x2F;3) </h3>
+<h3>Markdown</h3>
 <div class="slideContent" >
-<p>R stores data in five main data types.</p>
+<p>Markdown is often used as an intermediate document in conversion from one type to another.  </p>
 
-<ul>
-<li><strong>Vector</strong> - Ordered collection of single data type (numeric/character/logical).</li>
-<li><strong>Matrix</strong> - Table (ordered 2D collection) of single data type (numeric/character/logical).</li>
-<li><strong>Factors</strong> -Ordered collection of ordinal or nominal catagories.</li>
-<li><strong>Data frame</strong> - Table (ordered 2D array) of multiple data types of same length.</li>
-<li><strong>List</strong> - Ordered collection of multiple data types of differing length</li>
-</ul>
+<p>Github and Sourceforge make use of Markdown syntax in their Readme files and renders these in their webpages.</p>
+
+<p><a href="https://github.com/github/markup/blob/master/README.md">https://github.com/github/markup/blob/master/README.md</a></p>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Recap.(2&#x2F;3)</h3>
+<h3>Markdown syntax.</h3>
 <div class="slideContent" >
-<p>Data can be read into R as a table with the <strong>read.table()</strong> function and written to file with the <strong>write.table()</strong> function.</p>
+<p>Markdown uses simple syntax to control text output.</p>
 
-<pre><code class="r">Table &lt;- read.table(&quot;data/readThisTable.csv&quot;,sep=&quot;,&quot;,header=T,row.names=1)
-Table[1:3,]
+<p>This allows for the inclusion of font styles, text structures, images and code chunks.</p>
+
+<p>Lets look at some simple syntax for markdown to help us understand the R documents output from RStudio.</p>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Markdown syntax- New line</h3>
+<div class="slideContent" >
+<p>Markdown is written as plain text and ignores new lines. </p>
+
+<p>To include a new line in markdown, end the previous line with two spaces.</p>
+
+<pre><code>This is my first line.  # comment shows line end
+This would be a new line.
+This wouldn&#39;t be a new line.
+
 </code></pre>
 
-<pre><code>       Sample_1.hi Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low
-Gene_a    4.570237    3.230467    3.351827     3.930877     4.098247
-Gene_b    3.561733    3.632285    3.587523     4.185287     1.380976
-Gene_c    3.797274    2.874462    4.016916     4.175772     1.988263
-       Sample_1.low
-Gene_a     4.418726
-Gene_b     5.936990
-Gene_c     3.780917
-</code></pre>
+<p>To start a new paragraph, leave a line of space.</p>
 
-<pre><code class="r">write.table(Table,file=&quot;data/writeThisTable.csv&quot;, sep=&quot;,&quot;, row.names =F,col.names=T)
+<pre><code>This is my first paragraph.
+
+This is my second paragraph
+
 </code></pre>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Recap.(3&#x2F;3)</h3>
+<h3>Markdown syntax- Font emphasis</h3>
 <div class="slideContent" >
-<p>R has a rich set of statistical functions.</p>
+<p>Emphasis can be added to text in markdown documents using either the <strong>_</strong> or <strong>*</strong></p>
 
-<pre><code class="r">1- pnorm(8,mean=8,sd=3)
+<pre><code class="r">Italics = _Italics_ or *Italics*
+Bold  =  __Bold__ or **Bold**
 </code></pre>
 
-<pre><code>[1] 0.5
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Markdown syntax- Including external images</h3>
+<div class="slideContent" >
+<p>Figures or external images can be used in Markdown documents.<br/>
+Files may be local or accessible from http URL.</p>
+
+<pre><code>![alt text](imgs/Dist.jpg)
+![alt text](http://lmsbioinformatics.github.io/r_course/imgs/Dist.jpg)
+
 </code></pre>
 
-<pre><code class="r">tTestExample &lt;- read.table(&quot;data/tTestData.csv&quot;,sep=&quot;,&quot;,header=T)
-Result &lt;- t.test(tTestExample$A,tTestExample$B,alternative =&quot;two.sided&quot;, var.equal = T)
-Result
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Markdown syntax- Creating section headers</h3>
+<div class="slideContent" >
+<p>Section headers can be added to Markdown documents.</p>
+
+<p>Headers follow the same conventions as used in HTML markup and can implemented at multiple levels of size. Section headers in Markdown are created by using the <strong>#</strong> symbol</p>
+
+<pre><code># Top level section
+## Middle level section
+### Bottom level section
 </code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Markdown syntax- Lists</h3>
+<div class="slideContent" >
+<p>Lists can be created in Markdown using the <strong>*</strong> symbol.<br/>
+Nested lists be specified with <strong>+</strong> symbol.</p>
+
+<pre><code>* First item
+* Second item
++ Second item A
++ Second item B
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Markdown syntax- Order lists</h3>
+<div class="slideContent" >
+<p>Lists can also include ordered numbers.</p>
+
+<pre><code>1. First item
+2. Second item
++ Second item A
++ Second item B
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Markdown syntax- Code chunks</h3>
+<div class="slideContent" >
+<p>In Markdown, text may be highlighted as if code by placing the text between &#39;&#39;&#39;.</p>
+
+<pre><code>The code used to produce plot was
+&#39;&#39;&#39;
+hist(rnorm(100))
+&#39;&#39;&#39;
+
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Markdown syntax- Code chunks</h3>
+<div class="slideContent" >
+<p>In Markdown, text may be highlighted as if code by placing the text between &#39;&#39;&#39;.</p>
+
+<pre><code>The code used to produce plot was
+&#39;&#39;&#39;
+hist(rnorm(100))
+&#39;&#39;&#39;
+
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Markdown syntax- HTML links</h3>
+<div class="slideContent" >
+<p>HTML links can be included in Markdown documents either by simply including address in text or by using <strong>[]</strong> for the phrase to add link to, followed the link in <strong>()</strong></p>
+
+<pre><code>https://lmsbioinformatics.github.io/MRCLMSBioinfo/
+[Github site](https://lmsbioinformatics.github.io/MRCLMSBioinfo/)
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Markdown syntax- Page breaks.</h3>
+<div class="slideContent" >
+<p>Markdown allows for the specification of page breaks in your document.<br/>
+To specify a page break use 3 or more asterisks or dashes.</p>
+
+<pre><code>Before the first page break
+***
+Before the second page break
+---
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>rMarkdown.</h3>
+<div class="slideContent" >
+<p>rMarkdown is a script type used in R to allow for the generation of Markdown from R code. rMarkdown files will typically have the extension <strong>.Rmd</strong></p>
+
+<p>rMarkdown allows for the inclusion of Markdown syntax around <strong>chunks</strong> of R code.</p>
+
+<p>The output from running the R code can be tightly controled using rMarkdown, allowing for very neat integration of results with code used to generate them</p>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>knitr</h3>
+<div class="slideContent" >
+<p>The <strong>knitr</strong> packages is the main route to create documents from <strong>.Rmd</strong> files.</p>
+
+<p><strong>knitr</strong> was created by Yihui Xie to wrap and clean up issues with other tools to make dynamic documents.</p>
+
+<p><a href="http://yihui.name/knitr/">http://yihui.name/knitr/</a></p>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>rMarkdown. From Markdown to rMarkdown</h3>
+<div class="slideContent" >
+<p>The transition from Markdown to rMarkdown is very simple. All Markdown syntax may be included and code to be evaluated in R placed between a special code chunk.  </p>
+
+<p>The code chunck  containing R code to execute is specified by the inclusion of <strong>{r}</strong> as below.</p>
+
+<pre><code>My Markdown **syntax** here
+&#39;&#39;&#39;{r} 
+hist(rnorm(1000))
+&#39;&#39;&#39;
+
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>rMarkdown. Controlling R code output - eval</h3>
+<div class="slideContent" >
+<p>Options may be included in the R code chunks. </p>
+
+<p>An important option is to choose whether code will be run or is meant for display only. This can be controlled with the <strong>eval</strong> option. TRUE will evaluate the code.</p>
 
 <pre><code>
-    Two Sample t-test
+&#39;&#39;&#39;{r,eval=F} 
+hist(rnorm(1000))
+&#39;&#39;&#39;
 
-data:  tTestExample$A and tTestExample$B
-t = -41.353, df = 18, p-value &lt; 2.2e-16
-alternative hypothesis: true difference in means is not equal to 0
-95 percent confidence interval:
- -14.60253 -13.19051
-sample estimates:
-mean of x mean of y 
- 26.50152  40.39804 
 </code></pre>
 
 </div>
 
 </section>
-<section data-state="section" data-transition="linear" data-transition-speed="default">
-<h2>Conditions and Loops</h2>
+<section data-transition="linear" data-transition-speed="default">
+<h3>rMarkdown. Controlling R code output - Displaying code.</h3>
 <div class="slideContent" >
+<p>It may be that you wish to report just the results and not include the code used to generate them. This can be controlled with the <strong>echo</strong> argument. TRUE will display the code.</p>
+
+<pre><code>
+&#39;&#39;&#39;{r,echo=F} 
+hist(rnorm(1000))
+&#39;&#39;&#39;
+
+</code></pre>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Conditions and Loops (1&#x2F;21)</h3>
+<h3>rMarkdown. Controlling R code output - message and warnings</h3>
 <div class="slideContent" >
-<p>We have looked at using logical vectors as a way to index other data types</p>
+<p>R can produce a lot of output not related to your results. To control whether messages and warnings are reported in the rendered document we can specify the <strong>message</strong> and <strong>warning</strong> arguments. </p>
 
-<pre><code class="r">x &lt;- 1:10
-x[x &lt; 4]
+<p>Loading libraries in rMarkdown is often somewhere you would specify these as FALSE.</p>
+
+<pre><code>
+&#39;&#39;&#39;{r,warning=F,message=F} 
+library(ggplot2)
+&#39;&#39;&#39;
+
 </code></pre>
-
-<pre><code>[1] 1 2 3
-</code></pre>
-
-<p>Logicals are also used in controlling how scripted procedures execute.</p>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Conditions and Loops (2&#x2F;21) - Two important control structures</h3>
+<h3>rMarkdown. Controlling figure output.</h3>
 <div class="slideContent" >
-<ul>
-<li><span style="color:red">Conditional branching (if,else)</span></li>
-<li><span style="color:green">Loops (for, while)</span></li>
-</ul>
+<p>Control over figure heights and widths can be implemented in rMarkdown using the <strong>fig.width</strong> and <strong>fig.height</strong> arguments. Further control over exact size in rendered document maybe specified with <strong>out.width</strong> and <strong>out.height</strong>.</p>
 
-<p><span style="color:green">While</span> I&#39;m analysing data, <span style="color:red">if</span> I need to execute complex statistical procedures on the data I will use R <span style="color:red">else</span> I will use a calculator.</p>
+<pre><code>
+&#39;&#39;&#39;{r,fig.width=5,fig.height=5} 
+hist(rnorm(100))
+&#39;&#39;&#39;
+
+</code></pre>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Conditions and Loops (3&#x2F;21) - Conditional Branching.</h3>
+<h3>rMarkdown. Automatically tidying code.</h3>
 <div class="slideContent" >
-<p>Conditional Branching is the evaluation of a logical to determine whether a chunk of code is executed.</p>
+<p>The code within the <strong>{r}</strong> code block can be reformatted using the formatR package. This can be automatically done when the <strong>tidy</strong> option is specified.</p>
 
-<p>In R, we use the <strong>if</strong> statement with the logical to be evaluated in <strong>()</strong> and dependent code to be executed in <strong>{}</strong>.</p>
+<pre><code>
+&#39;&#39;&#39;{r,tidy=T} 
+        hist( 
+rnorm(100  )
+      )
+&#39;&#39;&#39;
 
-<pre><code class="r">x &lt;- TRUE
-if(x){
-  message(&quot;x is true&quot;)
-}
-</code></pre>
-
-<pre><code>x is true
-</code></pre>
-
-<pre><code class="r">x &lt;- FALSE
-if(x){
-  message(&quot;x is true&quot;)
-}
 </code></pre>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Conditions and Loops (4&#x2F;21) - Evaluating in if() statements</h3>
+<h3>rMarkdown. Placing code and output together</h3>
 <div class="slideContent" >
-<p>More often, we construct the logical value within <strong>()</strong> itself.This can be termed the <strong>condition</strong>. </p>
+<p>The code within the <strong>{r}</strong> code block will by default appear in a separate block to results output. To force code and output to appear in the same block the <strong>collapse</strong> option should be specified </p>
 
-<pre><code class="r">x &lt;- 10
-y &lt;- 4
-if(x &gt; y){
-  message(&quot;The value of x is &quot;,x,&quot; which is greater than &quot;, y)
-}
-</code></pre>
+<pre><code>
+&#39;&#39;&#39;{r,collapse=T} 
+temp &lt;- rnorm(10)
+temp
+&#39;&#39;&#39;
 
-<pre><code>The value of x is 10 which is greater than 4
-</code></pre>
-
-<p>Here the message is printed because x is greater than y. </p>
-
-<pre><code class="r">y &lt;- 20
-if(x &gt; y){
-  message(&quot;The value of x is &quot;,x,&quot; which is greater than &quot;, y)
-}
-</code></pre>
-
-<p>Here, x is not longer greater than y, so no message is printed.</p>
-
-<p>We really still want a message telling us what was the result of the condition.</p>
-
-</div>
-
-</section>
-<section data-transition="linear" data-transition-speed="default">
-<h3>Conditions and Loops (5&#x2F;21) -else following an if().</h3>
-<div class="column column1 slideContent" >
-<p>If we want to perform an operation when the condition is false we can follow the if() statement with an else statement.</p>
-
-<pre><code class="r">x &lt;- 10
-if(x &lt; 5){
-  message(x, &quot; is less than to 5&quot;)
-   }else{
-     message(x,&quot; is greater than or equal to 5&quot;)
-}
-</code></pre>
-
-<pre><code>10 is greater than or equal to 5
-</code></pre>
-
-
-</div>
-
-<div class="column column2 slideContent" >
-
-
-<p>With the addition of the else statement, when x is not greater than 5 the code following the else statement is executed.</p>
-
-<pre><code class="r">x &lt;- 3
-if(x &lt; 5){
-  message(x, &quot; is less than 5&quot;)
-   }else{
-     message(x,&quot; is greater than or equal to 5&quot;)
-}
-</code></pre>
-
-<pre><code>3 is less than 5
 </code></pre>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Conditions and Loops (6&#x2F;21) - else if</h3>
+<h3>rMarkdown. Inserting tables.</h3>
 <div class="slideContent" >
-<p>We may wish to execute different procedures under multiple conditions. This can be controlled in R using the else if() following an initial if() statement.</p>
+<p>The results of printing data frames or matrices in the console aren&#39;t neat.</p>
 
-<pre><code class="r">x &lt;- 5
-if(x &gt; 5){
-  message(x,&quot; is greater than 5&quot;)
-  }else if(x == 5){
-    message(x,&quot; is 5&quot;)
-  }else{
-    message(x, &quot; is less than 5&quot;)
-  }
-</code></pre>
+<p>We can insert HTML tables into Markdown by setting the <strong>results</strong> option to <strong>asis</strong> and using the knitr function <strong>kable()</strong></p>
 
-<pre><code>5 is 5
+<pre><code>
+&#39;&#39;&#39;{r,results=&#39;asis&#39;} 
+temp &lt;- rnorm(10)
+temp2 &lt;- rnorm(10)
+dfExample &lt;- cbind(temp,temp2)
+kable(dfExample)
+&#39;&#39;&#39;
+
 </code></pre>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Conditions and Loops (7&#x2F;21) -ifelse()</h3>
+<h3>rMarkdown. Evaluating code within markdown text.</h3>
 <div class="slideContent" >
-<p>A useful function to evaluate conditional statements over vectors is the <strong>ifelse()</strong> function.</p>
+<p>It may be useful to report the results of R within the block of Markdown. This can be done adding the code to evalulate within <strong>&#39;r  &#39;</strong></p>
 
-<pre><code class="r">x &lt;- 1:10
-x
-</code></pre>
+<pre><code>Here is some freeform _markdown_ and the first result from an rnorm call is &#39;r rnorm(3)[1]&#39;, followed by some more free form text.
 
-<pre><code> [1]  1  2  3  4  5  6  7  8  9 10
-</code></pre>
-
-<p>The ifelse() functions take the arguments of the condition to evaluate, the action if the condition is true and the action when condition is false.</p>
-
-<pre><code class="r">ifelse(x &lt;= 3,&quot;lessOrEqual&quot;,&quot;more&quot;) 
-</code></pre>
-
-<pre><code> [1] &quot;lessOrEqual&quot; &quot;lessOrEqual&quot; &quot;lessOrEqual&quot; &quot;more&quot;        &quot;more&quot;       
- [6] &quot;more&quot;        &quot;more&quot;        &quot;more&quot;        &quot;more&quot;        &quot;more&quot;       
-</code></pre>
-
-<p>This allows for multiple nested <strong>ifelse</strong> functions to be applied to vectors.</p>
-
-<pre><code class="r">ifelse(x == 3,&quot;same&quot;,
-       ifelse(x &lt; 3,&quot;less&quot;,&quot;more&quot;)
-       ) 
-</code></pre>
-
-<pre><code> [1] &quot;less&quot; &quot;less&quot; &quot;same&quot; &quot;more&quot; &quot;more&quot; &quot;more&quot; &quot;more&quot; &quot;more&quot; &quot;more&quot; &quot;more&quot;
 </code></pre>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Conditions and Loops (8&#x2F;21) -Loops</h3>
+<h3>rMarkdown: cache</h3>
 <div class="slideContent" >
-<p>The two main generic methods of looping in R are <strong>while</strong> and <strong>for</strong></p>
+<p>Some operations may take a significant time or resource to compute. </p>
 
-<ul>
-<li><p><strong>while</strong> - <em>while</em> loops repeat the execution of code while a condition evaluates as true.</p></li>
-<li><p><strong>for</strong> - <em>for</em> loops repeat the execution of code for a range of specified values.</p></li>
-</ul>
+<p>The <strong>cache</strong> argument may be used to save the results in the current working directory. This code chunk will import the results in future document compilations and save computation time</p>
+
+<pre><code>&#39;&#39;&#39;{r,cache=TRUE} 
+x &lt;- sample(1000,10^8,replace=T)
+length(x)
+&#39;&#39;&#39;
+</code></pre>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Conditions and Loops (9&#x2F;21) -While loops</h3>
+<h3>YAML in rMarkdown.</h3>
 <div class="slideContent" >
-<p>While loops are most useful if you know the condition will be satisified but are not sure when. (i.e. Looking for a point when a number first occurs in a list).</p>
+<p>In rMarkdown the options for document processing are stored in YAML format at the top of the document.</p>
 
-<pre><code class="r">x &lt;- 1
-while(x != 3){
-  message(&quot;x is &quot;,x,&quot; &quot;)
-  x &lt;- x+1
-}
-</code></pre>
-
-<pre><code>x is 1 
-</code></pre>
-
-<pre><code>x is 2 
-</code></pre>
-
-<pre><code class="r">message(&quot;Finally x is 3&quot;)
-</code></pre>
-
-<pre><code>Finally x is 3
+<pre><code>---
+title: &quot;Untitled&quot;
+author: &quot;Bioinformatics Core&quot;
+date: &quot;26 September 2018&quot;
+output: html_document
+---
 </code></pre>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Conditions and Loops (10&#x2F;21) -For loops</h3>
-<div class="column column1 slideContent" >
-<p>For loops allow the user to cycle through a range of values applying an operation for every value.</p>
-
-<p>Here we cycle through a numeric vector and print out its value.</p>
-
-<pre><code class="r">x &lt;- 1:5
-for(i in x){
-  message(&quot;Loop&quot;,i,&quot; &quot;, appendLF = F)
-}
-</code></pre>
-
-<pre><code>Loop1 Loop2 Loop3 Loop4 Loop5
-</code></pre>
-
-
-</div>
-
-<div class="column column2 slideContent" >
-
-
-<p>Similarly we can cycle through other vector types (or lists)</p>
-
-<pre><code class="r">x &lt;- toupper(letters[1:5])
-for(i in x){
-  message(&quot;Loop&quot;,i,&quot; &quot;, appendLF = F)
-}
-</code></pre>
-
-<pre><code>LoopA LoopB LoopC LoopD LoopE
-</code></pre>
-
-</div>
-
-</section>
-<section data-transition="linear" data-transition-speed="default">
-<h3>Conditions and Loops (11&#x2F;21) - Looping through indices</h3>
+<h3>Controlling output type.</h3>
 <div class="slideContent" >
-<p>We may wish to keep track of the position in x we are evaluating to retrieve the same index in other variables. A common practice is to loop though all possible index positions of x using the expression <strong>1:length(x)</strong>.</p>
+<p>The <strong>output</strong> YAML option specifies the document type to be produced.</p>
 
-<pre><code class="r">geneName &lt;- c(&quot;Ikzf1&quot;,&quot;Myc&quot;,&quot;Igll1&quot;)
-expression &lt;- c(10.4,4.3,6.5)
-1:length(geneName)
+<pre><code>---
+output: html_document
+---
 </code></pre>
 
-<pre><code>[1] 1 2 3
+<pre><code>---
+output: pdf_document
+---
 </code></pre>
 
-<pre><code class="r">for(i in 1:length(geneName)){
-  message(geneName[i],&quot; has an RPKM of &quot;,expression[i])
-}
+<pre><code>---
+output: word_document
+---
 </code></pre>
 
-<pre><code>Ikzf1 has an RPKM of 10.4
-</code></pre>
-
-<pre><code>Myc has an RPKM of 4.3
-</code></pre>
-
-<pre><code>Igll1 has an RPKM of 6.5
-</code></pre>
-
-</div>
-
-</section>
-<section data-transition="linear" data-transition-speed="default">
-<h3>Conditions and Loops (12&#x2F;21) -Loops and conditionals</h3>
-<div class="column column1 slideContent" style="width: 58%;" >
-<p>Loops can be combined with conditional statements to allow for complex control of their execution over R objects. </p>
-
-<pre><code class="r">x &lt;- 1:13
-
-for(i in 1:13){
-  if(i &gt; 10){
-    message(&quot;Number &quot;,i,&quot; is greater than 10&quot;)
-  }else if(i == 10){
-    message(&quot;Number &quot;,i,&quot; is  10&quot;) 
-  }else{
-    message(&quot;Number &quot;,i,&quot; is less than  10&quot;) 
-  }
-}
-</code></pre>
-
-
-</div>
-
-<div class="column column2 slideContent" style="width: 38%;" >
-
-
-<pre><code>Number 1 is less than  10
-</code></pre>
-
-<pre><code>Number 2 is less than  10
-</code></pre>
-
-<pre><code>Number 3 is less than  10
-</code></pre>
-
-<pre><code>Number 4 is less than  10
-</code></pre>
-
-<pre><code>Number 5 is less than  10
-</code></pre>
-
-<pre><code>Number 6 is less than  10
-</code></pre>
-
-<pre><code>Number 7 is less than  10
-</code></pre>
-
-<pre><code>Number 8 is less than  10
-</code></pre>
-
-<pre><code>Number 9 is less than  10
-</code></pre>
-
-<pre><code>Number 10 is  10
-</code></pre>
-
-<pre><code>Number 11 is greater than 10
-</code></pre>
-
-<pre><code>Number 12 is greater than 10
-</code></pre>
-
-<pre><code>Number 13 is greater than 10
+<pre><code>---
+output: md_document
+---
 </code></pre>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Conditions and Loops (13&#x2F;21) - Breaking loops</h3>
-<div class="column column1 slideContent" >
-<p>We can use conditionals to exit a loop if a condition is satisfied, just a like while loop.</p>
-
-<pre><code class="r">x &lt;- 1:13
-
-for(i in 1:13){
-  if(i &lt; 10){
-    message(&quot;Number &quot;,i,&quot; is less than 10&quot;)
-  }else if(i == 10){
-    message(&quot;Number &quot;,i,&quot; is  10&quot;)
-    break
-  }else{
-    message(&quot;Number &quot;,i,&quot; is greater than  10&quot;) 
-  }
-}
-</code></pre>
-
-
-</div>
-
-<div class="column column2 slideContent" >
-
-
-<pre><code>Number 1 is less than 10
-</code></pre>
-
-<pre><code>Number 2 is less than 10
-</code></pre>
-
-<pre><code>Number 3 is less than 10
-</code></pre>
-
-<pre><code>Number 4 is less than 10
-</code></pre>
-
-<pre><code>Number 5 is less than 10
-</code></pre>
-
-<pre><code>Number 6 is less than 10
-</code></pre>
-
-<pre><code>Number 7 is less than 10
-</code></pre>
-
-<pre><code>Number 8 is less than 10
-</code></pre>
-
-<pre><code>Number 9 is less than 10
-</code></pre>
-
-<pre><code>Number 10 is  10
-</code></pre>
-
-</div>
-
-</section>
-<section data-transition="linear" data-transition-speed="default">
-<h3>Conditions and Loops (14&#x2F;21) -Functions to loop over data types</h3>
+<h3>Figure options in YAML</h3>
 <div class="slideContent" >
-<p>There are functions which allow you to loop over a data type and apply a function to the subsection of that data.</p>
+<p>Global default options for figure sizes and devices used can be set within the YAML metadata.</p>
 
-<ul>
-<li><p><strong>apply</strong> - Apply function to rows or columns of a matrix/data frame and return results as a vector,matrix or list.</p></li>
-<li><p><strong>lapply</strong> - Apply function to every element of a vector or list and return results as a list.</p></li>
-<li><p><strong>sapply</strong> - Apply function to every element of a vector or list and return results as a vector,matrix or list.</p></li>
-</ul>
+<pre><code>---
+output: 
+  html_document:
+    fig_width: 7
+    fig_height: 6
+---
+</code></pre>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Conditions and Loops (15&#x2F;21) - apply()</h3>
+<h3>Adding styles</h3>
 <div class="slideContent" >
-<p>The <strong>apply()</strong> function applys a function to the rows or columns of a matrix. The arguments <strong>FUN</strong> specifies the function to apply and <strong>MARGIN</strong> whether to apply the functions by rows/columns or both.</p>
+<p>Styles for HTML can be applied using the <strong>theme</strong> option and syntax highlighting styles control by the <strong>highlight</strong> option</p>
 
-<pre><code>apply(DATA,MARGIN,FUN,...)
+<pre><code>---
+output: 
+  html_document:
+    theme: journal
+    highlight: espresso
+---
 </code></pre>
 
-<ul>
-<li><strong>DATA</strong> - A matrix (or something to be coerced into a matrix)</li>
-<li><strong>MARGIN</strong> - 1 for rows, 2 for columns, c(1,2) for cells</li>
-</ul>
+<p>For a full list of theme options see -
+<a href="http://rmarkdown.rstudio.com/html_document_format.html">http://rmarkdown.rstudio.com/html_document_format.html</a></p>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Conditions and Loops (16&#x2F;21) - apply() example</h3>
+<h3>Additional styles</h3>
 <div class="slideContent" >
-<pre><code class="r">matExample &lt;- matrix(c(1:4),nrow=2,ncol=2,byrow=T)
-matExample
+<pre><code>---
+output: 
+  html_document:
+    css: style.css
+---
 </code></pre>
 
-<pre><code>     [,1] [,2]
-[1,]    1    2
-[2,]    3    4
-</code></pre>
-
-<p>Get the mean of rows</p>
-
-<pre><code class="r">apply(matExample,1,mean)
-</code></pre>
-
-<pre><code>[1] 1.5 3.5
-</code></pre>
-
-<p>Get the mean of columns</p>
-
-<pre><code class="r">apply(matExample,2,mean)
-</code></pre>
-
-<pre><code>[1] 2 3
-</code></pre>
+<p>Custom styles can also be applied to rMarkdown documents using CSS style files and the 
+<strong>css</strong> option.</p>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Conditions and Loops (16&#x2F;21) - Additional arguments to apply</h3>
+<h3>Using Rstudio</h3>
 <div class="slideContent" >
-<p>Additional arguments to be used by the function in the apply loop can be specified after the function argument. </p>
+<p>Lets see how to do this in RStudio.</p>
 
-<p>Arguments may be ordered as if passed to function directly. For <strong>paste()</strong> function however this isn&#39;t possible.</p>
-
-<pre><code class="r">apply(matExample,1,paste,collapse=&quot;;&quot;)
-</code></pre>
-
-<pre><code>[1] &quot;1;2&quot; &quot;3;4&quot;
-</code></pre>
+<p><strong>File -&gt; New File -&gt; R Markdown</strong> </p>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Conditions and Loops (17&#x2F;21) - lapply()</h3>
-<div class="column column1 slideContent" >
-<p>Similar to apply, <strong>lapply</strong> applies a function to every element of a vector or list. </p>
-
-<p><strong>lapply</strong> returns a list object containing the results of evaluating the function.</p>
-
-<pre><code class="r">lapply(c(1,2),mean)
-</code></pre>
-
-<pre><code>[[1]]
-[1] 1
-
-[[2]]
-[1] 2
-</code></pre>
-
-
-</div>
-
-<div class="column column2 slideContent" >
-
-
-<p>As with apply() additional arguments can be supplied after the function name argument.</p>
-
-<pre><code class="r">lapply(list(1,c(NA,1),2),mean, na.rm=T)
-</code></pre>
-
-<pre><code>[[1]]
-[1] 1
-
-[[2]]
-[1] 1
-
-[[3]]
-[1] 2
-</code></pre>
-
-</div>
-
-</section>
-<section data-transition="linear" data-transition-speed="default">
-<h3>Conditions and Loops (18&#x2F;21) -sapply()</h3>
+<h3>Resources</h3>
 <div class="slideContent" >
-<p><strong>sapply</strong> (<em>smart apply</em>) acts as lapply but attempts to return the results as the most appropriate data type.</p>
-
-<p>Here sapply returns a vector where lapply would return lists.</p>
-
-<pre><code class="r">exampleVector &lt;- c(1,2,3,4,5)
-exampleList &lt;- list(1,2,3,4,5)
-sapply(exampleVector,mean,na.rm=T)
-</code></pre>
-
-<pre><code>[1] 1 2 3 4 5
-</code></pre>
-
-<pre><code class="r">sapply(exampleList,mean,na.rm=T)
-</code></pre>
-
-<pre><code>[1] 1 2 3 4 5
-</code></pre>
+<p><a href="http://yihui.name/knitr/">http://yihui.name/knitr/</a><br/>
+<a href="http://rmarkdown.rstudio.com/">http://rmarkdown.rstudio.com/</a><br/>
+<a href="http://rcharts.io/">http://rcharts.io/</a><br/>
+<a href="http://rstudio.github.io/packrat/">http://rstudio.github.io/packrat/</a>  </p>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Conditions and Loops (19&#x2F;21) - sapply() example</h3>
-<div class="column column1 slideContent" >
-<p>In this example lapply returns a list of vectors from the quantile function.</p>
-
-<pre><code class="r">exampleList &lt;- list(row1=1:5, row2=6:10, row3=11:15)
-exampleList
-</code></pre>
-
-<pre><code>$row1
-[1] 1 2 3 4 5
-
-$row2
-[1]  6  7  8  9 10
-
-$row3
-[1] 11 12 13 14 15
-</code></pre>
-
-
-</div>
-
-<div class="column column2 slideContent" >
-
-
-<pre><code class="r">lapply(exampleList,quantile)
-</code></pre>
-
-<pre><code>$row1
-  0%  25%  50%  75% 100% 
-   1    2    3    4    5 
-
-$row2
-  0%  25%  50%  75% 100% 
-   6    7    8    9   10 
-
-$row3
-  0%  25%  50%  75% 100% 
-  11   12   13   14   15 
-</code></pre>
-
-</div>
-
-</section>
-<section data-transition="linear" data-transition-speed="default">
-<h3>Conditions and Loops (20&#x2F;21) - sapply() example 2</h3>
-<div class="slideContent" >
-<p>Here is an example of sapply parsing a result from the quantile function in a <em>smart</em> way.</p>
-
-<p>When a function always returns a vector of the same length, sapply will create a matrix with elements by column.</p>
-
-<pre><code class="r">sapply(exampleList,quantile)
-</code></pre>
-
-<pre><code>     row1 row2 row3
-0%      1    6   11
-25%     2    7   12
-50%     3    8   13
-75%     4    9   14
-100%    5   10   15
-</code></pre>
-
-</div>
-
-</section>
-<section data-transition="linear" data-transition-speed="default">
-<h3>Conditions and Loops (21&#x2F;21) - sapply() example 4</h3>
-<div class="slideContent" >
-<p>When sapply cannot parse the result to a vector or matrix, a list will be returned.</p>
-
-<pre><code class="r">exampleList &lt;- list(df=data.frame(sample=paste0(&quot;patient&quot;,1:2), data=c(1,12)), vec=c(1,3,4,5))
-sapply(exampleList,summary)
-</code></pre>
-
-<pre><code>$df
-      sample       data      
- patient1:1   Min.   : 1.00  
- patient2:1   1st Qu.: 3.75  
-              Median : 6.50  
-              Mean   : 6.50  
-              3rd Qu.: 9.25  
-              Max.   :12.00  
-
-$vec
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-   1.00    2.50    3.50    3.25    4.25    5.00 
-</code></pre>
-
-</div>
-
-</section>
-<section data-transition="linear" data-transition-speed="default">
-<h3>Time for an exercise!</h3>
-<div class="slideContent" >
-<p>Exercise on loops and conditional branching can be found <a href="https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/exercises//conditionsAndLoops_Exercises.html">here</a></p>
-
-</div>
-
-</section>
-<section data-transition="linear" data-transition-speed="default">
-<h3>Answers to exercise.</h3>
-<div class="slideContent" >
-<p>Answers can be found here  <a href="https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/answers/conditionsAndLoops_Answers.html">here</a></p>
-
-<p>Rcode for answers can be found here  <a href="https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/answers/conditionsAndLoops_Answers.R">here</a></p>
-
-</div>
-
-</section>
-<section data-state="section" data-transition="linear" data-transition-speed="default">
-<h2>Functions</h2>
-<div class="slideContent" >
-
-</div>
-
-</section>
-<section data-transition="linear" data-transition-speed="default">
-<h3>Functions (1&#x2F;) - Built in functions</h3>
-<div class="column column1 slideContent" >
-<p>As we have seen, a function is command which requires one or more arguments and returns a single R object. </p>
-
-<p>This allows for the user to perform complex calculations and prodecures with one simple operation.</p>
-
-<pre><code class="r">x=rnorm(100,70,10)
-y &lt;- jitter(x,amount=1)+20
-mean(x)
-</code></pre>
-
-<pre><code>[1] 69.97516
-</code></pre>
-
-<pre><code class="r">lmExample &lt;- data.frame(X=x,Y=y)
-lmResult &lt;- lm(Y~X,data=lmExample)
-</code></pre>
-
-
-</div>
-
-<div class="column column2 slideContent" >
-
-
-<pre><code class="r">plot(Y~X,data=lmExample,main=&quot;Line of best fit with lm()&quot;,
-     xlim=c(0,150),ylim=c(0,150))
-abline(lmResult,col=&quot;red&quot;,lty=3,lwd=3)
-</code></pre>
-
-<p><img src="data:image/png;base64,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9vvmm2+8tm3ber/99tsW0ynJB8VJ3z8Zcnkobrpvv/222/6UU04p7i6FbvfZZ5+5dEaOHOk+33vvvb0zzzyz0G1ZiUB5CFRI+hkDCSIQUoFOnTq5Ftc+++yT1hKMGzfOHX/AgAHq1q2b6tSpU+75ufPOO2XHt58tLX5Ak38ioKOPPlrDhg1T1apVtWDBAm3cuDGv1X/yySfLek+StfzrX/9KafplyWefPn1Ut25ddejQwSXTvXt3+SeU7qdZs2ZlSZp9ESiVAAG+VGzsFEWBKlWquK75ChX+/rXwW3aaMWOGzjvvPE2aNEkfffSROwHwW86bdeGPHj1a7733nrbddlsdf/zxOvzww4vkmTNnjsaOHavp06drt9120znnnKN69eq5ffzWuevutjfW1W1d8V27dt1iehMmTJDl004CLrzwQjVs2DBv2++//94FXr8HQAceeKD8HgplZWW5z/0WtvyeCndJomLFimrVqpXatWun2rVru3Wffvqp287St3UWrDZdPv74Y5e2rVu3bp3+85//yG/xu2767Oxst+kLL7ygFStWuNeDBg1S586ddcghh7j3uf8MHjzYnSTYvnYZwm/x691335UFxI4dO7rNLG3r9r7ssstKlL6dfPi9IbJLGkcddZS6dOmSe9gi/7fLNNZlb8e3SyR2wmWXSS655BItWbJEQ4YM0Zo1a3TqqafmlefLL79034FevXrJPG05++yzZUH/tttu02uvvVbkMfkQgZQIlEc3AcdAIN0Cpemi91vPrsv1H//4h7fNNtt4/h9u9/7QQw/NK84111zj1vknBZ79+NervQcffDDv8/wv/IDt+ScCbh//F9r977f6PD+guk333XffzT7zW4P5k/Byu+h32GEHd7zcbmtLx78m7rb3A3PecfwTF5dmmzZtPD/4us9vvvlmt65BgwZekyZN3OuDDz7Y81vfXv/+/TfLg63Pv/hDdzbbxsriX8PerIvenHLLaP/fd999+ZPx/BMHt43l1xY/iLv3zZs3d+/9EwTnbnm0JbesdglgS+nndtHvvvvunj+WIi8P/kmGSyP/P/m76HPL36JFC3fs3GP6J26eP+ZhM9dvv/3WJffYY4+541hamy5+b5DnnyBtuorXCJSbAKPo/b88LAhsTcBawT/++KOslW+t20WLFrnWpnVh20Aqa5XbgDMb9OYHT9n2+Zf1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9tprNXjwYJe6XYdv27atrrzySq1cuVK77rqrtvefFseCAAIlFwhcCz47O1vLli0reUnYAwEEAivwyiuvuPvW7UExt9xyixs4d/LKNRr760LNf/JpDR06VL/88otuvPFGXXHFFdp3331lk9sQ3ANbpWQsBAKBCPA2gKZPnz5q3LixKlWq5LrtqlatqmbNmsnO9lkQQCC8At9++62bmOaqq65SnTp19Nlnn2lgw8a66pvv1DThqV2FSvrnP/+p8847T9ddd52aN28e3sKScwQCJBCIAN+rVy999913Gj16tOuWSyQS+uOPP9y1uieeeEKPP/54gMjICgIIlETg888/13/+8x8dd9xxbsR8620q65Jf57skPqtRTWfO+NZdb7fJa9q3b1+SpNkWAQSKEAhEgB83bpy7BmczU9msVXZtzkbVWhfdwIEDNWLEiCKKwEcIIBBkAbuubgG+adOm6tChg+ZVrKCptWrqmUpZevLE9qrpD7j7/fffXes+yOUgbwiETSAQg+ysK96moLTnO+dfRo0apXr16uVfzXsEEAiowHvvvecmrrETdZukxqaYXbp0qQ499FD997//VZY/cr7tn3/qoUcf0g/+wLvddtvNnczvs88+AS0R2UIgnAKBCPDWNdetWzcNGDDAneXXqFHDzWpl98raoDtmsQrnl4tcZ56AzSFvt7bZ5DU5OTkucN91113uoTD29DcL5j/88IP7Pb/tttu0ePFiXXDBBVyGy7yvCiUuB4FABPj9999f9ojIKVOmyKatnDdvnnuS1GWXXeb+MFhLgAUBBIItMG3aNF199dWupW4D5rp27aqjd2ik4269SzVO+NJdXz/ooIPcM9ybNGniBtvZc97tMhwLAggkXyAQAd5G0Vsr3s767Vqc53nadttttcsuu7h7ZM8///zkl5wUEUAgaQIWqG0MzeGHH66TTjrJnaxPuusevZGIq0ZOQj+MGKlWQ5501+K/+uort22XLl10xx13JC0PJIQAApsLBCLA2yh6e0ykjaK3iS3sFjmb5GLGjBnq7T9Nav369bLWPAsCCARTwH53rav9Zf9hMZUrV5aNnJ+20VMNJbRAnr68rrcbSGuDaO33/e677w5mQcgVAhESCESAt1H01j1vs1vlLpuOou/bt2+xAvyTTz6pl156KTeJzf7/8ccfXY/AZit5gwACZRaYPHmyGzz3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5BD5rTR3acbqvXbt2nnFsz/sixYtynvPi3AKnHbaabrvvvtUpUqVzQpQ1O9//s/su7Bw4cLN9udNOAS2VP+//vqrVq5cqSOPPFIdO3ZU48aN9f7777tChaX+CfBFfAeXLFmiqlWr5m2R+wfA75bNW8eLaAnYH+revXtr1qxZsl9wa9n53XHK/12wUtv3we/KjxYApckTyF/nm/7+5//Mvif+JZ28fXkRfgG/O149evRwvXS//PKLrr32WuWOtQhL/RPgi/ge1q1b153B5W6yatUq10XjX6PNXcX/ERM4++yzdcMNN7hSWWu9e/fuLsDn/y7YBnZ237Bhw4gJUJxcgfx1vunvf/7P+C7kqkXn/z322ENPPfWUtttuO2VlZbnLcx988IH8sRkKS/0T4Iv4Pto11rlz5+ZtYa+tm4YlugJDhw7V559/nldAO4v3B1+5X3Jrwf322295n9n3wUbWskRToKjff/vMWnW5C38bciWi879drnv22WfzCmSX6GxMTvXq1d34mzDUPwE+r/oKvvBHUGrOnDmyQRhWuf3799epp55acEPWREbAboXr06eP7H5Y64Z74YUX8m6NsVvk7FqtDbYZPny44vG49tlnn8iUnYJsLlDU7799F+yP/x9//CEL7i+//LK7jXbzFHgXZgE7sb/yyitl19tzcnL06KOP6phjjnG9uGGp/7+HB4e5FlKY92222cZVaufOnd1oWeuyGTRoUAqPSNLpFjjvvPP08ccfu7snLMCfcsopeSd1N998s0466STttNNO7vr7008/Lbu7giWaAkX9/rdv395dutl3333dH/xLLrnEDcyMpkRmlqpRo0a69dZbXVC3Bp5dmn399dcdRljqP2Y39WVm9RW/1NZis+tvXHsvvlnYt8wdSGmDp/Ivdg3Ozu5ZMkOgqN9/u/ZuJwL2wxJNAQuR/r3yqlOnToECBr3+CfAFqowVCCCAAAIIhF+Aa/Dhr0NKgAACCCCAQAEBAnwBElYggAACCCAQfgECfPjrkBIggAACCCBQQIAAX4CEFQgggAACCIRfgAAf/jqkBAgggAACCBQQIMAXIGEFAggggAAC4RcgwIe/DikBAggggAACBQQI8AVIWIEAAggggED4BQjw4a9DSoAAAggggEABAQJ8ARJWIIAAAgggEH4BAnz465ASIIAAAgggUECAAF+AhBUIIIAAAgiEX4AAH/46pAQIIIAAAggUECDAFyBhBQIIIIAAAuEXIMCHvw4pAQIIIIAAAgUECPAFSFiBAAIIIIBA+AUI8OGvQ0qAAAIIIIBAAQECfAESViCAAAIIIBB+AQJ8+OuQEiCQdIH169erWbNm6tOnz2Zpn3feeerWrdtm63iDAALBFKgQzGyRKwQQSKdA5cqVNWzYMB166KE6+OCD1aVLF91zzz2aMmWKvvjii3RmjWMjgEAxBQjwxYRiMwQyTaB58+YuqF900UWqWLGibr/9dk2ePFnVq1fPNArKi0AoBWKev4Qy52QaAQTKReCEE07QuHHj9Nhjj+niiy8ul2NyEAQQKLsA1+DLbkgKCERaYLfddlNOTo7q1q0b6XJSOASiJkCAj1qNUh4EkigwadIkPf/88+rXr5969uypZcuWJTF1kkIAgVQK0EWfSl3SRiDEAqtXr5Zdh7/xxhtl1+Hbtm2rXXbZRc8++2yIS0XWEcgcAQJ85tQ1JUWgRAKXXHKJfvrpJ40fP16xWEzff/+9WrZsqTfffFMdOnQoUVpsjAAC5S9AgC9/c46IQOAFxo4dq9NOO03Tpk3TzjvvnJdfu1Xu8ccf1/Tp0xlNn6fCCwSCKUCAD2a9kCsEEEAAAQTKJMAguzLxsTMCCCCAAALBFCDAB7NeyBUCCCCAAAJlEiDAl4mPnRFAAAEEEAimAAE+mPVCrhBAAAEEECiTAAG+THzsjAACCCCAQDAFCPDBrBdyhQACCCCAQJkECPBl4mNnBBBAAAEEgilAgA9mvZArBBBAAAEEyiRAgC8THzsjgAACCCAQTAECfDDrhVwhgAACCCBQJgECfJn42BkBBBBAAIFgChDgg1kv5AoBBBBAAIEyCRDgy8THzggggAACCARTgAAfzHohVwgggAACCJRJgABfJj52RgABBBBAIJgCBPhg1gu5QgABBBBAoEwCBPgy8bEzAggggAACwRT4f/0A8WzsgeG8AAAAAElFTkSuQmCC" alt="plot of chunk unnamed-chunk-35"/></p>
-
-</div>
-
-</section>
-<section data-transition="linear" data-transition-speed="default">
-<h3>Functions (2&#x2F;) - Functions can be defined in R</h3>
-<div class="slideContent" >
-<p>Although we have access to many built functions in R, there will be many complex tasks we wish to perform regularly which are particular to our own work and for which no suitable function exists. </p>
-
-<p>For these tasks we can construct our own functions with <strong>function()</strong></p>
-
-<pre><code>Function_Name &lt;- function(Arguments){
-      Result &lt;- Arguments
-  return(Result)
-}
-</code></pre>
-
-</div>
-
-</section>
-<section data-transition="linear" data-transition-speed="default">
-<h3>Functions (3&#x2F;) - Defining your own functions</h3>
-<div class="slideContent" >
-<p>To define a function with <strong>function()</strong> we need to decide </p>
-
-<ul>
-<li>the argument names within <strong>()</strong></li>
-<li>the expression to be evaluated within <strong>{}</strong> </li>
-<li>the variable to which the function will be assigned  with <strong>&lt;-</strong>.</li>
-<li>the output from the function using <strong>return()</strong> </li>
-</ul>
-
-<p><strong>Function_name</strong> &lt;- function(<strong>Argument1</strong>,<strong>Argument2</strong>){ <strong>Expression</strong>}</p>
-
-<pre><code class="r">myFirstFunction &lt;- function(myArgument1,myArgument2){
-  myResult &lt;- (myArgument1*myArgument2)
-  return(myResult)
-}
-myFirstFunction(4,5)
-</code></pre>
-
-<pre><code>[1] 20
-</code></pre>
-
-</div>
-
-</section>
-<section data-transition="linear" data-transition-speed="default">
-<h3>Functions (4&#x2F;) - Default arguments</h3>
-<div class="slideContent" >
-<p>In functions, a default value for an argument may be used.
-This allows the function to provide a value for an argument when the user does not specify one.</p>
-
-<p>Default arguments can be specified by assigning a value to the argument with <strong>=</strong> operator</p>
-
-<pre><code class="r">mySecondFunction &lt;- function(myArgument1,myArgument2=10){
-  myResult &lt;- (myArgument1*myArgument2)
-  return(myResult)
-}
-mySecondFunction(4,5)
-</code></pre>
-
-<pre><code>[1] 20
-</code></pre>
-
-<pre><code class="r">mySecondFunction(4)
-</code></pre>
-
-<pre><code>[1] 40
-</code></pre>
-
-</div>
-
-</section>
-<section data-transition="linear" data-transition-speed="default">
-<h3>Functions (5&#x2F;) -Missing Arguments</h3>
-<div class="slideContent" >
-<p>In some cases a function may wish to deal with missing arguments in a different way to setting a generic default for the argument. The missing() function can be used to evaluate whether an argument has been defined </p>
-
-<pre><code class="r">mySecondFunction &lt;- function(myArgument1,myArgument2){
-  if(missing(myArgument2)){
-    message(&quot;Value for myArgument2 not provided so will square myArgument1&quot;)
-    myResult &lt;- myArgument1*myArgument1
-  }else{
-    myResult &lt;- (myArgument1*myArgument2)   
-  }
-  return(myResult)
-}
-mySecondFunction(4)
-</code></pre>
-
-<pre><code>Value for myArgument2 not provided so will square myArgument1
-</code></pre>
-
-<pre><code>[1] 16
-</code></pre>
-
-</div>
-
-</section>
-<section data-transition="linear" data-transition-speed="default">
-<h3>Functions (6&#x2F;) -Returning objects from functions</h3>
-<div class="slideContent" >
-<p>We have seen that a function returns the value within the return() function. If no return is specified, the result of last line evaluated in the function is returned.</p>
-
-<pre><code class="r">myforthFunction &lt;- function(myArgument1,myArgument2=10){
-  myResult &lt;- (myArgument1*myArgument2)
-  return(myResult)
-  print(&quot;I returned the result&quot;)
-}
-myfifthFunction &lt;- function(myArgument1,myArgument2=10){
-(myArgument1*myArgument2)
-}
-
-myforthFunction(4,5)
-</code></pre>
-
-<pre><code>[1] 20
-</code></pre>
-
-<pre><code class="r">myfifthFunction(4,5)
-</code></pre>
-
-<pre><code>[1] 20
-</code></pre>
-
-<p>Note that the print() statment after the return() is not evaluated in myforthFuntion.</p>
-
-</div>
-
-</section>
-<section data-transition="linear" data-transition-speed="default">
-<h3>Functions (7&#x2F;) - Returning lists from functions</h3>
-<div class="slideContent" >
-<p>The <strong>return()</strong> function can only return one R object at a time. To return multiple data objects from one function call, a list can be used to contain other data objects.</p>
-
-<pre><code class="r">mySixthFunction &lt;- function(arg1,arg2){
-  result1 &lt;- arg1*arg2
-  result2 &lt;- date()
-  return(list(Calculation=result1,DateRun=result2))
-}
-result &lt;- mySixthFunction(10,10)
-result
-</code></pre>
-
-<pre><code>$Calculation
-[1] 100
-
-$DateRun
-[1] &quot;Mon Sep 16 10:32:24 2019&quot;
-</code></pre>
-
-</div>
-
-</section>
-<section data-transition="linear" data-transition-speed="default">
-<h3>Functions (8&#x2F;) -Scope</h3>
-<div class="slideContent" >
-<p>When arguments or variables are created within a function, they only exist within that function and disappear once the function is complete.</p>
-
-<pre><code class="r">mySeventhFunction &lt;- function(arg1,arg2){
-  internalValue &lt;- arg1*arg2
-  return(internalValue)
-}
-result &lt;- mySeventhFunction(10,10)
-internalValue
-</code></pre>
-
-<pre><code>Error in eval(expr, envir, enclos): object &#39;internalValue&#39; not found
-</code></pre>
-
-<pre><code class="r">arg1
-</code></pre>
-
-<pre><code>Error in eval(expr, envir, enclos): object &#39;arg1&#39; not found
-</code></pre>
-
-</div>
-
-</section>
-<section data-transition="linear" data-transition-speed="default">
-<h3>Time for an exercise!</h3>
-<div class="slideContent" >
-<p>Exercise on functions can be found <a href="exercises/Functions_Exercises.html">here</a></p>
-
-</div>
-
-</section>
-<section data-transition="linear" data-transition-speed="default">
-<h3>Answers to exercise.</h3>
-<div class="slideContent" >
-<p>Answers can be found here  <a href="answers/Functions_Answers.html">here</a></p>
-
-</div>
-
-</section>
-<section data-state="section" data-transition="linear" data-transition-speed="default">
-<h2>Scripts</h2>
-<div class="slideContent" >
-
-</div>
-
-</section>
-<section data-transition="linear" data-transition-speed="default">
-<h3>Saving scripts</h3>
-<div class="slideContent" >
-<p>Once we have got our functions together and know how we want to analyse our data, we can save our analysis as a <strong>script</strong>. By convention R scripts typically end in <strong>.r</strong> or <strong>.R</strong></p>
-
-<p>To save a file in RStudio.</p>
-
-<p><strong>-&gt; File -&gt; Save as</strong></p>
-
-<p>To open a previous R script</p>
-
-<p><strong>-&gt;File -&gt; Open File..</strong></p>
-
-<p>To save all the objects (workspace) with extension <strong>.RData</strong></p>
-
-<p><strong>-&gt;Session -&gt; Save workspace as</strong></p>
-
-</div>
-
-</section>
-<section data-transition="linear" data-transition-speed="default">
-<h3>Sourcing scripts.</h3>
-<div class="slideContent" >
-<p>R scripts allow us to save and reuse custom functions we have written.  To run the code from an R script we can use the <strong>source()</strong> function with the name of the R script as the argument. </p>
-
-<p>The file <strong>dayOfWeek.r</strong> in the &ldquo;scripts&rdquo; directory contains a simple R script to tell you what day it is after your marathon R coding session.</p>
-
-<pre><code>#Contents of dayOfWeek.r
-dayOfWeek &lt;- function(){
-  return(gsub(&quot; .*&quot;,&quot;&quot;,date()))  
-}
-</code></pre>
-
-<pre><code class="r">source(&quot;scripts/dayOfWeek.R&quot;)
-dayOfWeek()
-</code></pre>
-
-<pre><code>[1] &quot;Mon&quot;
-</code></pre>
-
-</div>
-
-</section>
-<section data-transition="linear" data-transition-speed="default">
-<h3>Rscript</h3>
-<div class="slideContent" >
-<p>R scripts can be run non-interactively from the command line with the <strong>Rscript</strong> command, usually with the option <strong>&ndash;vanilla</strong> to avoid saving or restoring workspaces. All messages/warnings/errors will be output to the console.</p>
-
-<pre><code>Rscript --vanilla myscript.r
-</code></pre>
-
-<p>An alternative to Rscript is <strong>R CMD BATCH</strong>. Here all messages/warnings/errors are directed to a file and the processing time appended.</p>
-
-<pre><code>R CMD BATCH myscript.r
-</code></pre>
-
-</div>
-
-</section>
-<section data-transition="linear" data-transition-speed="default">
-<h3>Sending arguments to Rscript</h3>
-<div class="slideContent" >
-<p>To provide arguments to an R script at the command line we must add <strong>commandArgs()</strong> function to parse command line arguments.</p>
-
-<pre><code class="r">args &lt;- commandArgs(TRUE)
-myFirstArgument &lt;- args[1]
-myFirstArgument
-as.numeric(myFirstArgument
-</code></pre>
-
-<pre><code>&#39;10&#39;
-</code></pre>
-
-<pre><code class="r">as.numeric(myFirstArgument)
-</code></pre>
-
-<pre><code>10
-</code></pre>
-
-<p>Since vectors can only be one type, all command line arguments are strings and must be converted to numeric if needed with <strong>as.numeric()</strong></p>
-
-</div>
-
-</section>
-<section data-transition="linear" data-transition-speed="default">
-<h3>Getting help</h3>
+<h3>Exercises</h3>
 <div class="slideContent" >
 <ul>
-<li>Google</li>
-<li>Local friendly bioinformaticians and computational biologists.</li>
-<li><a href="http://stackoverflow.com/">Stackoverflow</a></li>
-<li><a href="https://stat.ethz.ch/mailman/listinfo/r-help">R-help</a></li>
+<li>Open up markdownExampleDefaultStyles.Rmd and markdownExample.Rmd in the scripts directory. Have a look at the rMarkdown examples here and the resulting output html files.</li>
 </ul>
 
-</div>
+<p><a href="scripts/markdownExampleDefaultStyles.html">Example HTML Default style.</a><br/>
+<a href="scripts/markdownExample.html">Example HTML with extra style.</a></p>
 
-</section>
-<section data-transition="linear" data-transition-speed="default">
-<h3>The end</h3>
-<div class="slideContent" >
-
-</div>
-
-</section>
-<section data-transition="linear" data-transition-speed="default">
-<h3>Two tips</h3>
-<div class="slideContent" >
+<ul>
+<li><p>Open scriptToConvertToRMarkdown.r in scripts directory and save as new name.</p></li>
+<li><p>Convert this script to an Rmarkdown document using the render() function or inside RStudio.</p></li>
+</ul>
 
 </div>
 

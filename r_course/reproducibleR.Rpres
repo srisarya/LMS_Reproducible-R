@@ -1,7 +1,7 @@
-Reproducible R
+Reproducible Reporting in R
 =========================================================
 author: LMS Bioinformatics Core
-date:https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/reproducibleR.html
+date: 19 September 2019
 width: 1440
 height: 1100
 autosize: true

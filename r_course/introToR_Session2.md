@@ -17,7 +17,7 @@ Overview
 - [Conditions and Loops](#/control)
 - [Defining functions](#/functions)
 - [Writing scripts](#/scripts)
-- [Libraries](#/libraries)
+
 
 
 Recap on what we have covered. 
@@ -781,7 +781,7 @@ mean(x)
 ```
 
 ```
-[1] 68.03921
+[1] 69.97516
 ```
 
 ```r
@@ -950,7 +950,7 @@ $Calculation
 [1] 100
 
 $DateRun
-[1] "Thu Sep 20 15:16:50 2018"
+[1] "Mon Sep 16 10:32:24 2019"
 ```
 
 Functions (8/) -Scope
@@ -1036,7 +1036,7 @@ dayOfWeek()
 ```
 
 ```
-[1] "Thu"
+[1] "Mon"
 ```
 
 Rscript
@@ -1078,37 +1078,6 @@ as.numeric(myFirstArgument)
 10
 ```
 Since vectors can only be one type, all command line arguments are strings and must be converted to numeric if needed with **as.numeric()**
-
-Loading libraries
-================
-
-Libraries can be loaded using the library() function with an argument of the name of the library
-
-
-```r
-library(ggplot2)
-```
-
-You can see what libraries are available in the Packages panel or by the  library() function with no arguments supplied
-
-
-```r
-library()
-```
-
-Installing libraries
-================
-
-Libraries can be installed through the R studio menu
-
-**-> Tools -> Install packages ..**
-
-Or by using the install.packages() command
-
-
-```r
-install.packages("Hmisc")
-```
 
 
 Getting help
