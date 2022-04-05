@@ -1,7 +1,7 @@
 Introduction to R, Session 2
 ========================================================
 author: MRC LMS Bioinformatics Core
-date: 18 September 2019
+date: 20 April 2022
 width: 1440
 height: 1100
 autosize: true
@@ -736,13 +736,13 @@ sapply(exampleList,summary)
 
 ```
 $df
-      sample       data      
- patient1:1   Min.   : 1.00  
- patient2:1   1st Qu.: 3.75  
-              Median : 6.50  
-              Mean   : 6.50  
-              3rd Qu.: 9.25  
-              Max.   :12.00  
+    sample               data      
+ Length:2           Min.   : 1.00  
+ Class :character   1st Qu.: 3.75  
+ Mode  :character   Median : 6.50  
+                    Mean   : 6.50  
+                    3rd Qu.: 9.25  
+                    Max.   :12.00  
 
 $vec
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -781,7 +781,7 @@ mean(x)
 ```
 
 ```
-[1] 70.10197
+[1] 71.11624
 ```
 
 ```r
@@ -950,7 +950,7 @@ $Calculation
 [1] 100
 
 $DateRun
-[1] "Mon Sep 16 14:30:23 2019"
+[1] "Tue Apr  5 16:24:46 2022"
 ```
 
 Functions (8/) -Scope
@@ -1036,7 +1036,7 @@ dayOfWeek()
 ```
 
 ```
-[1] "Mon"
+[1] "Tue"
 ```
 
 Rscript
@@ -1091,6 +1091,6 @@ Getting help
 The end
 ====
 
-Two tips
+Questions?
 ====
 

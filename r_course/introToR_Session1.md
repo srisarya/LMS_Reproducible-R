@@ -1,7 +1,7 @@
 Introduction to R, Session 1
 ========================================================
 author: MRC LMS Bioinformatics Core
-date: 18 September 2019
+date: 20 April 2022
 width: 1440
 height: 1100
 autosize: true
@@ -1666,9 +1666,9 @@ dfExample
 
 ```
       Name   Type Survival_Time newColumn
-1     <NA>   male             0   newData
+1 patientX   male             0   newData
 2 patient2 female            30   newData
-3     <NA>   male             0   newData
+3 patientX   male             0   newData
 4 patient4 female            20   newData
 ```
 
@@ -2109,14 +2109,14 @@ A standard format for this data is a table
 
 |Gene_Name | Sample_1.hi| Sample_2.hi| Sample_3.hi| Sample_4.low| Sample_5.low| Sample_1.low|
 |:---------|-----------:|-----------:|-----------:|------------:|------------:|------------:|
-|Gene_a    |    5.291696|    5.354663|    2.564751|     3.718672|     4.054522|     2.280136|
-|Gene_b    |    1.975335|    2.754408|    4.820008|     3.979929|     3.206699|     3.294646|
-|Gene_c    |    3.437785|    3.074045|    4.722891|     3.265702|     4.837191|     4.435822|
-|Gene_d    |    4.664289|    2.337595|    2.777419|     8.178404|     9.031225|     7.928736|
-|Gene_e    |   11.373394|    9.517535|   10.355251|     1.178614|     3.931759|     3.372798|
-|Gene_f    |   10.496453|    9.472467|   11.313994|     2.673447|     2.061778|     2.473754|
-|Gene_g    |    9.660971|   10.024533|    9.813906|     9.305311|     9.490727|    10.253150|
-|Gene_h    |   10.483761|   10.454062|   11.001617|    10.091206|     9.545337|     9.919640|
+|Gene_a    |    3.300220|    4.745605|    5.226124|     5.978978|     4.751347|     4.258921|
+|Gene_b    |    4.405686|    3.158782|    2.878326|     4.105144|     4.812169|     3.441746|
+|Gene_c    |    4.891195|    4.257349|    5.192813|     3.578841|     2.607464|     3.411931|
+|Gene_d    |    4.340449|    3.578466|    4.146453|     9.128834|     8.332125|     8.774485|
+|Gene_e    |   10.633455|    9.605173|   11.364580|     3.661928|     3.628596|     2.856445|
+|Gene_f    |    8.250659|    8.204719|    9.467447|     3.787554|     1.601884|     1.911394|
+|Gene_g    |   10.079281|   10.982020|   10.624912|    10.132796|    12.058604|    11.629733|
+|Gene_h    |    9.373008|    9.364371|    9.605229|     8.637642|     8.412354|    10.694208|
 
 Data IO (2/7) - Data from text file with read.table()
 =========================================================
@@ -2314,13 +2314,13 @@ summary(dfExample)
 ```
 
 ```
-       Name       Type   Survival_Time  
- patient1:1   female:2   Min.   : 1.00  
- patient2:1   male  :2   1st Qu.: 1.75  
- patient3:1              Median :11.00  
- patient4:1              Mean   :13.25  
-                         3rd Qu.:22.50  
-                         Max.   :30.00  
+     Name               Type   Survival_Time  
+ Length:4           female:2   Min.   : 1.00  
+ Class :character   male  :2   1st Qu.: 1.75  
+ Mode  :character              Median :11.00  
+                               Mean   :13.25  
+                               3rd Qu.:22.50  
+                               Max.   :30.00  
 ```
 
 Statistics (4/26) - table() function with data frames
@@ -2433,7 +2433,7 @@ cor(x,z)
 ```
 
 ```
-[1] 0.05461364
+[1] 0.1471298
 ```
 ***
 ![plot of chunk unnamed-chunk-109](introToR_Session1-figure/unnamed-chunk-109-1.png)
@@ -2447,8 +2447,8 @@ Often we wish to apply correlation analysis to all columns or rows in a matrix i
 
 | Sample_1.hi| Sample_2.hi| Sample_3.hi| Sample_4.low| Sample_5.low| Sample_1.low|
 |-----------:|-----------:|-----------:|------------:|------------:|------------:|
-|    5.291696|    5.354663|    2.564751|     3.718672|     4.054522|     2.280136|
-|    1.975335|    2.754408|    4.820008|     3.979929|     3.206699|     3.294646|
+|    3.300220|    4.745605|    5.226124|     5.978978|     4.751347|     4.258921|
+|    4.405686|    3.158782|    2.878326|     4.105144|     4.812169|     3.441746|
 
 
 ```r
@@ -2457,8 +2457,8 @@ cor(minRep)[1:2,2:5]
 
 ```
             Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low
-Sample_1.hi   0.9557818   0.8851772    0.1140594    0.1695248
-Sample_2.hi   1.0000000   0.9125568    0.1718428    0.1636961
+Sample_1.hi   0.9529732   0.9524302    0.1668735    0.2558497
+Sample_2.hi   1.0000000   0.9754905    0.2890812    0.3450995
 ```
 
 Statistics (9/26) - Visualising correlation
@@ -2507,8 +2507,8 @@ rnorm(10,mean=8,sd=3)
 ```
 
 ```
- [1]  4.801732  8.133365  4.093652  5.228394 11.808472  9.374749  8.022087
- [8]  9.104868  6.794832 10.050753
+ [1]  8.327643  7.192788  8.144161 12.154523 11.856229  4.960194  3.514793
+ [8] 10.140146 10.556657  5.315104
 ```
 We can also use these functions to interrogate values assuming a normal distribution for the data.
 
@@ -2802,7 +2802,7 @@ result
 
 data:  Value by Group
 t = -41.353, df = 18, p-value < 2.2e-16
-alternative hypothesis: true difference in means is not equal to 0
+alternative hypothesis: true difference in means between group A and group B is not equal to 0
 95 percent confidence interval:
  -14.60253 -13.19051
 sample estimates:
