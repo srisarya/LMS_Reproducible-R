@@ -43,15 +43,15 @@ editor_options:
 
  Once the zip file in unarchived. All presentations as HTML slides and pages, their R code and HTML practical sheets will be available in the directories underneath.
 
-* **presentations/slides/**
+* **CBW_2022/**
   Presentations as an HTML slide show.
-* **presentations/singlepage/** 
+* **CBW_2022/** 
   Presentations as an HTML single page.
-* **presentations/rcode/**
+* **CBW_2022/**
   R code in presentations.
-* **exercises/**
+* **CBW_2022/exercises/**
   Practicals as HTML pages. 
-* **answers/**
+* **CBW_2022/answers/**
   Practicals with answers as HTML pages and R code solutions. 
   
 # Set the Working directory
@@ -102,7 +102,6 @@ Inheriting much from **S** (Bell labs).
 
 In particular, [Robert Gentleman](https://gist.github.com/colliand/d6d4ff42a9124ca38bed8d90136f70f5) developed the **[Bioconductor](http://bioconductor.org/)** project where 100's of packages are directly related to computational biology and analysis of associated high-throughput experiments.
 
-***
 
 <div align="center">
 <img src="imgs/RCitations.jpeg" alt="path" height="250" width="400">

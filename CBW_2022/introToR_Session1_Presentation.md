@@ -37,15 +37,15 @@ editor_options:
 
  Once the zip file in unarchived. All presentations as HTML slides and pages, their R code and HTML practical sheets will be available in the directories underneath.
 
-* **presentations/slides/**
+* **CBW_2022/**
   Presentations as an HTML slide show.
-* **presentations/singlepage/** 
+* **CBW_2022/** 
   Presentations as an HTML single page.
-* **presentations/rcode/**
+* **CBW_2022/**
   R code in presentations.
-* **exercises/**
+* **CBW_2022/exercises/**
   Practicals as HTML pages. 
-* **answers/**
+* **CBW_2022/answers/**
   Practicals with answers as HTML pages and R code solutions. 
   
 # Set the Working directory
@@ -94,7 +94,6 @@ Inheriting much from **S** (Bell labs).
 
 In particular, [Robert Gentleman](https://gist.github.com/colliand/d6d4ff42a9124ca38bed8d90136f70f5) developed the **[Bioconductor](http://bioconductor.org/)** project where 100's of packages are directly related to computational biology and analysis of associated high-throughput experiments.
 
-***
 
 <div align="center">
 <img src="imgs/RCitations.jpeg" alt="path" height="250" width="400">
@@ -2023,14 +2022,14 @@ A standard format for this data is a table
 
 |Gene_Name | Sample_1.hi| Sample_2.hi| Sample_3.hi| Sample_4.low| Sample_5.low| Sample_1.low|
 |:---------|-----------:|-----------:|-----------:|------------:|------------:|------------:|
-|Gene_a    |    5.338802|    3.638282|    5.089054|     4.958417|     5.963100|     5.062771|
-|Gene_b    |    5.003282|    4.729880|    2.638414|     4.874918|     4.108303|     3.701762|
-|Gene_c    |    4.415146|    4.707005|    4.098869|     3.187302|     3.183989|     4.519850|
-|Gene_d    |    4.549717|    2.553382|    3.863506|     8.870100|     7.925993|     8.098008|
-|Gene_e    |   10.403816|    7.765175|    8.946762|     2.440327|     3.982190|     2.811852|
-|Gene_f    |   11.289828|   11.146934|    9.332855|     2.766317|     2.985418|     2.741871|
-|Gene_g    |    9.389245|   10.534204|    8.480374|    10.204235|     9.192635|    11.021047|
-|Gene_h    |   10.102575|   10.668871|   10.220368|     9.016900|     9.020238|     9.046753|
+|Gene_a    |    3.360638|    4.493013|    5.559380|     5.127173|     3.416893|     4.667306|
+|Gene_b    |    3.917832|    3.570326|    3.234520|     3.220776|     4.803588|     3.645290|
+|Gene_c    |    6.399864|    3.370840|    4.371333|     3.520645|     3.511491|     4.320304|
+|Gene_d    |    4.437729|    3.014944|    2.859792|     9.506112|     8.013802|     7.569091|
+|Gene_e    |    8.678415|   10.074380|    8.252586|     3.814081|     1.840746|     2.497013|
+|Gene_f    |    9.594125|    9.969402|    9.724515|     1.678014|     2.807097|     3.538736|
+|Gene_g    |    8.734701|    7.181027|   10.033130|    10.488923|     9.187073|     9.942992|
+|Gene_h    |   10.110983|    9.403042|    9.538898|     8.065121|     8.657796|    11.542718|
 
 ### Data from text file with read.table()
 
