@@ -2022,14 +2022,14 @@ A standard format for this data is a table
 
 |Gene_Name | Sample_1.hi| Sample_2.hi| Sample_3.hi| Sample_4.low| Sample_5.low| Sample_1.low|
 |:---------|-----------:|-----------:|-----------:|------------:|------------:|------------:|
-|Gene_a    |    3.360638|    4.493013|    5.559380|     5.127173|     3.416893|     4.667306|
-|Gene_b    |    3.917832|    3.570326|    3.234520|     3.220776|     4.803588|     3.645290|
-|Gene_c    |    6.399864|    3.370840|    4.371333|     3.520645|     3.511491|     4.320304|
-|Gene_d    |    4.437729|    3.014944|    2.859792|     9.506112|     8.013802|     7.569091|
-|Gene_e    |    8.678415|   10.074380|    8.252586|     3.814081|     1.840746|     2.497013|
-|Gene_f    |    9.594125|    9.969402|    9.724515|     1.678014|     2.807097|     3.538736|
-|Gene_g    |    8.734701|    7.181027|   10.033130|    10.488923|     9.187073|     9.942992|
-|Gene_h    |   10.110983|    9.403042|    9.538898|     8.065121|     8.657796|    11.542718|
+|Gene_a    |    2.874648|    4.960330|    4.241958|     4.998319|     3.331386|    3.1546449|
+|Gene_b    |    2.607975|    3.470672|    4.788898|     4.081167|     3.499954|    3.4684829|
+|Gene_c    |    4.494620|    3.335393|    3.934351|     2.345385|     3.834476|    3.0744386|
+|Gene_d    |    4.465812|    4.068829|    5.495932|     9.872878|     8.675069|    8.3544254|
+|Gene_e    |    9.429507|   11.527502|    9.862680|     2.910204|     3.799027|    0.2920961|
+|Gene_f    |    9.483906|   10.616366|    9.591775|     2.168146|     3.811851|    0.9630530|
+|Gene_g    |    8.482135|   10.623470|    9.158943|    10.962945|    10.923468|    9.8027708|
+|Gene_h    |    8.632512|    9.396295|   10.444425|     8.719504|     9.368551|    9.8399054|
 
 ### Data from text file with read.table()
 
@@ -2162,5 +2162,145 @@ Exercise on reading and writing data can be found [here](https://lmsbioinformati
 Answers can be found [here](https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/answers/DataInputOutput_answers.html)
                         
 R code for solutions can be found [here](https://lmsbioinformatics.github.io/LMS_Reproducible-R/r_course/answers/DataInputOutput_answers.R)
+
+# Loading Libraries
+
+## What are libraries in R?
+
+R libraries or packages are collections of functions developed by the community. 
+R packages include 
+- reusable R functions 
+- the documentation for these functions and 
+- sample data to test their functionality. 
+
+## What are repositories?
+
+A repository is a place where packages are deposited by the community and you can install them from it. The two most popular repositories for R packages are:
+- CRAN
+- Bioconductor
+
+## How to install R packages from CRAN?
+
+You can install the packages from CRAN using the function install.packages()
+
+For example,
+
+
+```r
+install.packages("babynames")
+```
+
+To load the installed packages and use them, you can use the library() function
+
+For example,
+
+
+
+```r
+library(babynames)
+```
+
+
+You can also install packages through the R studio menu
+
+**-> Tools -> Install packages ..**
+
+## How to install R packages from Bioconductor?
+
+To install packages from Bioconductor, you have to first have to install the Bioconduction package manager "BiocManager"
+
+To install it, 
+
+
+```r
+install.packages("BiocManager")
+```
+
+Then, you can install any packages from Bioconductor using the BiocManager::install() function
+
+For example,
+
+
+```r
+BiocManager::install("DESeq2")
+```
+
+To load the installed packages and use them, you can use the library() function
+
+For example,
+
+
+
+```r
+library(DESeq2)
+```
+
+
+How to install R packages from Bioconductor in older versions of R?
+========================================================
+
+If you are using an older version of R (R < 3.5.0), you have to use biocLite to install Bioconductor packages.
+
+To install packages from Bioconductor, you have to first source the "biocLite" package. 
+
+
+```r
+source("https://bioconductor.org/biocLite.R")
+```
+
+Then, you can install any packages from Bioconductor using the biocLite() function
+
+For example,
+
+
+```r
+biocLite("DESeq2")
+```
+
+To load the installed packages and use them, you can use the library() function
+
+For example,
+
+
+
+```r
+library(DESeq2)
+```
+
+## How to get help about the packages?
+
+You can get the documentation of the package by using the function help() or "??"
+
+For example
+
+```r
+help(babynames)
+
+# Or you can use "??"
+?? babynames
+```
+
+
+For a more detailed information on each and every parameter of all the functions in a package, you can refer to the reference manual or the in the package webpage or by using the browseVignettes() function.
+
+
+For example,
+
+
+
+```r
+browseVignettes("DESeq2")
+```
+
+
+You can see what libraries are available in the Packages panel or by the library() function with no arguments supplied
+
+
+```r
+library()
+```
+
+
+
                         
 End of Session 1
