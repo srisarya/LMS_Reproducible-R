@@ -1,7 +1,7 @@
 ---
 title: "Introduction to R, Session 3: Reproducible R"
 author: "`LMS Bioinformatics`"
-date: "April 2022"
+date: "`r format(Sys.time(), '%B %Y')`"
 output:
   slidy_presentation:
     highlight: tango
@@ -11,7 +11,13 @@ editor_options:
   chunk_output_type: console
 ---
 
+```{r setup, include=FALSE}
+#knitr::opts_chunk$set(echo = TRUE)
 
+# knitr::opts_chunk$set(cache = TRUE, warning = FALSE, echo=T,
+#                       message = FALSE, cache.lazy = FALSE)
+
+```
 
 
 # Overview
@@ -21,7 +27,9 @@ editor_options:
   - Creating reproducible documents in R
   - Controlling Output Format
   
-
+```{r,echo=F,eval=F}
+setwd("/Volumes/bioinfomatics$/Marian/CBW_2022/GitHub/LMS_Reproducible-R/CBW_2022")
+```
  
 # Reproducible Research in R
 
@@ -55,8 +63,7 @@ Several packages offer methods to create notes from R scripts.
 
 One of the simplest way to create a note in R is to use the **render()** function in **rmarkdown** package.
 
-
-```r
+```{r,eval=F}
 library(rmarkdown)
 render("scripts/script.r")
 ```
@@ -71,8 +78,7 @@ scripts directory.
 Controlling the output type from render()
 The render()  function takes the argument **output_format**
 
-
-```r
+```{r,eval=F}
 render("scripts/script.r", output_format="html_document")
 ```
 
@@ -82,16 +88,14 @@ The arguments **output_file** and **output_dir** can be used to control where ou
 
 Note that file extension must be supplied.
 
-
-```r
+```{r,eval=F}
 render("scripts/script.r", output_format="html_document", output_file="myRenderedDoc.html",output_dir="scripts")
 ```
 
 Adding comments and text.
 In R we can use **#** as comments in the code. This is the most basic type of documentation for your code.
 
-
-```r
+```{r,eval=F}
 # Generate some random numbers
 myRandNumbers <- rnorm(100,10,2)
 ```
@@ -99,8 +103,7 @@ myRandNumbers <- rnorm(100,10,2)
 If we want to include comments as text then we can use a new comment type **#'**  
 
 
-
-```r
+```{r,eval=F}
 #' this would be placed as code
 # Generate some random numbers
 myRandNumbers <- rnorm(100,10,2)
@@ -112,8 +115,8 @@ myRandNumbers <- rnorm(100,10,2)
 If we wish to control author, title and date, we can insert metadata into the script as YAML.  
 
 '''
+```{r,eval=F}
 
-```r
 #' ---
 #' title: "CWB making notes example"
 #' date: "Day 2 of CWB"
@@ -133,8 +136,8 @@ We can control how the output from R looks in our rendered documents.
 Options are passed to R code by adding a line preceeding R code with the special comment **#+**. We will look at some options later but a useful example is fig.height and fig.width to control figure height and width in the document.
 
 
+```{r,eval=F}
 
-```r
 #' Some comments for text.
 #+ fig.width=3, fig.height=3
 myRandNumbers <- rnorm(100,10,2)
@@ -198,8 +201,7 @@ This is my second paragraph
 ## Font emphasis
 Emphasis can be added to text in markdown documents using either the **_** or __*__
 
-
-```r
+```{r,results='asis',eval=F}
 Italics = _Italics_ or *Italics*
 Bold  =  __Bold__ or **Bold**
 ```

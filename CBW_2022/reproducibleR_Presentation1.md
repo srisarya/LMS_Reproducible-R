@@ -1,59 +1,61 @@
----
-title: "Introduction to R, Session 3: Reproducible R"
-author: "`LMS Bioinformatics`"
-date: "April 2022"
-output:
-  slidy_presentation:
-    highlight: tango
-    keep_md: true
-    footer: "MRC LMS Bioinformatics core"
-editor_options: 
-  chunk_output_type: console
----
+Reproducible R
+=========================================================
+author: MRC LMS Bioinformatics Core
+date:https://lmsbioinformatics.github.io/LMS_Reproducible-R/
+width: 1440
+height: 1100
+autosize: true
+font-import: <link href='http://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
+font-family: 'Slabo 27px', serif;
+css:style.css
 
 
-
-
-# Overview
-
-  - What is reproducible research and why it matters
-  - Installing RMarkdown
-  - Creating reproducible documents in R
-  - Controlling Output Format
+Reproducible Research
+========================================================
   
-
+  
+  
+>"Let us change our traditional attitude to the construction of programs: Instead of imagining that our main task is to instruct a computer what to do, let us concentrate rather on explaining to humans what we want the computer to do."
+ -- Donald E. Knuth, Literate Programming, 1984
  
-# Reproducible Research in R
 
-Sometime in the future, I, or my successor, will need to understand what analysis I did here.
+Reproducible Research in R
+========================================================
+  
+Sometime in the future, I, or my successor, will need to understand what analysis i did here.
 
 Using RStudio to make reproducible documents is very easy, so why not?
 
-R Markdown allows one to create reproducible documents, containing your analysis code, results and analysis description in a single neat report
 
-# Creating Notebooks from R Scripts
 
+A very quick reproducible document in R
+=====
 
 - Find your R script of interest.
 - Add the sessionInfo() function to the last line.
-- Click File -> Compile Report -> the "Compile Notebook function" -> Select HTML document as output format (**Ctrl / Cmd + Shift + K**).
+- Click the "Compile Notebook function" -> Select HTML document as output format.
 
 
+Creating documents from R scripts
+===============================================
+type:section
 
-# Creating documents from R scripts
+From Scripts to Notes
+======================
 
-## From Scripts to Notes
-
-So, we have just seen the speed at which you can produce a report document from an R script using Rstudio.
+So we have just seen the speed at which you can produce a report document from an R script using Rstudio.
 
 Rstudio makes things easy but for fine control we need to look at what is going on within Rstudio.
 
 Rstudio makes use of **rmarkdown** and **knitr** packages.
 
-
+Defaults
+====
 Several packages offer methods to create notes from R scripts.
 
 One of the simplest way to create a note in R is to use the **render()** function in **rmarkdown** package.
+
+
 
 
 ```r
@@ -62,13 +64,17 @@ render("scripts/script.r")
 ```
 
 Output from render()
+====
 
 By default the render() function will have created a html file in the current working directory.
 
 Have a look at the result script.html in the 
 scripts directory. 
 
+
 Controlling the output type from render()
+====
+
 The render()  function takes the argument **output_format**
 
 
@@ -77,6 +83,7 @@ render("scripts/script.r", output_format="html_document")
 ```
 
 Setting output directory for rendered documents
+====
 
 The arguments **output_file** and **output_dir** can be used to control where output is rendered to.
 
@@ -87,7 +94,10 @@ Note that file extension must be supplied.
 render("scripts/script.r", output_format="html_document", output_file="myRenderedDoc.html",output_dir="scripts")
 ```
 
+
 Adding comments and text.
+===
+
 In R we can use **#** as comments in the code. This is the most basic type of documentation for your code.
 
 
@@ -96,8 +106,10 @@ In R we can use **#** as comments in the code. This is the most basic type of do
 myRandNumbers <- rnorm(100,10,2)
 ```
 
-If we want to include comments as text then we can use a new comment type **#'**  
+Adding comments and text.
+===
 
+If we want to include comments as text then we can use a new comment type **#'**  
 
 
 ```r
@@ -106,32 +118,31 @@ If we want to include comments as text then we can use a new comment type **#'**
 myRandNumbers <- rnorm(100,10,2)
 ```
 
-
-# YAML metadata
+YAML metadata.
+===
 
 If we wish to control author, title and date, we can insert metadata into the script as YAML.  
 
-'''
+
 
 ```r
 #' ---
 #' title: "CWB making notes example"
+#' author: "Bioinformatics Core"
 #' date: "Day 2 of CWB"
 #' ---
 #' this would be placed as text in html
 # Generate some random numbers (This is a comment with code)
 myRandNumbers <- rnorm(100,10,2)
 ```
-'''
 
 We will come back to YAML later.
 
 Controlling R code evaluation in notes.
-
+===
 We can control how the output from R looks in our rendered documents.
 
 Options are passed to R code by adding a line preceeding R code with the special comment **#+**. We will look at some options later but a useful example is fig.height and fig.width to control figure height and width in the document.
-
 
 
 ```r
@@ -142,31 +153,37 @@ hist(myRandNumbers)
 ```
 
 
-# Exercise
+Exercise
+========
+
 
 - Have at the example notebook script "scriptWithNotebookExamples.r" in scripts directory.
 - Open scriptToConvertToNote.r in scripts directory and save as new name.
 - Add notes to this script and compile with render() function or through RStudio.
 
+Markdown
+===============
+
 Under the hood, R is creating an intermediate document in **Markdown** format.
 
-# R Markdown 
+Markdown is a mark up language containing plain text and allowing for conversion to multiple rich text document types.
 
-- is a mark up language containing plain text and allowing for conversion to multiple rich text document types.
+Common formats markdown renders to are - 
+- html
+- pdf
+- Word doc
 
-Common formats markdown renders to are 
-  - html
-  - pdf
-  - Word doc
-  
+Markdown
+===============
+
 Markdown is often used as an intermediate document in conversion from one type to another.  
 
 Github and Sourceforge make use of Markdown syntax in their Readme files and renders these in their webpages.
 
 https://github.com/github/markup/blob/master/README.md
 
-
-# Markdown syntax
+Markdown syntax.
+======
 
 Markdown uses simple syntax to control text output.
 
@@ -174,7 +191,9 @@ This allows for the inclusion of font styles, text structures, images and code c
 
 Lets look at some simple syntax for markdown to help us understand the R documents output from RStudio.
 
-## New line
+Markdown syntax- New line
+======
+
 Markdown is written as plain text and ignores new lines. 
 
 To include a new line in markdown, end the previous line with two spaces.
@@ -195,7 +214,8 @@ This is my second paragraph
 
 ```
 
-## Font emphasis
+Markdown syntax- Font emphasis
+======
 Emphasis can be added to text in markdown documents using either the **_** or __*__
 
 
@@ -210,11 +230,13 @@ Files may be local or accessible from http URL.
 
 ```
 ![alt text](imgs/Dist.jpg)
-![alt text](http://mrccsc.github.io/r_course/imgs/Dist.jpg)
+![alt text](http://lmsbioinformatics.github.io/r_course/imgs/Dist.jpg)
 
 ```
 
-## Creating section headers
+Markdown syntax- Creating section headers
+======
+
 Section headers can be added to Markdown documents.
 
 Headers follow the same conventions as used in HTML markup and can implemented at multiple levels of size. Section headers in Markdown are created by using the **#** symbol
@@ -225,7 +247,8 @@ Headers follow the same conventions as used in HTML markup and can implemented a
 ### Bottom level section
 ```
 
-## Lists
+Markdown syntax- Lists
+======
 Lists can be created in Markdown using the __*__ symbol.  
 Nested lists be specified with **+** symbol.
 
@@ -235,8 +258,9 @@ Nested lists be specified with **+** symbol.
 + Second item A
 + Second item B
 ```
+Markdown syntax- Order lists
+=====
 
-## Order lists
 Lists can also include ordered numbers.
 
 ```
@@ -246,10 +270,22 @@ Lists can also include ordered numbers.
 + Second item B
 ```
 
-## Code chunks
-In Markdown, text may be highlighted as if code by placing the text between ```.
+Markdown syntax- Code chunks
+======
 
+In Markdown, text may be highlighted as if code by placing the text between '''.
+
+```
 The code used to produce plot was
+'''
+hist(rnorm(100))
+'''
+
+```
+Markdown syntax- Code chunks
+======
+
+In Markdown, text may be highlighted as if code by placing the text between '''.
 
 ```
 The code used to produce plot was
@@ -260,30 +296,29 @@ hist(rnorm(100))
 ```
 
 
-## HTML links
-
+Markdown syntax- HTML links
+======
 HTML links can be included in Markdown documents either by simply including address in text or by using **[]** for the phrase to add link to, followed the link in **()**
-'''
 ```
 https://lmsbioinformatics.github.io/LMS_Reproducible-R/
 
 [Github site](https://lmsbioinformatics.github.io/LMS_Reproducible-R/)
 ```
-'''
 
 Markdown syntax- Page breaks.
 ======
 Markdown allows for the specification of page breaks in your document.  
 To specify a page break use 3 or more asterisks or dashes.
 
-'''
+```
 Before the first page break
 ***
 Before the second page break
 ---
-'''
+```
 
-# R Markdown
+rMarkdown.
+=======
 
 rMarkdown is a script type used in R to allow for the generation of Markdown from R code. rMarkdown files will typically have the extension **.Rmd**
 
@@ -291,7 +326,8 @@ rMarkdown allows for the inclusion of Markdown syntax around **chunks** of R cod
 
 The output from running the R code can be tightly controled using rMarkdown, allowing for very neat integration of results with code used to generate them
 
-## knitr
+knitr
+=======
 
 The **knitr** packages is the main route to create documents from **.Rmd** files.
 
@@ -299,21 +335,21 @@ The **knitr** packages is the main route to create documents from **.Rmd** files
 
 http://yihui.name/knitr/
 
-## From Markdown to rMarkdown
+rMarkdown. From Markdown to rMarkdown
+=======
 
 The transition from Markdown to rMarkdown is very simple. All Markdown syntax may be included and code to be evaluated in R placed between a special code chunk.  
 
 The code chunck  containing R code to execute is specified by the inclusion of **{r}** as below.
+
 ```
 My Markdown **syntax** here
-'''
+'''{r} 
 hist(rnorm(1000))
 '''
 
-```
-
-## rMarkdown. Controlling R code output - eval
-
+rMarkdown. Controlling R code output - eval
+=======
 Options may be included in the R code chunks. 
 
 An important option is to choose whether code will be run or is meant for display only. This can be controlled with the **eval** option. TRUE will evaluate the code.
@@ -326,7 +362,8 @@ hist(rnorm(1000))
 
 ```
 
-## Controlling R code output - Displaying code.
+rMarkdown. Controlling R code output - Displaying code.
+=======
 
 It may be that you wish to report just the results and not include the code used to generate them. This can be controlled with the **echo** argument. TRUE will display the code.
 
@@ -338,9 +375,8 @@ hist(rnorm(1000))
 
 ```
 
-
-## Controlling R code output - message and warnings
-
+rMarkdown. Controlling R code output - message and warnings
+=======
 R can produce a lot of output not related to your results. To control whether messages and warnings are reported in the rendered document we can specify the **message** and **warning** arguments. 
 
 Loading libraries in rMarkdown is often somewhere you would specify these as FALSE.
@@ -352,8 +388,8 @@ library(ggplot2)
 '''
 
 ```
-
-## Controlling figure output
+rMarkdown. Controlling figure output.
+=======
 
 Control over figure heights and widths can be implemented in rMarkdown using the **fig.width** and **fig.height** arguments. Further control over exact size in rendered document maybe specified with **out.width** and **out.height**.
 
@@ -365,8 +401,35 @@ hist(rnorm(100))
 
 ```
 
+rMarkdown. Automatically tidying code.
+=======
 
-## Placing code and output together
+The code within the **{r}** code block can be reformatted using the formatR package. This can be automatically done when the **tidy** option is specified.
+
+```
+
+'''{r,tidy=T} 
+        hist( 
+rnorm(100  )
+      )
+'''
+
+```
+rMarkdown. Placing code and output together
+=======
+
+The code within the **{r}** code block will by default appear in a separate block to results output. To force code and output to appear in the same block the **collapse** option should be specified 
+```
+
+'''{r,collapse=T} 
+temp <- rnorm(10)
+temp
+'''
+
+```
+
+rMarkdown. Inserting tables.
+=======
 
 The results of printing data frames or matrices in the console aren't neat.
 
@@ -382,19 +445,18 @@ kable(dfExample)
 '''
 
 ```
-
-
-## Evaluating code within markdown text
+rMarkdown. Evaluating code within markdown text.
+=======
 
 It may be useful to report the results of R within the block of Markdown. This can be done adding the code to evalulate within **'r  '**
-
 
 ```
 Here is some freeform _markdown_ and the first result from an rnorm call is 'r rnorm(3)[1]', followed by some more free form text.
 
 ```
 
-## cache
+rMarkdown: cache
+===
 
 Some operations may take a significant time or resource to compute. 
 
@@ -407,7 +469,11 @@ length(x)
 '''
 ```
 
-# YAML in rMarkdown
+
+
+
+YAML in rMarkdown.
+=====
 
 In rMarkdown the options for document processing are stored in YAML format at the top of the document.
 
@@ -420,7 +486,8 @@ output: html_document
 ---
 ```
 
-## Controlling output type
+Controlling output type.
+=====
 
 The **output** YAML option specifies the document type to be produced.
 
@@ -445,9 +512,11 @@ output: md_document
 ---
 ```
 
-## Figure options in YAML
+Figure options in YAML
+===
 
 Global default options for figure sizes and devices used can be set within the YAML metadata.
+
 
 ```
 ---
@@ -458,8 +527,8 @@ output:
 ---
 ```
 
-##  Adding styles
-
+Adding styles
+===
 Styles for HTML can be applied using the **theme** option and syntax highlighting styles control by the **highlight** option
 
 ```
@@ -474,8 +543,8 @@ output:
 For a full list of theme options see -
 http://rmarkdown.rstudio.com/html_document_format.html
 
-## Additional styles
-
+Additional styles
+=====
 ```
 ---
 output: 
@@ -487,33 +556,23 @@ output:
 Custom styles can also be applied to rMarkdown documents using CSS style files and the 
 **css** option.
 
-## Additional styles
-
-'''
----
-output: 
-  html_document:
-    css: style.css
----
-'''
-
-Custom styles can also be applied to rMarkdown documents using CSS style files and the 
-**css** option
-
-## Using Rstudio
+Using Rstudio
+===
 
 Lets see how to do this in RStudio.
 
 **File -> New File -> R Markdown** 
 
-# Resources
+Resources
+===
 
 http://yihui.name/knitr/  
 http://rmarkdown.rstudio.com/  
 http://rcharts.io/  
 http://rstudio.github.io/packrat/  
 
-# Exercises
+Exercises
+===
 
 - Open up markdownExampleDefaultStyles.Rmd and markdownExample.Rmd in the scripts directory. Have a look at the rMarkdown examples here and the resulting output html files.
 
@@ -523,7 +582,4 @@ http://rstudio.github.io/packrat/
 - Open scriptToConvertToRMarkdown.r in scripts directory and save as new name.
 
 - Convert this script to an Rmarkdown document using the render() function or inside RStudio.
-
-
-  
 
